@@ -12,37 +12,37 @@ Use this template to add new testimonials to your website. Fill out the informat
 ## Current Testimonials (for reference)
 
 ### Testimonial 1
-**Name**: Sarah McTest  
+**Name**: Sarah Chen  
 **Title**: VP Growth at TechFlow SaaS  
 **Quote**: "Jason completely transformed our partnership approach. We went from having scattered, ineffective partnerships to a strategic program that now drives 40% of our new business. His expertise and network opened doors we didn't even know existed."  
 **Word Count**: 42 words
 
 ### Testimonial 2
-**Name**: Marcus McTest  
+**Name**: Marcus Rodriguez  
 **Title**: CEO at DataSync Pro  
 **Quote**: "We struggled with partnerships for two years before Jason joined us. Within 90 days, he had us live with 5 major integrations and a clear roadmap for scaling. The ROI was immediate and substantial."  
 **Word Count**: 38 words
 
 ### Testimonial 3
-**Name**: Emma McTest  
+**Name**: Emma Thompson  
 **Title**: Head of International at CloudScale Global  
 **Quote**: "Jason's deep understanding of the ANZ market was game-changing for our expansion. His local relationships and strategic guidance helped us achieve in 6 months what would have taken us 2 years on our own."  
 **Word Count**: 38 words
 
 ### Testimonial 4
-**Name**: David McTest  
+**Name**: David Kim  
 **Title**: Founder at ScaleUp Solutions  
 **Quote**: "The partnership strategy Jason developed for us was exactly what we needed. His systematic approach to partner identification and onboarding helped us establish 8 key partnerships in our first quarter working together."  
 **Word Count**: 35 words
 
 ### Testimonial 5
-**Name**: Lisa McTest  
+**Name**: Lisa Martinez  
 **Title**: Head of Business Development at GrowthTech  
 **Quote**: "Jason's expertise in the ANZ market was invaluable for our expansion. He not only connected us with the right partners but also helped us navigate the cultural nuances that made all the difference in our success."  
 **Word Count**: 38 words
 
 ### Testimonial 6
-**Name**: Alex McTest  
+**Name**: Alex Johnson  
 **Title**: VP Partnerships at CloudConnect  
 **Quote**: "Working with Jason was a game-changer. His deep network and strategic thinking helped us identify partnership opportunities we never would have found on our own. The results speak for themselves - 60% revenue growth in 8 months."  
 **Word Count**: 38 words

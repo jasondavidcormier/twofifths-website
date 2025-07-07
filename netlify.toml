@@ -1,6 +1,10 @@
 [build]
   command = "npm run build"
   publish = "dist"
+  
+# Ignore admin panel from build
+[build.ignore]
+  command = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF admin-panel-x7k9/"
 
 [build.environment]
   NODE_VERSION = "18"
@@ -20,3 +24,9 @@
   from = "/cms"
   to = "/admin-panel-x7k9/"
   status = 301
+
+# Handle SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

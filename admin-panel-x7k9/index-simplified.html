@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo-full.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Two Fifths CMS - Simplified Content Management</title>
+    
+    <!-- React and ReactDOM from CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+              'heading': ['Roboto Condensed', 'ui-sans-serif', 'system-ui'],
+            },
+            colors: {
+              'brand': '#c4374f'
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root">
+      <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+        <h1 style="color: #c4374f;">Loading Two Fifths CMS...</h1>
+        <p>Simplified content management system loading...</p>
+      </div>
+    </div>
+    
+    <!-- Error handling and debugging -->
+    <script>
+      window.addEventListener('error', function(e) {
+        console.error('Error loading CMS:', e);
+        document.getElementById('root').innerHTML = `
+          <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+            <h1 style="color: #c4374f;">CMS Loading Error</h1>
+            <p>There was an error loading the CMS. Please check the console for details.</p>
+            <p>Error: ${e.message}</p>
+            <button onclick="location.reload()" style="padding: 10px 20px; background: #c4374f; color: white; border: none; border-radius: 5px; cursor: pointer;">Reload Page</button>
+          </div>
+        `;
+      });
+      
+      // Check if React loaded
+      if (typeof React === 'undefined') {
+        console.error('React failed to load');
+        document.getElementById('root').innerHTML = `
+          <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+            <h1 style="color: #c4374f;">React Loading Error</h1>
+            <p>React library failed to load. Please check your internet connection and try again.</p>
+            <button onclick="location.reload()" style="padding: 10px 20px; background: #c4374f; color: white; border: none; border-radius: 5px; cursor: pointer;">Reload Page</button>
+          </div>
+        `;
+      } else {
+        console.log('React loaded successfully');
+      }
+      
+      // Check if ReactDOM loaded
+      if (typeof ReactDOM === 'undefined') {
+        console.error('ReactDOM failed to load');
+        document.getElementById('root').innerHTML = `
+          <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+            <h1 style="color: #c4374f;">ReactDOM Loading Error</h1>
+            <p>ReactDOM library failed to load. Please check your internet connection and try again.</p>
+            <button onclick="location.reload()" style="padding: 10px 20px; background: #c4374f; color: white; border: none; border-radius: 5px; cursor: pointer;">Reload Page</button>
+          </div>
+        `;
+      } else {
+        console.log('ReactDOM loaded successfully');
+      }
+    </script>
+    
+    <script type="text/javascript" src="./cms-simplified.js"></script>
+  </body>
+</html>
