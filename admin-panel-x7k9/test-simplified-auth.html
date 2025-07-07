@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo-full.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simplified Google Drive Auth Test - Two Fifths CMS</title>
+    
+    <!-- React and ReactDOM from CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root">
+      <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+        <h1 style="color: #c4374f;">Loading Simplified Auth Test...</h1>
+        <p>Testing with minimal configuration...</p>
+      </div>
+    </div>
+    
+    <!-- Google APIs -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    
+    <!-- Simplified Authentication Test -->
+    <script>
+      const { useState, useEffect } = React;
+
+      // Simplified test configurations to try
+      const TEST_CONFIGS = [
+        {
+          name: "OAuth Only (No API Key)",
+          config: {
+            clientId: '652780960725-bfl3u5e0fa2nus1k41lqnp1u27i3b6ct.apps.googleusercontent.com',
+            scope: 'https://www.googleapis.com/auth/drive.file',
+            discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest']
+          }
+        },
+        {
+          name: "Minimal OAuth",
+          config: {
+            clientId: '652780960725-bfl3u5e0fa2nus1k41lqnp1u27i3b6ct.apps.googleusercontent.com',
+            scope: 'https://www.googleapis.com/auth/drive.file'
+          }
+        },
+        {
+          name: "With API Key",
+          config: {
+            apiKey: 'AIzaSyAan9fk4Xe6U4BPWRIaA9Y5gTrWh2DShPk',
+            clientId: '652780960725-bfl3u5e0fa2nus1k41lqnp1u27i3b6ct.apps.googleusercontent.com',
+            scope: 'https://www.googleapis.com/auth/drive.file',
+            discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest']
+          }
+        },
+        {
+          name: "Different Scope Format",
+          config: {
+            clientId: '652780960725-bfl3u5e0fa2nus1k41lqnp1u27i3b6ct.apps.googleusercontent.com',
+            scope: 'https://www.googleapis.com/auth/drive',
+            discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest']
+          }
+        }
+      ];
+
+      const SimplifiedAuthTest = () => {
+        const [currentConfig, setCurrentConfig] = useState(0);
+        const [testResults, setTestResults] = useState([]);
+        const [isRunning, setIsRunning] = useState(false);
+        const [logs, setLogs] = useState([]);
+        const [authInstance, setAuthInstance] = useState(null);
+
+        const addLog = (message, type = 'info') => {
+          const timestamp = new Date().toLocaleTimeString();
+          const logEntry = { timestamp, message, type };
+          setLogs(prev => [...prev, logEntry]);
+          console.log(`[${timestamp}] ${message}`);
+        };
+
+        const testConfiguration = async (configIndex) => {
+          const testConfig = TEST_CONFIGS[configIndex];
+          setCurrentConfig(configIndex);
+          setIsRunning(true);
+          
+          addLog(`\n🧪 Testing Configuration: ${testConfig.name}`);
+          addLog(`📋 Config: ${JSON.stringify(testConfig.config, null, 2)}`);
+
+          try {
+            // Step 1: Load gapi client
+            addLog('🔄 Loading gapi client...');
+            
+            await new Promise((resolve, reject) => {
+              window.gapi.load('client:auth2', () => {
+                addLog('✅ gapi.load completed');
+                resolve();
+              });
+            });
+
+            // Step 2: Initialize with current config
+            addLog('🔄 Initializing gapi.client...');
+            
+            try {
+              await window.gapi.client.init(testConfig.config);
+              addLog('✅ gapi.client.init() succeeded!');
+              
+              // Step 3: Get auth instance
+              addLog('🔄 Getting auth instance...');
+              const authInst = window.gapi.auth2.getAuthInstance();
+              
+              if (authInst) {
+                setAuthInstance(authInst);
+                addLog('✅ Auth instance obtained successfully');
+                
+                const isSignedIn = authInst.isSignedIn.get();
+                addLog(`📋 Current sign-in status: ${isSignedIn ? 'Signed In' : 'Not Signed In'}`);
+                
+                // Step 4: Test basic functionality
+                if (testConfig.config.discoveryDocs) {
+                  addLog('🔄 Testing Drive API availability...');
+                  try {
+                    // Try to access the Drive API
+                    if (window.gapi.client.drive) {
+                      addLog('✅ Drive API is available');
+                    } else {
+                      addLog('⚠️ Drive API not loaded, but auth works');
+                    }
+                  } catch (driveError) {
+                    addLog(`⚠️ Drive API test failed: ${driveError.message}`);
+                  }
+                }
+                
+                setTestResults(prev => [...prev, {
+                  config: testConfig.name,
+                  status: 'success',
+                  message: 'Configuration works!',
+                  details: {
+                    hasAuthInstance: true,
+                    isSignedIn,
+                    hasDriveAPI: !!window.gapi.client.drive
+                  }
+                }]);
+                
+              } else {
+                throw new Error('Auth instance is null');
+              }
+              
+            } catch (initError) {
+              addLog(`❌ gapi.client.init() failed: ${initError.message}`, 'error');
+              addLog(`📋 Error details: ${JSON.stringify(initError, null, 2)}`, 'error');
+              
+              setTestResults(prev => [...prev, {
+                config: testConfig.name,
+                status: 'error',
+                message: `Init failed: ${initError.message}`,
+                details: {
+                  error: initError.message,
+                  stack: initError.stack
+                }
+              }]);
+            }
+
+          } catch (loadError) {
+            addLog(`❌ gapi.load failed: ${loadError.message}`, 'error');
+            
+            setTestResults(prev => [...prev, {
+              config: testConfig.name,
+              status: 'error',
+              message: `Load failed: ${loadError.message}`,
+              details: {
+                error: loadError.message
+              }
+            }]);
+          }
+
+          setIsRunning(false);
+        };
+
+        const testSignIn = async () => {
+          if (!authInstance) {
+            addLog('❌ No auth instance available', 'error');
+            return;
+          }
+
+          try {
+            setIsRunning(true);
+            addLog('🔄 Testing sign-in...');
+            
+            const user = await authInstance.signIn();
+            addLog('✅ Sign-in successful!');
+            
+            const profile = user.getBasicProfile();
+            addLog(`👤 Signed in as: ${profile.getEmail()}`);
+            
+            const authResponse = user.getAuthResponse();
+            addLog(`🔑 Access token received: ${authResponse.access_token ? 'Yes' : 'No'}`);
+            addLog(`📋 Granted scopes: ${authResponse.scope}`);
+            
+          } catch (signInError) {
+            addLog(`❌ Sign-in failed: ${signInError.message}`, 'error');
+          } finally {
+            setIsRunning(false);
+          }
+        };
+
+        const testSignOut = async () => {
+          if (!authInstance) {
+            addLog('❌ No auth instance available', 'error');
+            return;
+          }
+
+          try {
+            setIsRunning(true);
+            addLog('🔄 Testing sign-out...');
+            
+            await authInstance.signOut();
+            addLog('✅ Sign-out successful!');
+            
+          } catch (signOutError) {
+            addLog(`❌ Sign-out failed: ${signOutError.message}`, 'error');
+          } finally {
+            setIsRunning(false);
+          }
+        };
+
+        const runAllTests = async () => {
+          setTestResults([]);
+          setLogs([]);
+          addLog('🚀 Starting simplified configuration tests...');
+          
+          for (let i = 0; i < TEST_CONFIGS.length; i++) {
+            await testConfiguration(i);
+            // Small delay between tests
+            await new Promise(resolve => setTimeout(resolve, 1000));
+          }
+          
+          addLog('\n📊 All configuration tests completed');
+        };
+
+        const clearLogs = () => {
+          setLogs([]);
+        };
+
+        return React.createElement('div', { className: "min-h-screen bg-gray-100 py-8" },
+          React.createElement('div', { className: "max-w-6xl mx-auto px-4" },
+            // Header
+            React.createElement('div', { className: "text-center mb-8" },
+              React.createElement('h1', { className: "text-3xl font-bold text-gray-900 mb-2" }, "Simplified Google Drive Auth Test"),
+              React.createElement('p', { className: "text-gray-600" }, "Testing different configuration approaches to isolate the initialization issue"),
+              React.createElement('div', { className: "mt-4 p-4 bg-yellow-50 rounded-lg" },
+                React.createElement('p', { className: "text-sm text-yellow-800" },
+                  "This test tries different initialization configurations to identify what works."
+                )
+              )
+            ),
+            
+            // Control Panel
+            React.createElement('div', { className: "bg-white rounded-lg shadow-md p-6 mb-6" },
+              React.createElement('h2', { className: "text-xl font-semibold mb-4" }, "Test Controls"),
+              React.createElement('div', { className: "flex flex-wrap gap-3 mb-4" },
+                React.createElement('button', {
+                  onClick: runAllTests,
+                  disabled: isRunning,
+                  className: `px-6 py-3 rounded-lg font-medium transition-colors ${
+                    isRunning 
+                      ? 'bg-gray-400 text-gray-700 cursor-not-allowed' 
+                      : 'bg-blue-600 text-white hover:bg-blue-700'
+                  }`
+                }, isRunning ? 'Running Tests...' : 'Test All Configurations'),
+                
+                React.createElement('button', {
+                  onClick: clearLogs,
+                  className: "px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700"
+                }, "Clear Logs")
+              ),
+              
+              // Individual config tests
+              React.createElement('div', { className: "grid md:grid-cols-2 gap-3" },
+                TEST_CONFIGS.map((config, index) =>
+                  React.createElement('button', {
+                    key: index,
+                    onClick: () => testConfiguration(index),
+                    disabled: isRunning,
+                    className: `px-4 py-2 rounded-lg transition-colors ${
+                      currentConfig === index && isRunning
+                        ? 'bg-yellow-500 text-white'
+                        : 'bg-purple-600 text-white hover:bg-purple-700 disabled:opacity-50'
+                    }`
+                  }, `Test: ${config.name}`)
+                )
+              ),
+              
+              // Auth action buttons
+              authInstance && React.createElement('div', { className: "mt-4 pt-4 border-t" },
+                React.createElement('div', { className: "flex gap-3" },
+                  React.createElement('button', {
+                    onClick: testSignIn,
+                    disabled: isRunning,
+                    className: "px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
+                  }, "Test Sign In"),
+                  
+                  React.createElement('button', {
+                    onClick: testSignOut,
+                    disabled: isRunning,
+                    className: "px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50"
+                  }, "Test Sign Out")
+                )
+              )
+            ),
+            
+            // Test Results
+            React.createElement('div', { className: "grid md:grid-cols-2 gap-6 mb-6" },
+              // Results Panel
+              React.createElement('div', { className: "bg-white rounded-lg shadow-md p-6" },
+                React.createElement('h2', { className: "text-xl font-semibold mb-4" }, "Test Results"),
+                testResults.length === 0 
+                  ? React.createElement('p', { className: "text-gray-500" }, "No tests run yet")
+                  : React.createElement('div', { className: "space-y-3" },
+                      testResults.map((result, index) =>
+                        React.createElement('div', { 
+                          key: index,
+                          className: `p-3 rounded-lg border ${
+                            result.status === 'success' 
+                              ? 'bg-green-50 border-green-200' 
+                              : 'bg-red-50 border-red-200'
+                          }`
+                        },
+                          React.createElement('div', { className: "flex items-center justify-between mb-2" },
+                            React.createElement('h3', { className: "font-medium" }, result.config),
+                            React.createElement('span', { 
+                              className: `text-sm ${
+                                result.status === 'success' ? 'text-green-600' : 'text-red-600'
+                              }`
+                            }, result.status === 'success' ? '✅ Success' : '❌ Failed')
+                          ),
+                          React.createElement('p', { 
+                            className: `text-sm ${
+                              result.status === 'success' ? 'text-green-700' : 'text-red-700'
+                            }`
+                          }, result.message),
+                          
+                          result.details && React.createElement('details', { className: "mt-2" },
+                            React.createElement('summary', { className: "text-xs text-gray-500 cursor-pointer" }, "Details"),
+                            React.createElement('pre', { className: "text-xs bg-gray-100 p-2 rounded mt-1 overflow-auto" },
+                              JSON.stringify(result.details, null, 2)
+                            )
+                          )
+                        )
+                      )
+                    )
+              ),
+              
+              // Configuration Details
+              React.createElement('div', { className: "bg-white rounded-lg shadow-md p-6" },
+                React.createElement('h2', { className: "text-xl font-semibold mb-4" }, "Configuration Details"),
+                React.createElement('div', { className: "space-y-4" },
+                  TEST_CONFIGS.map((config, index) =>
+                    React.createElement('div', { 
+                      key: index,
+                      className: `p-3 rounded-lg border ${
+                        currentConfig === index ? 'border-blue-500 bg-blue-50' : 'border-gray-200'
+                      }`
+                    },
+                      React.createElement('h3', { className: "font-medium mb-2" }, config.name),
+                      React.createElement('pre', { className: "text-xs bg-gray-100 p-2 rounded overflow-auto" },
+                        JSON.stringify(config.config, null, 2)
+                      )
+                    )
+                  )
+                )
+              )
+            ),
+            
+            // Activity Log
+            React.createElement('div', { className: "bg-white rounded-lg shadow-md p-6" },
+              React.createElement('h2', { className: "text-xl font-semibold mb-4" }, "Activity Log"),
+              React.createElement('div', { className: "bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm max-h-96 overflow-y-auto" },
+                logs.length === 0 
+                  ? React.createElement('p', { className: "text-gray-500" }, "No activity yet. Run tests to see logs.")
+                  : logs.map((log, index) =>
+                      React.createElement('div', { key: index, className: `${
+                        log.type === 'error' ? 'text-red-400' : 
+                        log.type === 'warning' ? 'text-yellow-400' : 'text-green-400'
+                      }` },
+                        `[${log.timestamp}] ${log.message}`
+                      )
+                    )
+              )
+            )
+          )
+        );
+      };
+
+      // Initialize the test
+      const container = document.getElementById('root');
+      if (container) {
+        const root = ReactDOM.createRoot(container);
+        root.render(React.createElement(SimplifiedAuthTest));
+      } else {
+        console.error('Root container not found');
+      }
+    </script>
+  </body>
+</html>

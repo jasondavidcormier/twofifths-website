@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo-full.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Drive Authentication Test - Two Fifths CMS</title>
+    
+    <!-- React and ReactDOM from CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+              'heading': ['Roboto Condensed', 'ui-sans-serif', 'system-ui'],
+            },
+            colors: {
+              'brand': '#c4374f'
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root">
+      <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+        <h1 style="color: #c4374f;">Loading Google Drive Authentication Test...</h1>
+        <p>Testing comprehensive Google Drive authentication flow...</p>
+      </div>
+    </div>
+    
+    <!-- Google APIs -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    
+    <!-- Error handling -->
+    <script>
+      window.addEventListener('error', function(e) {
+        console.error('Error loading test:', e);
+        document.getElementById('root').innerHTML = `
+          <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+            <h1 style="color: #c4374f;">Test Loading Error</h1>
+            <p>There was an error loading the test. Please check the console for details.</p>
+            <p>Error: ${e.message}</p>
+            <button onclick="location.reload()" style="padding: 10px 20px; background: #c4374f; color: white; border: none; border-radius: 5px; cursor: pointer;">Reload Page</button>
+          </div>
+        `;
+      });
+      
+      // Check if React loaded
+      if (typeof React === 'undefined') {
+        console.error('React failed to load');
+      } else {
+        console.log('✅ React loaded successfully');
+      }
+      
+      // Check if ReactDOM loaded
+      if (typeof ReactDOM === 'undefined') {
+        console.error('ReactDOM failed to load');
+      } else {
+        console.log('✅ ReactDOM loaded successfully');
+      }
+    </script>
+    
+    <!-- Comprehensive Google Drive Authentication Test -->
+    <script>
+      const { useState, useEffect, useRef } = React;
+
+      // Test configuration
+      const TEST_CONFIG = {
+        clientId: '652780960725-bfl3u5e0fa2nus1k41lqnp1u27i3b6ct.apps.googleusercontent.com',
+        apiKey: 'AIzaSyAan9fk4Xe6U4BPWRIaA9Y5gTrWh2DShPk',
+        fileId: '1gAlt0FsIcspWAJ67D69h0ENATCymZiW9',
+        fileName: 'twofifths-content.json',
+        scopes: 'https://www.googleapis.com/auth/drive.file',
+        discoveryDoc: 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'
+      };
+
+      // Test results tracking
+      const useTestResults = () => {
+        const [results, setResults] = useState({
+          apiLoad: { status: 'pending', message: 'Waiting...', details: null },
+          apiInit: { status: 'pending', message: 'Waiting...', details: null },
+          authInit: { status: 'pending', message: 'Waiting...', details: null },
+          signIn: { status: 'pending', message: 'Waiting...', details: null },
+          permissions: { status: 'pending', message: 'Waiting...', details: null },
+          driveAccess: { status: 'pending', message: 'Waiting...', details: null },
+          fileAccess: { status: 'pending', message: 'Waiting...', details: null },
+          signOut: { status: 'pending', message: 'Waiting...', details: null }
+        });
+
+        const updateResult = (testName, status, message, details = null) => {
+          setResults(prev => ({
+            ...prev,
+            [testName]: { status, message, details }
+          }));
+        };
+
+        return { results, updateResult };
+      };
+
+      // Main test component
+      const GoogleDriveAuthTest = () => {
+        const { results, updateResult } = useTestResults();
+        const [currentTest, setCurrentTest] = useState(null);
+        const [isRunning, setIsRunning] = useState(false);
+        const [authInstance, setAuthInstance] = useState(null);
+        const [userInfo, setUserInfo] = useState(null);
+        const logRef = useRef([]);
+
+        const addLog = (message, type = 'info') => {
+          const timestamp = new Date().toLocaleTimeString();
+          const logEntry = { timestamp, message, type };
+          logRef.current = [...logRef.current, logEntry];
+          console.log(`[${timestamp}] ${message}`);
+        };
+
+        // Test 1: API Loading
+        const testApiLoad = async () => {
+          setCurrentTest('apiLoad');
+          addLog('🔄 Testing Google API loading...');
+          
+          try {
+            if (!window.gapi) {
+              throw new Error('Google API (gapi) not available');
+            }
+            
+            updateResult('apiLoad', 'success', '✅ Google API loaded successfully', {
+              gapiVersion: window.gapi.version || 'unknown',
+              loadTime: Date.now()
+            });
+            addLog('✅ Google API is available and loaded');
+            return true;
+          } catch (error) {
+            updateResult('apiLoad', 'error', `❌ ${error.message}`, { error: error.message });
+            addLog(`❌ API Load failed: ${error.message}`, 'error');
+            return false;
+          }
+        };
+
+        // Test 2: API Initialization
+        const testApiInit = async () => {
+          setCurrentTest('apiInit');
+          addLog('🔄 Testing Google API initialization...');
+          
+          try {
+            await new Promise((resolve, reject) => {
+              window.gapi.load('client:auth2', async () => {
+                try {
+                  addLog('📡 Initializing Google API client...');
+                  
+                  await window.gapi.client.init({
+                    apiKey: TEST_CONFIG.apiKey,
+                    clientId: TEST_CONFIG.clientId,
+                    discoveryDocs: [TEST_CONFIG.discoveryDoc],
+                    scope: TEST_CONFIG.scopes
+                  });
+                  
+                  addLog('✅ Google API client initialized successfully');
+                  resolve();
+                } catch (error) {
+                  addLog(`❌ API initialization failed: ${error.message}`, 'error');
+                  reject(error);
+                }
+              });
+            });
+            
+            updateResult('apiInit', 'success', '✅ API initialized successfully', {
+              clientId: TEST_CONFIG.clientId,
+              scopes: TEST_CONFIG.scopes,
+              initTime: Date.now()
+            });
+            return true;
+          } catch (error) {
+            updateResult('apiInit', 'error', `❌ ${error.message}`, { error: error.message });
+            return false;
+          }
+        };
+
+        // Test 3: Auth Instance
+        const testAuthInit = async () => {
+          setCurrentTest('authInit');
+          addLog('🔄 Testing authentication instance...');
+          
+          try {
+            const authInst = window.gapi.auth2.getAuthInstance();
+            if (!authInst) {
+              throw new Error('Auth instance not available');
+            }
+            
+            setAuthInstance(authInst);
+            
+            const isSignedIn = authInst.isSignedIn.get();
+            addLog(`📋 Current sign-in status: ${isSignedIn ? 'Signed In' : 'Not Signed In'}`);
+            
+            // Set up auth state listener
+            authInst.isSignedIn.listen((signedIn) => {
+              addLog(`🔄 Auth state changed: ${signedIn ? 'Signed In' : 'Signed Out'}`);
+              if (signedIn) {
+                getUserInfo(authInst);
+              } else {
+                setUserInfo(null);
+              }
+            });
+            
+            updateResult('authInit', 'success', '✅ Auth instance ready', {
+              isSignedIn,
+              hasAuthInstance: true,
+              initTime: Date.now()
+            });
+            
+            if (isSignedIn) {
+              getUserInfo(authInst);
+            }
+            
+            return true;
+          } catch (error) {
+            updateResult('authInit', 'error', `❌ ${error.message}`, { error: error.message });
+            addLog(`❌ Auth initialization failed: ${error.message}`, 'error');
+            return false;
+          }
+        };
+
+        // Get user information
+        const getUserInfo = async (authInst) => {
+          try {
+            const user = authInst.currentUser.get();
+            const profile = user.getBasicProfile();
+            const authResponse = user.getAuthResponse();
+            
+            const userDetails = {
+              name: profile.getName(),
+              email: profile.getEmail(),
+              imageUrl: profile.getImageUrl(),
+              accessToken: authResponse.access_token,
+              expiresAt: authResponse.expires_at,
+              scope: authResponse.scope
+            };
+            
+            setUserInfo(userDetails);
+            addLog(`👤 User info retrieved: ${userDetails.email}`);
+            
+            return userDetails;
+          } catch (error) {
+            addLog(`⚠️ Could not retrieve user info: ${error.message}`, 'warning');
+            return null;
+          }
+        };
+
+        // Test 4: Sign In
+        const testSignIn = async () => {
+          setCurrentTest('signIn');
+          addLog('🔄 Testing sign-in flow...');
+          
+          try {
+            if (!authInstance) {
+              throw new Error('Auth instance not available');
+            }
+            
+            if (authInstance.isSignedIn.get()) {
+              addLog('ℹ️ Already signed in, testing sign-out first...');
+              await authInstance.signOut();
+              await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+            
+            addLog('🔐 Initiating sign-in...');
+            const user = await authInstance.signIn();
+            
+            if (!user) {
+              throw new Error('Sign-in returned null user');
+            }
+            
+            const profile = user.getBasicProfile();
+            const authResponse = user.getAuthResponse();
+            
+            updateResult('signIn', 'success', '✅ Sign-in successful', {
+              email: profile.getEmail(),
+              name: profile.getName(),
+              hasAccessToken: !!authResponse.access_token,
+              scopes: authResponse.scope,
+              signInTime: Date.now()
+            });
+            
+            addLog(`✅ Successfully signed in as: ${profile.getEmail()}`);
+            return true;
+          } catch (error) {
+            updateResult('signIn', 'error', `❌ ${error.message}`, { error: error.message });
+            addLog(`❌ Sign-in failed: ${error.message}`, 'error');
+            return false;
+          }
+        };
+
+        // Test 5: Permissions Check
+        const testPermissions = async () => {
+          setCurrentTest('permissions');
+          addLog('🔄 Testing permissions and scopes...');
+          
+          try {
+            if (!authInstance || !authInstance.isSignedIn.get()) {
+              throw new Error('Not signed in');
+            }
+            
+            const user = authInstance.currentUser.get();
+            const authResponse = user.getAuthResponse();
+            const grantedScopes = authResponse.scope;
+            
+            addLog(`📋 Granted scopes: ${grantedScopes}`);
+            
+            // Check if required scopes are granted
+            const requiredScopes = TEST_CONFIG.scopes.split(' ');
+            const hasAllScopes = requiredScopes.every(scope => 
+              grantedScopes.includes(scope)
+            );
+            
+            if (!hasAllScopes) {
+              throw new Error(`Missing required scopes. Required: ${TEST_CONFIG.scopes}, Granted: ${grantedScopes}`);
+            }
+            
+            updateResult('permissions', 'success', '✅ All permissions granted', {
+              requiredScopes,
+              grantedScopes: grantedScopes.split(' '),
+              hasAllScopes,
+              checkTime: Date.now()
+            });
+            
+            addLog('✅ All required permissions are granted');
+            return true;
+          } catch (error) {
+            updateResult('permissions', 'error', `❌ ${error.message}`, { error: error.message });
+            addLog(`❌ Permissions check failed: ${error.message}`, 'error');
+            return false;
+          }
+        };
+
+        // Test 6: Drive Access
+        const testDriveAccess = async () => {
+          setCurrentTest('driveAccess');
+          addLog('🔄 Testing Google Drive API access...');
+          
+          try {
+            if (!authInstance || !authInstance.isSignedIn.get()) {
+              throw new Error('Not signed in');
+            }
+            
+            addLog('📁 Attempting to list files...');
+            const response = await window.gapi.client.drive.files.list({
+              pageSize: 5,
+              fields: 'files(id,name,modifiedTime,size)'
+            });
+            
+            const files = response.result.files || [];
+            addLog(`📁 Found ${files.length} files in Drive`);
+            
+            updateResult('driveAccess', 'success', `✅ Drive access successful (${files.length} files)`, {
+              fileCount: files.length,
+              files: files.map(f => ({ id: f.id, name: f.name, modified: f.modifiedTime })),
+              accessTime: Date.now()
+            });
+            
+            return true;
+          } catch (error) {
+            updateResult('driveAccess', 'error', `❌ ${error.message}`, { error: error.message });
+            addLog(`❌ Drive access failed: ${error.message}`, 'error');
+            return false;
+          }
+        };
+
+        // Test 7: Specific File Access
+        const testFileAccess = async () => {
+          setCurrentTest('fileAccess');
+          addLog('🔄 Testing specific file access...');
+          
+          try {
+            if (!authInstance || !authInstance.isSignedIn.get()) {
+              throw new Error('Not signed in');
+            }
+            
+            addLog(`📄 Checking access to file: ${TEST_CONFIG.fileId}`);
+            
+            try {
+              // Try to get file metadata
+              const fileResponse = await window.gapi.client.drive.files.get({
+                fileId: TEST_CONFIG.fileId,
+                fields: 'id,name,modifiedTime,size,permissions'
+              });
+              
+              const fileInfo = fileResponse.result;
+              addLog(`📄 File found: ${fileInfo.name} (modified: ${fileInfo.modifiedTime})`);
+              
+              updateResult('fileAccess', 'success', '✅ Target file accessible', {
+                fileId: fileInfo.id,
+                fileName: fileInfo.name,
+                modifiedTime: fileInfo.modifiedTime,
+                size: fileInfo.size,
+                accessTime: Date.now()
+              });
+              
+              return true;
+            } catch (fileError) {
+              if (fileError.status === 404) {
+                addLog('📄 Target file not found, testing file creation permissions...');
+                
+                // Test if we can create files
+                const testFile = await window.gapi.client.request({
+                  path: 'https://www.googleapis.com/drive/v3/files',
+                  method: 'POST',
+                  body: JSON.stringify({
+                    name: 'test-permissions.txt',
+                    parents: []
+                  })
+                });
+                
+                // Clean up test file
+                await window.gapi.client.drive.files.delete({
+                  fileId: testFile.result.id
+                });
+                
+                updateResult('fileAccess', 'warning', '⚠️ Target file not found, but can create files', {
+                  canCreateFiles: true,
+                  targetFileExists: false,
+                  testTime: Date.now()
+                });
+                
+                addLog('⚠️ Target file not found, but file creation permissions work');
+                return true;
+              } else {
+                throw fileError;
+              }
+            }
+          } catch (error) {
+            updateResult('fileAccess', 'error', `❌ ${error.message}`, { error: error.message });
+            addLog(`❌ File access test failed: ${error.message}`, 'error');
+            return false;
+          }
+        };
+
+        // Test 8: Sign Out
+        const testSignOut = async () => {
+          setCurrentTest('signOut');
+          addLog('🔄 Testing sign-out flow...');
+          
+          try {
+            if (!authInstance) {
+              throw new Error('Auth instance not available');
+            }
+            
+            if (!authInstance.isSignedIn.get()) {
+              updateResult('signOut', 'warning', '⚠️ Already signed out', {
+                wasSignedIn: false,
+                testTime: Date.now()
+              });
+              addLog('⚠️ Already signed out');
+              return true;
+            }
+            
+            addLog('🔓 Signing out...');
+            await authInstance.signOut();
+            
+            // Wait a moment for state to update
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            const isStillSignedIn = authInstance.isSignedIn.get();
+            if (isStillSignedIn) {
+              throw new Error('Still signed in after sign-out attempt');
+            }
+            
+            updateResult('signOut', 'success', '✅ Sign-out successful', {
+              signedOutSuccessfully: true,
+              signOutTime: Date.now()
+            });
+            
+            addLog('✅ Successfully signed out');
+            setUserInfo(null);
+            return true;
+          } catch (error) {
+            updateResult('signOut', 'error', `❌ ${error.message}`, { error: error.message });
+            addLog(`❌ Sign-out failed: ${error.message}`, 'error');
+            return false;
+          }
+        };
+
+        // Run all tests
+        const runAllTests = async () => {
+          setIsRunning(true);
+          logRef.current = [];
+          addLog('🚀 Starting comprehensive Google Drive authentication tests...');
+          
+          const tests = [
+            { name: 'apiLoad', fn: testApiLoad, description: 'API Loading' },
+            { name: 'apiInit', fn: testApiInit, description: 'API Initialization' },
+            { name: 'authInit', fn: testAuthInit, description: 'Auth Instance' },
+            { name: 'signIn', fn: testSignIn, description: 'Sign In Flow' },
+            { name: 'permissions', fn: testPermissions, description: 'Permissions Check' },
+            { name: 'driveAccess', fn: testDriveAccess, description: 'Drive Access' },
+            { name: 'fileAccess', fn: testFileAccess, description: 'File Access' },
+            { name: 'signOut', fn: testSignOut, description: 'Sign Out Flow' }
+          ];
+          
+          let passedTests = 0;
+          let failedTests = 0;
+          
+          for (const test of tests) {
+            addLog(`\n🔄 Running test: ${test.description}`);
+            
+            try {
+              const success = await test.fn();
+              if (success) {
+                passedTests++;
+                addLog(`✅ ${test.description} - PASSED`);
+              } else {
+                failedTests++;
+                addLog(`❌ ${test.description} - FAILED`, 'error');
+              }
+            } catch (error) {
+              failedTests++;
+              addLog(`❌ ${test.description} - ERROR: ${error.message}`, 'error');
+            }
+            
+            // Small delay between tests
+            await new Promise(resolve => setTimeout(resolve, 500));
+          }
+          
+          addLog(`\n📊 Test Summary: ${passedTests} passed, ${failedTests} failed`);
+          setCurrentTest(null);
+          setIsRunning(false);
+        };
+
+        // Individual test runners
+        const runIndividualTest = async (testName) => {
+          const testMap = {
+            signIn: testSignIn,
+            signOut: testSignOut,
+            driveAccess: testDriveAccess,
+            fileAccess: testFileAccess,
+            permissions: testPermissions
+          };
+          
+          if (testMap[testName]) {
+            setIsRunning(true);
+            await testMap[testName]();
+            setIsRunning(false);
+          }
+        };
+
+        // Get status color
+        const getStatusColor = (status) => {
+          switch (status) {
+            case 'success': return 'text-green-600';
+            case 'error': return 'text-red-600';
+            case 'warning': return 'text-yellow-600';
+            case 'running': return 'text-blue-600';
+            default: return 'text-gray-500';
+          }
+        };
+
+        const getStatusIcon = (status) => {
+          switch (status) {
+            case 'success': return '✅';
+            case 'error': return '❌';
+            case 'warning': return '⚠️';
+            case 'running': return '🔄';
+            default: return '⏳';
+          }
+        };
+
+        return React.createElement('div', { className: "min-h-screen bg-gray-100 py-8" },
+          React.createElement('div', { className: "max-w-6xl mx-auto px-4" },
+            // Header
+            React.createElement('div', { className: "text-center mb-8" },
+              React.createElement('h1', { className: "text-3xl font-bold text-gray-900 mb-2" }, "Google Drive Authentication Test Suite"),
+              React.createElement('p', { className: "text-gray-600" }, "Comprehensive testing of Google Drive API authentication and permissions"),
+              React.createElement('div', { className: "mt-4 p-4 bg-blue-50 rounded-lg" },
+                React.createElement('p', { className: "text-sm text-blue-800" },
+                  "This test validates the complete authentication flow including sign-in, permissions, API access, and sign-out."
+                )
+              )
+            ),
+            
+            // Control Panel
+            React.createElement('div', { className: "bg-white rounded-lg shadow-md p-6 mb-6" },
+              React.createElement('h2', { className: "text-xl font-semibold mb-4" }, "Test Controls"),
+              React.createElement('div', { className: "flex flex-wrap gap-3" },
+                React.createElement('button', {
+                  onClick: runAllTests,
+                  disabled: isRunning,
+                  className: `px-6 py-3 rounded-lg font-medium transition-colors ${
+                    isRunning 
+                      ? 'bg-gray-400 text-gray-700 cursor-not-allowed' 
+                      : 'bg-blue-600 text-white hover:bg-blue-700'
+                  }`
+                }, isRunning ? 'Running Tests...' : 'Run All Tests'),
+                
+                React.createElement('button', {
+                  onClick: () => runIndividualTest('signIn'),
+                  disabled: isRunning,
+                  className: "px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50"
+                }, "Test Sign In"),
+                
+                React.createElement('button', {
+                  onClick: () => runIndividualTest('signOut'),
+                  disabled: isRunning,
+                  className: "px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50"
+                }, "Test Sign Out"),
+                
+                React.createElement('button', {
+                  onClick: () => runIndividualTest('driveAccess'),
+                  disabled: isRunning,
+                  className: "px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50"
+                }, "Test Drive Access")
+              )
+            ),
+            
+            // User Info Panel
+            userInfo && React.createElement('div', { className: "bg-white rounded-lg shadow-md p-6 mb-6" },
+              React.createElement('h2', { className: "text-xl font-semibold mb-4" }, "Current User"),
+              React.createElement('div', { className: "flex items-center space-x-4" },
+                React.createElement('img', {
+                  src: userInfo.imageUrl,
+                  alt: userInfo.name,
+                  className: "w-12 h-12 rounded-full"
+                }),
+                React.createElement('div', null,
+                  React.createElement('p', { className: "font-medium" }, userInfo.name),
+                  React.createElement('p', { className: "text-gray-600" }, userInfo.email),
+                  React.createElement('p', { className: "text-xs text-gray-500" }, 
+                    `Token expires: ${new Date(userInfo.expiresAt).toLocaleString()}`
+                  )
+                )
+              )
+            ),
+            
+            // Test Results Grid
+            React.createElement('div', { className: "grid md:grid-cols-2 gap-6 mb-6" },
+              Object.entries(results).map(([testName, result]) =>
+                React.createElement('div', { 
+                  key: testName,
+                  className: `bg-white rounded-lg shadow-md p-4 ${
+                    currentTest === testName ? 'ring-2 ring-blue-500' : ''
+                  }`
+                },
+                  React.createElement('div', { className: "flex items-center justify-between mb-2" },
+                    React.createElement('h3', { className: "font-medium text-gray-900" }, 
+                      testName.charAt(0).toUpperCase() + testName.slice(1).replace(/([A-Z])/g, ' $1')
+                    ),
+                    React.createElement('span', { className: "text-lg" }, 
+                      getStatusIcon(currentTest === testName ? 'running' : result.status)
+                    )
+                  ),
+                  React.createElement('p', { 
+                    className: `text-sm ${getStatusColor(currentTest === testName ? 'running' : result.status)}`
+                  }, result.message),
+                  
+                  result.details && React.createElement('details', { className: "mt-2" },
+                    React.createElement('summary', { className: "text-xs text-gray-500 cursor-pointer" }, "Details"),
+                    React.createElement('pre', { className: "text-xs bg-gray-50 p-2 rounded mt-1 overflow-auto" },
+                      JSON.stringify(result.details, null, 2)
+                    )
+                  )
+                )
+              )
+            ),
+            
+            // Activity Log
+            React.createElement('div', { className: "bg-white rounded-lg shadow-md p-6" },
+              React.createElement('h2', { className: "text-xl font-semibold mb-4" }, "Activity Log"),
+              React.createElement('div', { className: "bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm max-h-96 overflow-y-auto" },
+                logRef.current.length === 0 
+                  ? React.createElement('p', { className: "text-gray-500" }, "No activity yet. Run tests to see logs.")
+                  : logRef.current.map((log, index) =>
+                      React.createElement('div', { key: index, className: `${
+                        log.type === 'error' ? 'text-red-400' : 
+                        log.type === 'warning' ? 'text-yellow-400' : 'text-green-400'
+                      }` },
+                        `[${log.timestamp}] ${log.message}`
+                      )
+                    )
+              )
+            )
+          )
+        );
+      };
+
+      // Initialize the test
+      const container = document.getElementById('root');
+      if (container) {
+        const root = ReactDOM.createRoot(container);
+        root.render(React.createElement(GoogleDriveAuthTest));
+      } else {
+        console.error('Root container not found');
+      }
+    </script>
+  </body>
+</html>
