@@ -114,6 +114,16 @@ export const defaultContent: ContentData = {
       title: 'CEO at DataSync Pro',
       quote: 'We struggled with partnerships for two years before Jason joined us. Within 90 days, he had us live with 5 major integrations and a clear roadmap for scaling. The ROI was immediate and substantial.'
     },
+      {
+      name: 'Test Name',
+      title: 'CEO at DataSync Pro',
+      quote: 'We struggled with partnerships for two years before Jason joined us. Within 90 days, he had us live with 5 major integrations and a clear roadmap for scaling. The ROI was immediate and substantial.'
+    },
+      {
+      name: 'New Name',
+      title: 'CEO at DataSync Pro',
+      quote: 'We struggled with partnerships for two years before Jason joined us. Within 90 days, he had us live with 5 major integrations and a clear roadmap for scaling. The ROI was immediate and substantial.'
+    },
     {
       name: 'Emma Thompson',
       title: 'Head of International at CloudScale Global',
