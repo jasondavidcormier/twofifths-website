@@ -60,39 +60,94 @@ const NextSteps: React.FC = () => {
     });
   };
 
-  const stepIcons = [MessageCircle, Target, Calendar, TrendingUp];
+  const steps = [
+    {
+      icon: MessageCircle,
+      title: "30 Minute Discovery Call",
+      description: "Let's openly discuss your current challenges and ambitions. We'll identify key opportunities and a potential path forward."
+    },
+    {
+      icon: Target,
+      title: "Async Teardown",
+      description: "Share your existing partner program (or even just an idea). I'll provide a concise video analysis with actionable, no-fluff feedback."
+    },
+    {
+      icon: Calendar,
+      title: "Market Fit Assessment",
+      description: "Tell me your aspirations to grow in ANZ. I'll share some critical strategic advantages you have, and potential blind spots you're overlooking."
+    },
+    {
+      icon: TrendingUp,
+      title: "Custom Proposal",
+      description: "Your business is unique. Let's collaborate to design a bespoke partnership solution that precisely fits your strategic objectives and desired outcomes."
+    }
+  ];
 
   return (
     <section data-section="next-steps" className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-heading text-4xl font-bold text-gray-900 mb-6">
-            <span data-cms-field="nextSteps.heading">{content.nextSteps.heading}</span>
+            {content.nextSteps.heading}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            <span data-cms-field="nextSteps.description">{content.nextSteps.description}</span>
+            {content.nextSteps.description}
           </p>
         </div>
 
         {/* Next Step Options */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {content.nextSteps.callouts.map((callout, index) => {
-            const Icon = stepIcons[index] || MessageCircle;
-            return (
-              <div key={index} className="text-center group">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
-                     style={{ backgroundColor: '#c4374f' }}>
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
-                  <span data-cms-field={`nextSteps.callouts.${index}.title`}>{callout.title}</span>
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  <span data-cms-field={`nextSteps.callouts.${index}.description`}>{callout.description}</span>
-                </p>
-              </div>
-            );
-          })}
+          <div className="text-center group">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
+                 style={{ backgroundColor: '#c4374f' }}>
+              <MessageCircle className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
+              30 Minute Discovery Call
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Let's openly discuss your current challenges and ambitions. We'll identify key opportunities and a potential path forward.
+            </p>
+          </div>
+          
+          <div className="text-center group">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
+                 style={{ backgroundColor: '#c4374f' }}>
+              <Target className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
+              Async Jam Session
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Share your existing partner program (or even just an idea). I'll provide analysis with actionable, no-fluff feedback.
+            </p>
+          </div>
+          
+          <div className="text-center group">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
+                 style={{ backgroundColor: '#c4374f' }}>
+              <TrendingUp className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
+              Market Fit Assessment
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Tell me your aspirations to grow in ANZ. I'll share some critical strategic advantages you have, and potential blind spots you're overlooking.
+            </p>
+          </div>
+          
+          <div className="text-center group">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
+                 style={{ backgroundColor: '#c4374f' }}>
+              <Calendar className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
+              Custom Proposal
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Your business is unique. Let's collaborate to design a bespoke partnership solution that precisely fits your strategic objectives and desired outcomes.
+            </p>
+          </div>
         </div>
 
         {/* CTA Form */}
@@ -100,19 +155,25 @@ const NextSteps: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <h3 className="font-heading text-3xl font-bold text-gray-900 mb-6">
-                <span data-cms-field="nextSteps.formHeading">{content.nextSteps.formHeading}</span>
+                {content.nextSteps.formHeading}
               </h3>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                <span data-cms-field="nextSteps.formDescription">{content.nextSteps.formDescription}</span>
+                {content.nextSteps.formDescription}
               </p>
               
               <div className="space-y-4">
-                {content.nextSteps.benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm sm:text-base" data-cms-field={`nextSteps.benefits.${index}`}>{benefit}</span>
-                  </div>
-                ))}
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm sm:text-base">Free 30-minute strategic consultation</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm sm:text-base">Personalised partnership strategy recommendations</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm sm:text-base">Pure value, zero obligation</span>
+                </div>
               </div>
             </div>
 

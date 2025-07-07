@@ -42,19 +42,19 @@ const AudienceSelector: React.FC<AudienceSelectorProps> = ({
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-heading text-4xl font-bold text-gray-900 mb-6">
-            <span data-cms-field="audienceSelector.heading">{content.audienceSelector.heading}</span>
+            {content.audienceSelector.heading}
           </h2>
           
           {/* Helpful indicator - always visible */}
           <div className="mb-6">
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-red-50 rounded-full border border-red-200">
               <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-              <span className="text-red-700 font-medium text-sm" data-cms-field="audienceSelector.helperText">{content.audienceSelector.helperText}</span>
+              <span className="text-red-700 font-medium text-sm">We've bundled key services to make it easier to get started with us.</span>
             </div>
           </div>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            <strong style={{ color: '#c4374f' }}>Click below to select</strong> <span data-cms-field="audienceSelector.description">{content.audienceSelector.description}</span>
+            <strong style={{ color: '#c4374f' }}>Click below to select</strong> {content.audienceSelector.description}
           </p>
         </div>
         

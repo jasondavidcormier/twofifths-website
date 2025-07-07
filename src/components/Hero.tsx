@@ -54,11 +54,11 @@ const Hero: React.FC = () => {
               </div>
               
               <h1 className="font-heading text-3xl sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-6 leading-tight">
-                <span data-cms-field="hero.headline">{content.hero.headline}</span>
+                {content.hero.headline}
               </h1>
               
               <p className="text-lg sm:text-xl md:text-base lg:text-lg xl:text-xl mb-8 text-gray-200 leading-relaxed">
-                <span data-cms-field="hero.subheadline">{content.hero.subheadline}</span>
+                {content.hero.subheadline}
               </p>
               
               <button
@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
                 className="group inline-flex items-center space-x-3 px-6 py-3 md:px-6 lg:px-8 md:py-3 lg:py-4 rounded-full text-base md:text-base lg:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl text-white"
                 style={{ backgroundColor: '#c4374f' }}
               >
-                <span data-cms-field="hero.ctaText">{content.hero.ctaText}</span>
+                <span>{content.hero.ctaText}</span>
                 <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
               </button>
             </div>

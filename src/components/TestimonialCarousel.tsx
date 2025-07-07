@@ -116,15 +116,15 @@ const TestimonialCarousel: React.FC = () => {
                       </div>
                       
                       <p className="text-gray-700 text-sm leading-relaxed mt-6 md:mt-8 mb-4">
-                        <span data-cms-field={`testimonials.${index}.quote`}>{testimonial.quote}</span>
+                        {testimonial.quote}
                       </p>
                       
                       {/* Red separator line */}
                       <div className="w-6 md:w-8 h-0.5 mb-3" style={{ backgroundColor: '#c4374f' }}></div>
                       
                       <div>
-                        <p className="font-semibold text-gray-900 text-sm" data-cms-field={`testimonials.${index}.name`}>{testimonial.name}</p>
-                        <p className="text-xs text-gray-600" data-cms-field={`testimonials.${index}.title`}>{testimonial.title}</p>
+                        <p className="font-semibold text-gray-900 text-sm">{testimonial.name}</p>
+                        <p className="text-xs text-gray-600">{testimonial.title}</p>
                       </div>
                     </div>
                   </div>

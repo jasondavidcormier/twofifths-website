@@ -8,11 +8,6 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "cms": "echo 'CMS available at http://localhost:5173/admin/' && npm run dev",
-    "cms:build": "npm run build && echo 'CMS built successfully. Deploy the dist folder to your hosting provider.'",
-    "cms:check": "node scripts/cms-dev.js check",
-    "cms:validate": "node scripts/cms-dev.js validate",
-    "cms:info": "node scripts/cms-dev.js info",
     "deploy": "npm run build && echo 'Build complete - ready for deployment'"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-// Content management utilities for static content
+// Content management utilities for dynamic content updates
 export interface ContentData {
   hero: {
     headline: string;
@@ -9,19 +9,13 @@ export interface ContentData {
     mainHeading: string;
     tagline: string;
     description: string;
-    credentials: Array<{
-      title: string;
-      description: string;
-    }>;
     profileHeading: string;
     profileSubtitle: string;
     profilePoints: string[];
-    logoStripCaption: string;
   };
   audienceSelector: {
     heading: string;
     description: string;
-    helperText: string;
     australian: {
       title: string;
       subtitle: string;
@@ -41,20 +35,13 @@ export interface ContentData {
   nextSteps: {
     heading: string;
     description: string;
-    callouts: Array<{
-      title: string;
-      description: string;
-    }>;
     formHeading: string;
     formDescription: string;
-    benefits: string[];
   };
-  footer: {
-    blurb: string;
+  contact: {
     email: string;
     phone: string;
     location: string;
-    services: string[];
   };
   servicePackages: {
     australian: {
@@ -82,7 +69,7 @@ export interface ContentData {
   };
 }
 
-// Static content
+// Default content
 export const defaultContent: ContentData = {
   hero: {
     headline: 'Fractional Partnership Leadership on Demand',
@@ -93,24 +80,6 @@ export const defaultContent: ContentData = {
     mainHeading: 'Why Two Fifths?',
     tagline: 'Revenue is a result, not a goal. Build a partner ecosystem on trust and shared purpose, and growth will take care of itself.',
     description: 'Growth doesn\'t happen in a vacuum. Most SaaS companies know partnerships can accelerate growth, but lack the expertise to execute effectively. Two Fifths brings battle-tested, fractional leadership to transform untapped opportunities into competitive advantages.',
-    credentials: [
-      {
-        title: '20+ Years Ecosystem Mastery',
-        description: 'Deep expertise in building value from partnerships, API platforms, and developer communities with a proven track record turning integrations into revenue engines.'
-      },
-      {
-        title: 'High Trust & Deep Network',
-        description: 'Background at leading companies like Shopify, Linktree, and Lonely Planet, plus a respected network across ANZ retail tech and ecommerce communities.'
-      },
-      {
-        title: 'Fractional by Design',
-        description: 'Senior-level partnership expertise, part-time but on-demand, designed specifically for start-up and scale-up businesses.'
-      },
-      {
-        title: 'Market Entry Architect',
-        description: 'Specialised experience guiding US/UK SaaS businesses into ANZ markets, leveraging networks and local expertise for successful expansion.'
-      }
-    ],
     profileHeading: 'Two Fifths = Jason Cormier',
     profileSubtitle: 'Founder & Partnership Strategist',
     profilePoints: [
@@ -118,13 +87,11 @@ export const defaultContent: ContentData = {
       'Early pioneer for API platforms and integration partnerships in the APAC region',
       'Authored standardised digital transformation blueprints for government-scale programs',
       'Shopify alumnus with insider insights & a trusted ecommerce network that opens doors'
-    ],
-    logoStripCaption: 'Successfully built, managed, and grew partner programs for brands you know'
+    ]
   },
   audienceSelector: {
     heading: 'Choose Your Path to Partnership Success',
     description: 'Click below to select the option that best describes your business and see tailored service packages specifically designed to address your needs.',
-    helperText: 'We\'ve bundled key services to make it easier to get started with us.',
     australian: {
       title: 'Australian SaaS Companies',
       subtitle: 'Scale-up & Start-up Businesses',
@@ -138,32 +105,32 @@ export const defaultContent: ContentData = {
   },
   testimonials: [
     {
-      name: 'Sarah McName',
+      name: 'Temp Lasttemp',
       title: 'VP Growth at TechFlow SaaS',
       quote: 'Jason completely transformed our partnership approach. We went from having scattered, ineffective partnerships to a strategic program that now drives 40% of our new business. His expertise and network opened doors we didn\'t even know existed.'
     },
     {
-      name: 'Marcus McName',
+      name: 'Temp Lasttemp',
       title: 'CEO at DataSync Pro',
       quote: 'We struggled with partnerships for two years before Jason joined us. Within 90 days, he had us live with 5 major integrations and a clear roadmap for scaling. The ROI was immediate and substantial.'
     },
     {
-      name: 'Emma McName',
+      name: 'Temp Lasttemp',
       title: 'Head of International at CloudScale Global',
       quote: 'Jason\'s deep understanding of the ANZ market was game-changing for our expansion. His local relationships and strategic guidance helped us achieve in 6 months what would have taken us 2 years on our own.'
     },
     {
-      name: 'David McName',
+      name: 'Temp Lasttemp',
       title: 'Founder at ScaleUp Solutions',
       quote: 'The partnership strategy Jason developed for us was exactly what we needed. His systematic approach to partner identification and onboarding helped us establish 8 key partnerships in our first quarter working together.'
     },
     {
-      name: 'Lisa McName',
+      name: 'Temp Lasttemp',
       title: 'Head of Business Development at GrowthTech',
       quote: 'Jason\'s expertise in the ANZ market was invaluable for our expansion. He not only connected us with the right partners but also helped us navigate the cultural nuances that made all the difference in our success.'
     },
     {
-      name: 'Alex McName',
+      name: 'Temp Lasttemp',
       title: 'VP Partnerships at CloudConnect',
       quote: 'Working with Jason was a game-changer. His deep network and strategic thinking helped us identify partnership opportunities we never would have found on our own. The results speak for themselves - 60% revenue growth in 8 months.'
     }
@@ -171,44 +138,13 @@ export const defaultContent: ContentData = {
   nextSteps: {
     heading: 'Next Steps',
     description: 'Still unsure where to start? Pick a conversation opener that works best for you.',
-    callouts: [
-      {
-        title: '30 Minute Discovery Call',
-        description: 'Let\'s openly discuss your current challenges and ambitions. We\'ll identify key opportunities and a potential path forward.'
-      },
-      {
-        title: 'Async Jam Session',
-        description: 'Share your existing partner program (or even just an idea). I\'ll provide analysis with actionable, no-fluff feedback.'
-      },
-      {
-        title: 'Market Fit Assessment',
-        description: 'Tell me your aspirations to grow in ANZ. I\'ll share some critical strategic advantages you have, and potential blind spots you\'re overlooking.'
-      },
-      {
-        title: 'Custom Proposal',
-        description: 'Your business is unique. Let\'s collaborate to design a bespoke partnership solution that precisely fits your strategic objectives and desired outcomes.'
-      }
-    ],
     formHeading: 'The Conversation Starts Here.',
-    formDescription: 'Share your business overview and partnership goals. I\'ll respond within 24 hours with tailored insights and clear next steps. No sales pressure, just focused growth discussion.',
-    benefits: [
-      'Free 30-minute strategic consultation',
-      'Personalised partnership strategy recommendations',
-      'Pure value, zero obligation'
-    ]
+    formDescription: 'Share your business overview and partnership goals. I\'ll respond within 24 hours with tailored insights and clear next steps. No sales pressure, just focused growth discussion.'
   },
-  footer: {
-    blurb: 'Two Fifths Fractional: Strategic Partnership Leadership for SaaS. We deliver senior-level expertise, on demand, enabling you to scale through high-impact partnerships without the full-time commitment.',
+  contact: {
     email: 'jason@twofifthsfractional.com',
     phone: '+61 423 161 718',
-    location: 'Melbourne, Australia',
-    services: [
-      'Fractional Partnership Leadership',
-      'Partnership Strategy & Execution',
-      'ANZ Market Entry & Expansion',
-      'Partnership Program Audits & Optimisation',
-      'Strategic Advisory & Coaching'
-    ]
+    location: 'Melbourne, Australia'
   },
   servicePackages: {
     australian: {
@@ -322,14 +258,23 @@ export const defaultContent: ContentData = {
   }
 };
 
-// Simple content manager for static content
+// Content storage and retrieval
 class ContentManager {
   private static instance: ContentManager;
   private content: ContentData;
   private listeners: Array<(content: ContentData) => void> = [];
+  private static readonly BOLT_DEPLOYMENT_KEY = 'twofifths-bolt-deployment';
+  private static readonly CMS_STORAGE_KEYS = [
+    'twofifths-content',
+    'twofifths-live-content', 
+    'twofifths-deployment-info',
+    'cms-authenticated'
+  ];
 
   private constructor() {
-    this.content = defaultContent;
+    // Mark this as a Bolt deployment and clear all CMS storage
+    this.markBoltDeployment();
+    this.content = this.loadContent();
   }
 
   static getInstance(): ContentManager {
@@ -339,8 +284,65 @@ class ContentManager {
     return ContentManager.instance;
   }
 
+  private markBoltDeployment(): void {
+    try {
+      const deploymentInfo = {
+        timestamp: Date.now(),
+        source: 'bolt',
+        version: '1.0.0'
+      };
+      localStorage.setItem(ContentManager.BOLT_DEPLOYMENT_KEY, JSON.stringify(deploymentInfo));
+      
+      // Clear ALL CMS storage to prevent conflicts
+      ContentManager.CMS_STORAGE_KEYS.forEach(key => {
+        localStorage.removeItem(key);
+      });
+      
+      console.log('Bolt deployment marked, CMS storage cleared');
+    } catch (error) {
+      console.warn('Failed to mark Bolt deployment:', error);
+    }
+  }
+
+  private loadContent(): ContentData {
+    try {
+      // Always use defaultContent on fresh Bolt deployment
+      const stored = localStorage.getItem('twofifths-content');
+      if (stored) {
+        return JSON.parse(stored);
+      }
+    } catch (error) {
+      console.warn('Failed to load stored content, using defaults');
+    }
+    return defaultContent;
+  }
+
+  // Get deployment info for CMS to check
+  static getBoltDeploymentInfo(): { timestamp: number; source: string; version: string } | null {
+    try {
+      const stored = localStorage.getItem(ContentManager.BOLT_DEPLOYMENT_KEY);
+      return stored ? JSON.parse(stored) : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  private saveContent(): void {
+    try {
+      localStorage.setItem('twofifths-content', JSON.stringify(this.content));
+      this.notifyListeners();
+    } catch (error) {
+      console.error('Failed to save content:', error);
+    }
+  }
+
   getContent(): ContentData {
     return this.content;
+  }
+
+  updateContent(newContent: ContentData): void {
+    this.content = newContent;
+    this.saveContent();
   }
 
   subscribe(listener: (content: ContentData) => void): () => void {
@@ -352,6 +354,221 @@ class ContentManager {
 
   private notifyListeners(): void {
     this.listeners.forEach(listener => listener(this.content));
+  }
+
+  // Check for content updates from CMS
+  checkForUpdates(): void {
+    try {
+      // Priority 1: Check for Google Drive updates (highest priority)
+      this.checkGoogleDriveContent();
+      
+      // Priority 2: Check for Netlify-deployed content
+      const netlifyContent = this.checkNetlifyDeployedContent();
+      if (netlifyContent) {
+        this.content = netlifyContent;
+        this.saveContent();
+        this.notifyListeners();
+        console.log('✅ Netlify-deployed content applied');
+        return;
+      }
+      
+      // Priority 3: Check for pending Netlify deployment
+      const pendingContent = this.checkPendingNetlifyContent();
+      if (pendingContent) {
+        this.content = pendingContent;
+        this.saveContent();
+        this.notifyListeners();
+        console.log('✅ Pending Netlify content applied');
+        return;
+      }
+      
+      // Priority 4: Check for direct CMS updates (fallback)
+      this.checkDirectCMSUpdates();
+      
+    } catch (error) {
+      console.warn('Failed to check for content updates:', error);
+    }
+  }
+
+  private checkGoogleDriveContent(): void {
+    try {
+      // Priority 1: Check for auto-sync updates
+      const autoSyncUpdate = localStorage.getItem('twofifths-google-drive-auto-sync');
+      if (autoSyncUpdate) {
+        const updateData = JSON.parse(autoSyncUpdate);
+        if (!updateData.processed && this.validateContent(updateData.content)) {
+          this.content = updateData.content;
+          this.saveContent();
+          this.notifyListeners();
+          
+          // Mark as processed
+          updateData.processed = true;
+          localStorage.setItem('twofifths-google-drive-auto-sync', JSON.stringify(updateData));
+          
+          console.log('✅ Google Drive auto-sync content applied');
+          return;
+        }
+      }
+      
+      // Check for recent Google Drive updates
+      const googleDriveUpdate = localStorage.getItem('twofifths-last-google-drive-update');
+      if (googleDriveUpdate) {
+        const updateData = JSON.parse(googleDriveUpdate);
+        
+        // Only process if not already processed
+        if (!updateData.processed && this.validateContent(updateData.content)) {
+          this.content = updateData.content;
+          this.saveContent();
+          this.notifyListeners();
+          
+          // Mark as processed
+          updateData.processed = true;
+          localStorage.setItem('twofifths-last-google-drive-update', JSON.stringify(updateData));
+          
+          console.log('✅ Google Drive content update applied');
+          return;
+        }
+      }
+      
+      // Check for Google Drive content in standard location
+      const googleDriveContent = localStorage.getItem('twofifths-google-drive-content');
+      if (googleDriveContent) {
+        const parsedData = JSON.parse(googleDriveContent);
+        if (this.validateContent(parsedData.content)) {
+          this.content = parsedData.content;
+          this.saveContent();
+          this.notifyListeners();
+          
+          // Clear the Google Drive content flag
+          localStorage.removeItem('twofifths-google-drive-content');
+          console.log('✅ Google Drive content applied');
+        }
+      }
+    } catch (error) {
+      console.warn('Error checking Google Drive content:', error);
+    }
+  }
+
+  private checkNetlifyDeployedContent(): ContentData | null {
+    try {
+      // Check if content was deployed via Netlify environment variables
+      const envContent = this.getEnvironmentContent();
+      if (envContent) {
+        return envContent;
+      }
+      
+      // Check for Netlify-deployed content first
+      const netlifyContent = localStorage.getItem('twofifths-netlify-content');
+      if (netlifyContent) {
+        const parsedData = JSON.parse(netlifyContent);
+        if (this.validateContent(parsedData.content)) {
+          localStorage.removeItem('twofifths-netlify-content');
+          return parsedData.content;
+        }
+      }
+      
+      return null;
+    } catch (error) {
+      console.warn('Error checking Netlify content:', error);
+      return null;
+    }
+  }
+
+  private checkPendingNetlifyContent(): ContentData | null {
+    try {
+      // Check for content that's waiting for Netlify deployment
+      const pendingContent = localStorage.getItem('twofifths-pending-deployment');
+      if (pendingContent) {
+        const parsedData = JSON.parse(pendingContent);
+        if (this.validateContent(parsedData.content)) {
+          // Don't remove pending content until deployment is confirmed
+          return parsedData.content;
+        }
+      }
+      
+      return null;
+    } catch (error) {
+      console.warn('Error checking pending content:', error);
+      return null;
+    }
+  }
+
+  private checkDirectCMSUpdates(): void {
+    try {
+      // Fallback to local content updates
+      const liveContent = localStorage.getItem('twofifths-live-content');
+      if (liveContent) {
+        const parsedContent = JSON.parse(liveContent);
+        if (this.validateContent(parsedContent)) {
+          this.content = parsedContent;
+          this.saveContent(); // Save to regular storage
+          this.notifyListeners();
+          console.log('✅ Local content update applied');
+        }
+        // Clear the update flag
+        localStorage.removeItem('twofifths-live-content');
+      }
+    } catch (error) {
+      console.warn('Error checking direct CMS updates:', error);
+    }
+  }
+
+  private getEnvironmentContent(): ContentData | null {
+    try {
+      // In a real Netlify deployment, this would come from environment variables
+      // For now, we'll simulate this by checking a special localStorage key
+      const envContentKey = 'TWOFIFTHS_CMS_CONTENT';
+      const envTimestampKey = 'TWOFIFTHS_CONTENT_TIMESTAMP';
+      
+      // Check if we have environment-based content
+      const envContent = localStorage.getItem(envContentKey);
+      const envTimestamp = localStorage.getItem(envTimestampKey);
+      
+      if (envContent && envTimestamp) {
+        // Check if this is newer than our current content
+        const lastUpdate = localStorage.getItem('twofifths-last-env-update');
+        if (!lastUpdate || parseInt(envTimestamp) > parseInt(lastUpdate)) {
+          try {
+            // Decode base64 content
+            const decodedContent = atob(envContent);
+            const parsedContent = JSON.parse(decodedContent);
+            
+            if (this.validateContent(parsedContent)) {
+              // Mark this update as processed
+              localStorage.setItem('twofifths-last-env-update', envTimestamp);
+              return parsedContent;
+            }
+          } catch (decodeError) {
+            console.warn('Failed to decode environment content:', decodeError);
+          }
+        }
+      }
+      
+      return null;
+    } catch (error) {
+      console.warn('Error getting environment content:', error);
+      return null;
+    }
+  }
+
+  private validateContent(content: ContentData): boolean {
+    // Basic validation
+    if (!content?.hero?.headline || !content?.hero?.subheadline) {
+      return false;
+    }
+    if (!content?.about?.mainHeading || !content?.about?.description) {
+      return false;
+    }
+    if (!content?.testimonials || !Array.isArray(content.testimonials)) {
+      return false;
+    }
+    return true;
+  }
+
+  // Force reload content from storage
+  reloadContent(): void {
+    this.content = this.loadContent();
+    this.notifyListeners();
   }
 }
 
