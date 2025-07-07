@@ -1,72 +1,64 @@
 # Two Fifths Website
 
-## Deployment Setup
+A modern, responsive website for Two Fifths Fractional Partnership Leadership.
 
-This project is configured for automatic deployment to Netlify via GitHub Actions.
+## Features
 
-### How it Works
+- **Modern Design**: Clean, professional design with smooth animations
+- **Responsive**: Optimized for all device sizes
+- **Service Packages**: Tailored solutions for Australian and International SaaS companies
+- **Testimonials**: Dynamic testimonial carousel
+- **Contact Forms**: Integrated with Google Sheets for lead capture
+- **Performance**: Fast loading with optimized assets
 
-1. **Bolt → GitHub**: When you deploy from Bolt, changes are pushed to GitHub
-2. **GitHub → Netlify**: GitHub Actions automatically builds and deploys to Netlify
-3. **CMS → GitHub**: The CMS writes content changes directly to GitHub
-4. **Auto-Deploy**: Any changes to the main branch trigger automatic deployment
+## Tech Stack
 
-### Setup Steps
+- **React 18** with TypeScript
+- **Tailwind CSS** for styling
+- **Vite** for build tooling
+- **Lucide React** for icons
+- **Netlify** for deployment
 
-#### 1. Connect Bolt to GitHub
-- In Bolt, go to deployment settings
-- Choose "Deploy to GitHub"
-- Connect your GitHub account
-- Select or create repository: `twofifths-website`
+## Development
 
-#### 2. Configure Netlify Secrets
-In your GitHub repository settings, add these secrets:
+```bash
+# Install dependencies
+npm install
 
-- `NETLIFY_AUTH_TOKEN`: Your Netlify personal access token
-- `NETLIFY_SITE_ID`: Your Netlify site ID
+# Start development server
+npm run dev
 
-#### 3. Update CMS Configuration
-Update the CMS to use your GitHub repository:
-- Repository: `YOUR_USERNAME/twofifths-website`
-- Branch: `main`
-- File path: `src/utils/contentManager.ts`
+# Build for production
+npm run build
 
-### Workflow
-
-1. **Development**: Use Bolt for complex changes
-2. **Content**: Use CMS for content updates
-3. **Deployment**: Both automatically deploy via GitHub Actions
-4. **Live Site**: Changes appear on Netlify within 1-2 minutes
-
-### File Structure
-```
-├── .github/workflows/deploy.yml  # Auto-deployment configuration
-├── src/
-│   ├── utils/contentManager.ts   # Content that CMS updates
-│   └── ...                       # Other source files
-├── admin-panel-x7k9/            # CMS files
-└── dist/                        # Built files (auto-generated)
+# Preview production build
+npm run preview
 ```
 
-### Commands
+## Deployment
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run deploy` - Build and prepare for deployment
+The site is configured for automatic deployment to Netlify. Push to the main branch to trigger a deployment.
 
-### Troubleshooting
+## Content Updates
 
-**Deployment fails:**
-- Check GitHub Actions logs
-- Verify Netlify secrets are set correctly
-- Ensure build command succeeds locally
+Content is managed through the static content system in `src/utils/contentManager.ts`. To update content:
 
-**CMS not updating:**
-- Check GitHub token permissions
-- Verify repository and file paths
-- Check CMS authentication status
+1. Edit the `defaultContent` object in `src/utils/contentManager.ts`
+2. Save the file
+3. Changes will appear immediately in development
+4. Deploy to production to make changes live
 
-**Content not appearing:**
-- Wait 1-2 minutes for deployment
-- Check Netlify deployment logs
-- Verify content format is correct
+## Project Structure
+
+```
+src/
+├── components/          # React components
+├── hooks/              # Custom React hooks
+├── utils/              # Utility functions and content management
+├── App.tsx             # Main application component
+└── main.tsx           # Application entry point
+```
+
+## Contact
+
+For questions or support, contact jason@twofifthsfractional.com

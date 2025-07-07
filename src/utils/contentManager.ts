@@ -1,4 +1,4 @@
-// Content management utilities for dynamic content updates
+// Content management utilities for static content
 export interface ContentData {
   hero: {
     headline: string;
@@ -69,7 +69,7 @@ export interface ContentData {
   };
 }
 
-// Default content
+// Static content
 export const defaultContent: ContentData = {
   hero: {
     headline: 'Fractional Partnership Leadership on Demand',
@@ -105,32 +105,32 @@ export const defaultContent: ContentData = {
   },
   testimonials: [
     {
-      name: 'Temp Lasttemp',
+      name: 'Sarah Chen',
       title: 'VP Growth at TechFlow SaaS',
       quote: 'Jason completely transformed our partnership approach. We went from having scattered, ineffective partnerships to a strategic program that now drives 40% of our new business. His expertise and network opened doors we didn\'t even know existed.'
     },
     {
-      name: 'Temp Lasttemp',
+      name: 'Marcus Rodriguez',
       title: 'CEO at DataSync Pro',
       quote: 'We struggled with partnerships for two years before Jason joined us. Within 90 days, he had us live with 5 major integrations and a clear roadmap for scaling. The ROI was immediate and substantial.'
     },
     {
-      name: 'Temp Lasttemp',
+      name: 'Emma Thompson',
       title: 'Head of International at CloudScale Global',
       quote: 'Jason\'s deep understanding of the ANZ market was game-changing for our expansion. His local relationships and strategic guidance helped us achieve in 6 months what would have taken us 2 years on our own.'
     },
     {
-      name: 'Temp Lasttemp',
+      name: 'David Kim',
       title: 'Founder at ScaleUp Solutions',
       quote: 'The partnership strategy Jason developed for us was exactly what we needed. His systematic approach to partner identification and onboarding helped us establish 8 key partnerships in our first quarter working together.'
     },
     {
-      name: 'Temp Lasttemp',
+      name: 'Lisa Martinez',
       title: 'Head of Business Development at GrowthTech',
       quote: 'Jason\'s expertise in the ANZ market was invaluable for our expansion. He not only connected us with the right partners but also helped us navigate the cultural nuances that made all the difference in our success.'
     },
     {
-      name: 'Temp Lasttemp',
+      name: 'Alex Johnson',
       title: 'VP Partnerships at CloudConnect',
       quote: 'Working with Jason was a game-changer. His deep network and strategic thinking helped us identify partnership opportunities we never would have found on our own. The results speak for themselves - 60% revenue growth in 8 months.'
     }
@@ -258,23 +258,14 @@ export const defaultContent: ContentData = {
   }
 };
 
-// Content storage and retrieval
+// Simple content manager for static content
 class ContentManager {
   private static instance: ContentManager;
   private content: ContentData;
   private listeners: Array<(content: ContentData) => void> = [];
-  private static readonly BOLT_DEPLOYMENT_KEY = 'twofifths-bolt-deployment';
-  private static readonly CMS_STORAGE_KEYS = [
-    'twofifths-content',
-    'twofifths-live-content', 
-    'twofifths-deployment-info',
-    'cms-authenticated'
-  ];
 
   private constructor() {
-    // Mark this as a Bolt deployment and clear all CMS storage
-    this.markBoltDeployment();
-    this.content = this.loadContent();
+    this.content = defaultContent;
   }
 
   static getInstance(): ContentManager {
@@ -284,65 +275,8 @@ class ContentManager {
     return ContentManager.instance;
   }
 
-  private markBoltDeployment(): void {
-    try {
-      const deploymentInfo = {
-        timestamp: Date.now(),
-        source: 'bolt',
-        version: '1.0.0'
-      };
-      localStorage.setItem(ContentManager.BOLT_DEPLOYMENT_KEY, JSON.stringify(deploymentInfo));
-      
-      // Clear ALL CMS storage to prevent conflicts
-      ContentManager.CMS_STORAGE_KEYS.forEach(key => {
-        localStorage.removeItem(key);
-      });
-      
-      console.log('Bolt deployment marked, CMS storage cleared');
-    } catch (error) {
-      console.warn('Failed to mark Bolt deployment:', error);
-    }
-  }
-
-  private loadContent(): ContentData {
-    try {
-      // Always use defaultContent on fresh Bolt deployment
-      const stored = localStorage.getItem('twofifths-content');
-      if (stored) {
-        return JSON.parse(stored);
-      }
-    } catch (error) {
-      console.warn('Failed to load stored content, using defaults');
-    }
-    return defaultContent;
-  }
-
-  // Get deployment info for CMS to check
-  static getBoltDeploymentInfo(): { timestamp: number; source: string; version: string } | null {
-    try {
-      const stored = localStorage.getItem(ContentManager.BOLT_DEPLOYMENT_KEY);
-      return stored ? JSON.parse(stored) : null;
-    } catch (error) {
-      return null;
-    }
-  }
-
-  private saveContent(): void {
-    try {
-      localStorage.setItem('twofifths-content', JSON.stringify(this.content));
-      this.notifyListeners();
-    } catch (error) {
-      console.error('Failed to save content:', error);
-    }
-  }
-
   getContent(): ContentData {
     return this.content;
-  }
-
-  updateContent(newContent: ContentData): void {
-    this.content = newContent;
-    this.saveContent();
   }
 
   subscribe(listener: (content: ContentData) => void): () => void {
@@ -354,221 +288,6 @@ class ContentManager {
 
   private notifyListeners(): void {
     this.listeners.forEach(listener => listener(this.content));
-  }
-
-  // Check for content updates from CMS
-  checkForUpdates(): void {
-    try {
-      // Priority 1: Check for Google Drive updates (highest priority)
-      this.checkGoogleDriveContent();
-      
-      // Priority 2: Check for Netlify-deployed content
-      const netlifyContent = this.checkNetlifyDeployedContent();
-      if (netlifyContent) {
-        this.content = netlifyContent;
-        this.saveContent();
-        this.notifyListeners();
-        console.log('✅ Netlify-deployed content applied');
-        return;
-      }
-      
-      // Priority 3: Check for pending Netlify deployment
-      const pendingContent = this.checkPendingNetlifyContent();
-      if (pendingContent) {
-        this.content = pendingContent;
-        this.saveContent();
-        this.notifyListeners();
-        console.log('✅ Pending Netlify content applied');
-        return;
-      }
-      
-      // Priority 4: Check for direct CMS updates (fallback)
-      this.checkDirectCMSUpdates();
-      
-    } catch (error) {
-      console.warn('Failed to check for content updates:', error);
-    }
-  }
-
-  private checkGoogleDriveContent(): void {
-    try {
-      // Priority 1: Check for auto-sync updates
-      const autoSyncUpdate = localStorage.getItem('twofifths-google-drive-auto-sync');
-      if (autoSyncUpdate) {
-        const updateData = JSON.parse(autoSyncUpdate);
-        if (!updateData.processed && this.validateContent(updateData.content)) {
-          this.content = updateData.content;
-          this.saveContent();
-          this.notifyListeners();
-          
-          // Mark as processed
-          updateData.processed = true;
-          localStorage.setItem('twofifths-google-drive-auto-sync', JSON.stringify(updateData));
-          
-          console.log('✅ Google Drive auto-sync content applied');
-          return;
-        }
-      }
-      
-      // Check for recent Google Drive updates
-      const googleDriveUpdate = localStorage.getItem('twofifths-last-google-drive-update');
-      if (googleDriveUpdate) {
-        const updateData = JSON.parse(googleDriveUpdate);
-        
-        // Only process if not already processed
-        if (!updateData.processed && this.validateContent(updateData.content)) {
-          this.content = updateData.content;
-          this.saveContent();
-          this.notifyListeners();
-          
-          // Mark as processed
-          updateData.processed = true;
-          localStorage.setItem('twofifths-last-google-drive-update', JSON.stringify(updateData));
-          
-          console.log('✅ Google Drive content update applied');
-          return;
-        }
-      }
-      
-      // Check for Google Drive content in standard location
-      const googleDriveContent = localStorage.getItem('twofifths-google-drive-content');
-      if (googleDriveContent) {
-        const parsedData = JSON.parse(googleDriveContent);
-        if (this.validateContent(parsedData.content)) {
-          this.content = parsedData.content;
-          this.saveContent();
-          this.notifyListeners();
-          
-          // Clear the Google Drive content flag
-          localStorage.removeItem('twofifths-google-drive-content');
-          console.log('✅ Google Drive content applied');
-        }
-      }
-    } catch (error) {
-      console.warn('Error checking Google Drive content:', error);
-    }
-  }
-
-  private checkNetlifyDeployedContent(): ContentData | null {
-    try {
-      // Check if content was deployed via Netlify environment variables
-      const envContent = this.getEnvironmentContent();
-      if (envContent) {
-        return envContent;
-      }
-      
-      // Check for Netlify-deployed content first
-      const netlifyContent = localStorage.getItem('twofifths-netlify-content');
-      if (netlifyContent) {
-        const parsedData = JSON.parse(netlifyContent);
-        if (this.validateContent(parsedData.content)) {
-          localStorage.removeItem('twofifths-netlify-content');
-          return parsedData.content;
-        }
-      }
-      
-      return null;
-    } catch (error) {
-      console.warn('Error checking Netlify content:', error);
-      return null;
-    }
-  }
-
-  private checkPendingNetlifyContent(): ContentData | null {
-    try {
-      // Check for content that's waiting for Netlify deployment
-      const pendingContent = localStorage.getItem('twofifths-pending-deployment');
-      if (pendingContent) {
-        const parsedData = JSON.parse(pendingContent);
-        if (this.validateContent(parsedData.content)) {
-          // Don't remove pending content until deployment is confirmed
-          return parsedData.content;
-        }
-      }
-      
-      return null;
-    } catch (error) {
-      console.warn('Error checking pending content:', error);
-      return null;
-    }
-  }
-
-  private checkDirectCMSUpdates(): void {
-    try {
-      // Fallback to local content updates
-      const liveContent = localStorage.getItem('twofifths-live-content');
-      if (liveContent) {
-        const parsedContent = JSON.parse(liveContent);
-        if (this.validateContent(parsedContent)) {
-          this.content = parsedContent;
-          this.saveContent(); // Save to regular storage
-          this.notifyListeners();
-          console.log('✅ Local content update applied');
-        }
-        // Clear the update flag
-        localStorage.removeItem('twofifths-live-content');
-      }
-    } catch (error) {
-      console.warn('Error checking direct CMS updates:', error);
-    }
-  }
-
-  private getEnvironmentContent(): ContentData | null {
-    try {
-      // In a real Netlify deployment, this would come from environment variables
-      // For now, we'll simulate this by checking a special localStorage key
-      const envContentKey = 'TWOFIFTHS_CMS_CONTENT';
-      const envTimestampKey = 'TWOFIFTHS_CONTENT_TIMESTAMP';
-      
-      // Check if we have environment-based content
-      const envContent = localStorage.getItem(envContentKey);
-      const envTimestamp = localStorage.getItem(envTimestampKey);
-      
-      if (envContent && envTimestamp) {
-        // Check if this is newer than our current content
-        const lastUpdate = localStorage.getItem('twofifths-last-env-update');
-        if (!lastUpdate || parseInt(envTimestamp) > parseInt(lastUpdate)) {
-          try {
-            // Decode base64 content
-            const decodedContent = atob(envContent);
-            const parsedContent = JSON.parse(decodedContent);
-            
-            if (this.validateContent(parsedContent)) {
-              // Mark this update as processed
-              localStorage.setItem('twofifths-last-env-update', envTimestamp);
-              return parsedContent;
-            }
-          } catch (decodeError) {
-            console.warn('Failed to decode environment content:', decodeError);
-          }
-        }
-      }
-      
-      return null;
-    } catch (error) {
-      console.warn('Error getting environment content:', error);
-      return null;
-    }
-  }
-
-  private validateContent(content: ContentData): boolean {
-    // Basic validation
-    if (!content?.hero?.headline || !content?.hero?.subheadline) {
-      return false;
-    }
-    if (!content?.about?.mainHeading || !content?.about?.description) {
-      return false;
-    }
-    if (!content?.testimonials || !Array.isArray(content.testimonials)) {
-      return false;
-    }
-    return true;
-  }
-
-  // Force reload content from storage
-  reloadContent(): void {
-    this.content = this.loadContent();
-    this.notifyListeners();
   }
 }
 

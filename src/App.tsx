@@ -8,7 +8,6 @@ import About from './components/About';
 import Contact from './components/Contact';
 import PlaybookDownload from './components/PlaybookDownload';
 import NextSteps from './components/NextSteps';
-import GoogleDriveStatus from './components/GoogleDriveStatus';
 
 export type Audience = 'australian' | 'international' | null;
 
@@ -40,7 +39,6 @@ function App() {
         <PlaybookDownload onClose={() => setShowPlaybookModal(false)} />
       )}
       <Contact />
-      <GoogleDriveStatus />
     </div>
   );
 }
