@@ -138,32 +138,32 @@ export const defaultContent: ContentData = {
   },
   testimonials: [
     {
-      name: 'Sarah Chen',
+      name: 'Sarah McName',
       title: 'VP Growth at TechFlow SaaS',
       quote: 'Jason completely transformed our partnership approach. We went from having scattered, ineffective partnerships to a strategic program that now drives 40% of our new business. His expertise and network opened doors we didn\'t even know existed.'
     },
     {
-      name: 'Marcus Rodriguez',
+      name: 'Marcus McName',
       title: 'CEO at DataSync Pro',
       quote: 'We struggled with partnerships for two years before Jason joined us. Within 90 days, he had us live with 5 major integrations and a clear roadmap for scaling. The ROI was immediate and substantial.'
     },
     {
-      name: 'Emma Thompson',
+      name: 'Emma McName',
       title: 'Head of International at CloudScale Global',
       quote: 'Jason\'s deep understanding of the ANZ market was game-changing for our expansion. His local relationships and strategic guidance helped us achieve in 6 months what would have taken us 2 years on our own.'
     },
     {
-      name: 'David Kim',
+      name: 'David McName',
       title: 'Founder at ScaleUp Solutions',
       quote: 'The partnership strategy Jason developed for us was exactly what we needed. His systematic approach to partner identification and onboarding helped us establish 8 key partnerships in our first quarter working together.'
     },
     {
-      name: 'Lisa Martinez',
+      name: 'Lisa McName',
       title: 'Head of Business Development at GrowthTech',
       quote: 'Jason\'s expertise in the ANZ market was invaluable for our expansion. He not only connected us with the right partners but also helped us navigate the cultural nuances that made all the difference in our success.'
     },
     {
-      name: 'Alex Johnson',
+      name: 'Alex McName',
       title: 'VP Partnerships at CloudConnect',
       quote: 'Working with Jason was a game-changer. His deep network and strategic thinking helped us identify partnership opportunities we never would have found on our own. The results speak for themselves - 60% revenue growth in 8 months.'
     }
