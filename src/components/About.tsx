@@ -6,28 +6,7 @@ import { useContent } from '../hooks/useContent';
 const About: React.FC = () => {
   const content = useContent();
 
-  const credentials = [
-    {
-      icon: Users,
-      title: '20+ Years Ecosystem Mastery',
-      description: 'Deep expertise in building value from partnerships, API platforms, and developer communities with a proven track record turning integrations into revenue engines.'
-    },
-    {
-      icon: TrendingUp,
-      title: 'High Trust & Deep Network',
-      description: 'Background at leading companies like Shopify, Linktree, and Lonely Planet, plus a respected network across ANZ retail tech and ecommerce communities.'
-    },
-    {
-      icon: Award,
-      title: 'Fractional by Design',
-      description: 'Senior-level partnership expertise, part-time but on-demand, designed specifically for start-up and scale-up businesses.'
-    },
-    {
-      icon: Globe,
-      title: 'Market Entry Architect',
-      description: 'Specialised experience guiding US/UK SaaS businesses into ANZ markets, leveraging networks and local expertise for successful expansion.'
-    }
-  ];
+  const credentialIcons = [Users, TrendingUp, Award, Globe];
 
   return (
     <section className="py-20 bg-white">
@@ -35,20 +14,20 @@ const About: React.FC = () => {
         {/* Main heading */}
         <div className="text-center mb-16">
           <h2 className="font-heading text-4xl font-bold text-gray-900 mb-4">
-            {content.about.mainHeading}
+            <span data-cms-field="about.mainHeading">{content.about.mainHeading}</span>
           </h2>
           <p className="font-heading text-xl font-semibold text-gray-700 mb-6">
-            {content.about.tagline}
+            <span data-cms-field="about.tagline">{content.about.tagline}</span>
           </p>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            {content.about.description}
+            <span data-cms-field="about.description">{content.about.description}</span>
           </p>
         </div>
 
         {/* Credentials grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {credentials.map((credential, index) => {
-            const Icon = credential.icon;
+          {content.about.credentials.map((credential, index) => {
+            const Icon = credentialIcons[index] || Users;
             return (
               <div key={index} className="text-center group">
                 <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
@@ -56,10 +35,10 @@ const About: React.FC = () => {
                   <Icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
-                  {credential.title}
+                  <span data-cms-field={`about.credentials.${index}.title`}>{credential.title}</span>
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  {credential.description}
+                  <span data-cms-field={`about.credentials.${index}.description`}>{credential.description}</span>
                 </p>
               </div>
             );
@@ -80,16 +59,16 @@ const About: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="font-heading text-3xl font-bold mb-4">
-                <span style={{ color: '#c4374f' }}>{content.about.profileHeading}</span>
+                <span style={{ color: '#c4374f' }} data-cms-field="about.profileHeading">{content.about.profileHeading}</span>
               </h3>
               <p className="text-xl mb-6 text-white">
-                <span className="font-heading">{content.about.profileSubtitle}</span>
+                <span className="font-heading" data-cms-field="about.profileSubtitle">{content.about.profileSubtitle}</span>
               </p>
               <div className="space-y-3">
                 {content.about.profilePoints.map((point, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <div className="w-3 h-3 sm:w-2 sm:h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#c4374f' }}></div>
-                    <span className="text-white">{point}</span>
+                    <span className="text-white" data-cms-field={`about.profilePoints.${index}`}>{point}</span>
                   </div>
                 ))}
               </div>
@@ -107,7 +86,7 @@ const About: React.FC = () => {
         {/* Logo strip */}
         <div className="text-center mb-12">
           <p className="text-xl text-gray-600 mb-8">
-            Successfully built, managed, and grew partner programs for brands you know
+            <span data-cms-field="about.logoStripCaption">{content.about.logoStripCaption}</span>
           </p>
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
             <img 

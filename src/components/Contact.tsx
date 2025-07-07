@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
               />
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Two Fifths Fractional: Strategic Partnership Leadership for SaaS. We deliver senior-level expertise, on demand, enabling you to scale through high-impact partnerships without the full-time commitment.
+              <span data-cms-field="footer.blurb">{content.footer.blurb}</span>
             </p>
           </div>
 
@@ -29,15 +29,15 @@ const Contact: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-gray-400" />
-                <span className="text-gray-300">{content.contact.email}</span>
+                <span className="text-gray-300" data-cms-field="footer.email">{content.footer.email}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-gray-400" />
-                <span className="text-gray-300">{content.contact.phone}</span>
+                <span className="text-gray-300" data-cms-field="footer.phone">{content.footer.phone}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-gray-400" />
-                <span className="text-gray-300">{content.contact.location}</span>
+                <span className="text-gray-300" data-cms-field="footer.location">{content.footer.location}</span>
               </div>
             </div>
           </div>
@@ -46,11 +46,9 @@ const Contact: React.FC = () => {
           <div>
             <h4 className="font-heading text-lg font-semibold mb-6">Services</h4>
             <ul className="space-y-3 text-gray-300">
-              <li>Fractional Partnership Leadership</li>
-              <li>Partnership Strategy & Execution</li>
-              <li>ANZ Market Entry & Expansion</li>
-              <li>Partnership Program Audits & Optimisation</li>
-              <li>Strategic Advisory & Coaching</li>
+              {content.footer.services.map((service, index) => (
+                <li key={index} data-cms-field={`footer.services.${index}`}>{service}</li>
+              ))}
             </ul>
           </div>
         </div>

@@ -42,11 +42,11 @@ const ServicePackages: React.FC<ServicePackagesProps> = ({ audience, onPlaybookD
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className={`font-heading text-4xl font-bold ${textColor} mb-6`}>
-            Solutions for {audienceTitle}
+            <span data-cms-field={`servicePackages.${audience}.sectionHeading`}>Solutions for {audienceTitle}</span>
           </h2>
           <div className="max-w-4xl mx-auto">
             <p className={`text-xl ${subtextColor} mb-8 leading-relaxed`}>
-              {opportunityText}
+              <span data-cms-field={`servicePackages.${audience}.opportunityText`}>{opportunityText}</span>
             </p>
             <div className={`rounded-2xl p-6 border ${
               audience === 'australian' 
@@ -91,17 +91,17 @@ const ServicePackages: React.FC<ServicePackagesProps> = ({ audience, onPlaybookD
                 
                 <div className="flex-grow">
                   <h3 className={`font-heading text-2xl font-bold ${packageTextColor} mb-3`}>
-                    {pkg.title}
+                    <span data-cms-field={`servicePackages.${audience}.packages.${index}.title`}>{pkg.title}</span>
                   </h3>
                   <p className={`${packageSubtextColor} mb-6 leading-relaxed`}>
-                    {pkg.description}
+                    <span data-cms-field={`servicePackages.${audience}.packages.${index}.description`}>{pkg.description}</span>
                   </p>
                   
                   <div className="space-y-3 mb-6">
                     {pkg.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center space-x-3">
                         <div className="w-3 h-3 sm:w-2 sm:h-2 rounded-full flex-shrink-0" style={{ backgroundColor: audience === 'international' ? '#ffffff' : '#c4374f' }}></div>
-                        <span className={packageSubtextColor}>{feature}</span>
+                        <span className={packageSubtextColor} data-cms-field={`servicePackages.${audience}.packages.${index}.features.${featureIndex}`}>{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -113,7 +113,7 @@ const ServicePackages: React.FC<ServicePackagesProps> = ({ audience, onPlaybookD
                   <p className={`text-sm font-medium ${
                     audience === 'international' ? packageSubtextColor : 'text-red-600'
                   }`} style={audience === 'australian' ? { color: '#c4374f' } : undefined}>
-                    {pkg.ideal}
+                    <span data-cms-field={`servicePackages.${audience}.packages.${index}.ideal`}>{pkg.ideal}</span>
                   </p>
                 </div>
               </div>

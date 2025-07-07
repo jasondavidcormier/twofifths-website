@@ -9,13 +9,19 @@ export interface ContentData {
     mainHeading: string;
     tagline: string;
     description: string;
+    credentials: Array<{
+      title: string;
+      description: string;
+    }>;
     profileHeading: string;
     profileSubtitle: string;
     profilePoints: string[];
+    logoStripCaption: string;
   };
   audienceSelector: {
     heading: string;
     description: string;
+    helperText: string;
     australian: {
       title: string;
       subtitle: string;
@@ -35,13 +41,20 @@ export interface ContentData {
   nextSteps: {
     heading: string;
     description: string;
+    callouts: Array<{
+      title: string;
+      description: string;
+    }>;
     formHeading: string;
     formDescription: string;
+    benefits: string[];
   };
-  contact: {
+  footer: {
+    blurb: string;
     email: string;
     phone: string;
     location: string;
+    services: string[];
   };
   servicePackages: {
     australian: {
@@ -80,6 +93,24 @@ export const defaultContent: ContentData = {
     mainHeading: 'Why Two Fifths?',
     tagline: 'Revenue is a result, not a goal. Build a partner ecosystem on trust and shared purpose, and growth will take care of itself.',
     description: 'Growth doesn\'t happen in a vacuum. Most SaaS companies know partnerships can accelerate growth, but lack the expertise to execute effectively. Two Fifths brings battle-tested, fractional leadership to transform untapped opportunities into competitive advantages.',
+    credentials: [
+      {
+        title: '20+ Years Ecosystem Mastery',
+        description: 'Deep expertise in building value from partnerships, API platforms, and developer communities with a proven track record turning integrations into revenue engines.'
+      },
+      {
+        title: 'High Trust & Deep Network',
+        description: 'Background at leading companies like Shopify, Linktree, and Lonely Planet, plus a respected network across ANZ retail tech and ecommerce communities.'
+      },
+      {
+        title: 'Fractional by Design',
+        description: 'Senior-level partnership expertise, part-time but on-demand, designed specifically for start-up and scale-up businesses.'
+      },
+      {
+        title: 'Market Entry Architect',
+        description: 'Specialised experience guiding US/UK SaaS businesses into ANZ markets, leveraging networks and local expertise for successful expansion.'
+      }
+    ],
     profileHeading: 'Two Fifths = Jason Cormier',
     profileSubtitle: 'Founder & Partnership Strategist',
     profilePoints: [
@@ -87,11 +118,13 @@ export const defaultContent: ContentData = {
       'Early pioneer for API platforms and integration partnerships in the APAC region',
       'Authored standardised digital transformation blueprints for government-scale programs',
       'Shopify alumnus with insider insights & a trusted ecommerce network that opens doors'
-    ]
+    ],
+    logoStripCaption: 'Successfully built, managed, and grew partner programs for brands you know'
   },
   audienceSelector: {
     heading: 'Choose Your Path to Partnership Success',
     description: 'Click below to select the option that best describes your business and see tailored service packages specifically designed to address your needs.',
+    helperText: 'We\'ve bundled key services to make it easier to get started with us.',
     australian: {
       title: 'Australian SaaS Companies',
       subtitle: 'Scale-up & Start-up Businesses',
@@ -138,13 +171,44 @@ export const defaultContent: ContentData = {
   nextSteps: {
     heading: 'Next Steps',
     description: 'Still unsure where to start? Pick a conversation opener that works best for you.',
+    callouts: [
+      {
+        title: '30 Minute Discovery Call',
+        description: 'Let\'s openly discuss your current challenges and ambitions. We\'ll identify key opportunities and a potential path forward.'
+      },
+      {
+        title: 'Async Jam Session',
+        description: 'Share your existing partner program (or even just an idea). I\'ll provide analysis with actionable, no-fluff feedback.'
+      },
+      {
+        title: 'Market Fit Assessment',
+        description: 'Tell me your aspirations to grow in ANZ. I\'ll share some critical strategic advantages you have, and potential blind spots you\'re overlooking.'
+      },
+      {
+        title: 'Custom Proposal',
+        description: 'Your business is unique. Let\'s collaborate to design a bespoke partnership solution that precisely fits your strategic objectives and desired outcomes.'
+      }
+    ],
     formHeading: 'The Conversation Starts Here.',
-    formDescription: 'Share your business overview and partnership goals. I\'ll respond within 24 hours with tailored insights and clear next steps. No sales pressure, just focused growth discussion.'
+    formDescription: 'Share your business overview and partnership goals. I\'ll respond within 24 hours with tailored insights and clear next steps. No sales pressure, just focused growth discussion.',
+    benefits: [
+      'Free 30-minute strategic consultation',
+      'Personalised partnership strategy recommendations',
+      'Pure value, zero obligation'
+    ]
   },
-  contact: {
+  footer: {
+    blurb: 'Two Fifths Fractional: Strategic Partnership Leadership for SaaS. We deliver senior-level expertise, on demand, enabling you to scale through high-impact partnerships without the full-time commitment.',
     email: 'jason@twofifthsfractional.com',
     phone: '+61 423 161 718',
-    location: 'Melbourne, Australia'
+    location: 'Melbourne, Australia',
+    services: [
+      'Fractional Partnership Leadership',
+      'Partnership Strategy & Execution',
+      'ANZ Market Entry & Expansion',
+      'Partnership Program Audits & Optimisation',
+      'Strategic Advisory & Coaching'
+    ]
   },
   servicePackages: {
     australian: {

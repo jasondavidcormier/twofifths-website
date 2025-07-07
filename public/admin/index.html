@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Fifths CMS</title>
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #f8fafc;
+        }
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .spinner {
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #c4374f;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 16px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .error {
+            color: #dc2626;
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .error h1 {
+            color: #c4374f;
+            margin-bottom: 16px;
+        }
+        .retry-btn {
+            background: #c4374f;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 16px;
+        }
+        .retry-btn:hover {
+            background: #a73347;
+        }
+    </style>
+</head>
+<body>
+    <div id="cms-root">
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading Two Fifths CMS...</p>
+        </div>
+    </div>
+
+    <script type="module">
+        import { PagesCMS } from 'https://unpkg.com/@pages-cms/core@latest/dist/index.js';
+        
+        async function initializeCMS() {
+            try {
+                // Load configuration
+                const configResponse = await fetch('/pages.config.js');
+                if (!configResponse.ok) {
+                    throw new Error('Failed to load CMS configuration');
+                }
+                
+                const configText = await configResponse.text();
+                // Extract the config object from the module.exports
+                const configMatch = configText.match(/module\.exports\s*=\s*({[\s\S]*});/);
+                if (!configMatch) {
+                    throw new Error('Invalid configuration format');
+                }
+                
+                const config = eval('(' + configMatch[1] + ')');
+                
+                // Initialize PagesCMS
+                const cms = new PagesCMS({
+                    ...config,
+                    // Override with admin-specific settings
+                    admin: {
+                        title: 'Two Fifths CMS',
+                        logo: '/logo-full.png',
+                        theme: {
+                            primary: '#c4374f',
+                            secondary: '#1f2937'
+                        }
+                    },
+                    // Content source configuration
+                    source: {
+                        type: 'file',
+                        path: '/src/utils/contentManager.ts',
+                        format: 'typescript'
+                    }
+                });
+                
+                // Mount CMS to the root element
+                const rootElement = document.getElementById('cms-root');
+                cms.mount(rootElement);
+                
+                console.log('✅ PagesCMS initialized successfully');
+                
+            } catch (error) {
+                console.error('❌ Failed to initialize PagesCMS:', error);
+                
+                const rootElement = document.getElementById('cms-root');
+                rootElement.innerHTML = `
+                    <div class="error">
+                        <h1>CMS Initialization Error</h1>
+                        <p>Failed to load the content management system.</p>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                        <button class="retry-btn" onclick="location.reload()">
+                            Retry
+                        </button>
+                        <div style="margin-top: 24px; padding: 16px; background: #f3f4f6; border-radius: 8px; text-align: left;">
+                            <h3>Troubleshooting:</h3>
+                            <ul style="text-align: left; margin: 8px 0;">
+                                <li>Ensure you're accessing this page from the correct domain</li>
+                                <li>Check that the configuration file exists at /pages.config.js</li>
+                                <li>Verify your internet connection</li>
+                                <li>Try refreshing the page</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeCMS);
+        } else {
+            initializeCMS();
+        }
+    </script>
+</body>
+</html>
