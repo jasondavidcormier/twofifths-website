@@ -129,6 +129,11 @@ export const defaultContent: ContentData = {
       title: 'Head of Business Development at GrowthTech',
       quote: 'Jason\'s expertise in the ANZ market was invaluable for our expansion. He not only connected us with the right partners but also helped us navigate the cultural nuances that made all the difference in our success.'
     },
+      {
+      name: 'New McName',
+      title: 'Head of Business Development at GrowthTech',
+      quote: 'Jason\'s expertise in the ANZ market was invaluable for our expansion. He not only connected us with the right partners but also helped us navigate the cultural nuances that made all the difference in our success.'
+    },
     {
       name: 'Temp McName',
       title: 'VP Partnerships at CloudConnect',
