@@ -112,7 +112,7 @@ export const defaultContent: ContentData = {
     {
       name: 'Lee Hardham',
       title: 'Founder and CEO at Brauz',
-      quote: 'Jason\'s ability to manage partner relationships is exemplary. He fostered a truly collaborative win-win environment where our team felt supported and highly valued. This led to stronger relationships and more successful joint initiatives than we'd seen before.'
+      quote: 'Jason's ability to manage partner relationships is exemplary. He fostered a truly collaborative win-win environment where our team felt supported and highly valued. This led to stronger relationships and more successful joint initiatives than we'd seen before.'
     },
       {
       name: 'Jeff Trounce',
