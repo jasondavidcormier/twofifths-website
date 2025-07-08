@@ -105,44 +105,44 @@ export const defaultContent: ContentData = {
   },
   testimonials: [
     {
-      name: 'Sarah Chen',
-      title: 'VP Growth at TechFlow SaaS',
-      quote: 'Jason completely transformed our partnership approach. We went from having scattered, ineffective partnerships to a strategic program that now drives 40% of our new business. His expertise and network opened doors we didn\'t even know existed.'
+      name: 'Rob Hango-Zada',
+      title: 'Co-Founder and Co-CEO at Shippit',
+      quote: 'Jason is a natural relationship builder, connector and all round big thinker. His deep understanding of what it takes to build enduring partnerships along with his pragmatic approach helped us completely redefine partnerships at Shippit.'
     },
     {
-      name: 'Marcus Rodriguez',
-      title: 'CEO at DataSync Pro',
-      quote: 'We struggled with partnerships for two years before Jason joined us. Within 90 days, he had us live with 5 major integrations and a clear roadmap for scaling. The ROI was immediate and substantial.'
+      name: 'Lee Hardham',
+      title: 'Founder and CEO at Brauz',
+      quote: 'Jason\'s ability to manage partner relationships is exemplary. He fostered a truly collaborative win-win environment where our team felt supported and highly valued. This led to stronger relationships and more successful joint initiatives than we'd seen before.'
     },
       {
-      name: 'Test Name',
-      title: 'CEO at DataSync Pro',
-      quote: 'We struggled with partnerships for two years before Jason joined us. Within 90 days, he had us live with 5 major integrations and a clear roadmap for scaling. The ROI was immediate and substantial.'
+      name: 'Jeff Trounce',
+      title: 'Global Manager at Lonely Planet',
+      quote: 'Jason\'s got a rare knack for cross-functional collaboration and getting things done. At Lonely Planet, he got results through persistence, expertly handling complex issues. He truly understands how marketing intersects with new partnerships, driving efficient, low-cost outcomes.'
     },
       {
-      name: 'New Name',
-      title: 'CEO at DataSync Pro',
-      quote: 'We struggled with partnerships for two years before Jason joined us. Within 90 days, he had us live with 5 major integrations and a clear roadmap for scaling. The ROI was immediate and substantial.'
+      name: 'Jimmy Zhong',
+      title: 'CEO and Co-founder at Syncio',
+      quote: 'Navigating the Shopify App Ecosystem can be challenging, but Jason\'s invaluable advice directly led to our improved growth and market visibility. His authentic expertise in partnerships and ecosystem development is truly commendable and highly recommended.'
     },
     {
-      name: 'Emma Thompson',
-      title: 'Head of International at CloudScale Global',
-      quote: 'Jason\'s deep understanding of the ANZ market was game-changing for our expansion. His local relationships and strategic guidance helped us achieve in 6 months what would have taken us 2 years on our own.'
+      name: 'Charlotte Michalanney',
+      title: 'Head of Marketing at Convert Digital',
+      quote: 'Working with Jason highlighted the value and impact of stronger partnerships. He ensured we always felt supported and that he had our best interests at heart, which not only strengthened our relationships but also drove greater mutual success. A true professional.'
     },
     {
-      name: 'David Kim',
-      title: 'Founder at ScaleUp Solutions',
-      quote: 'The partnership strategy Jason developed for us was exactly what we needed. His systematic approach to partner identification and onboarding helped us establish 8 key partnerships in our first quarter working together.'
+      name: 'Keran McKenzie',
+      title: 'Futurist in Residence at MYOB',
+      quote: 'Jason\'s the real deal for building partner ecosystems. He helped us scale MYOB from zero to thousands of developers. He brings the right tools, tech, programs, and strategic thinking, understanding both the business and people side of partnerships. He just delivers.'
     },
     {
-      name: 'Lisa Martinez',
-      title: 'Head of Business Development at GrowthTech',
-      quote: 'Jason\'s expertise in the ANZ market was invaluable for our expansion. He not only connected us with the right partners but also helped us navigate the cultural nuances that made all the difference in our success.'
+      name: 'Robert Gibson',
+      title: 'Head of APAC Partnershops at Klaviyo',
+      quote: 'Getting Klaviyo set up in ANZ was a lot of work, but Jason\'s help was meaningful. His Shopify experience, local industry knowledge, and connections really made a difference. His encouragement and advice were also invaluable! He was a big part of our local success.'
     },
     {
-      name: 'Alex Johnson',
-      title: 'VP Partnerships at CloudConnect',
-      quote: 'Working with Jason was a game-changer. His deep network and strategic thinking helped us identify partnership opportunities we never would have found on our own. The results speak for themselves - 60% revenue growth in 8 months.'
+      name: 'Elliot Spirrett',
+      title: 'Head of Partnerships ANZ at GoCardless',
+      quote: 'As an established leader in the partnerships space, Jason has been an incredible mentor. His generosity and willingness to share his industry knowledge and connect me to key players has accelerated my career significantly.'
     }
   ],
   nextSteps: {
