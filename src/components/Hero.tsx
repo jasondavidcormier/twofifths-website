@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
               <div className="flex items-center justify-center md:justify-start mb-8">
                 <img 
                   src="/logo-full-inverse.png" 
-                  alt="Two Fifths Logo" 
+                  alt="Two-Fifths Logo" 
                   className="h-16 sm:h-20 md:h-18 lg:h-20 xl:h-24 drop-shadow-2xl object-contain"
                 />
               </div>

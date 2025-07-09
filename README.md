@@ -1,4 +1,4 @@
-# Two Fifths Website
+# Two-Fifths Website
 
 ## Deployment Setup
 

@@ -78,8 +78,12 @@ const ServicePackages: React.FC<ServicePackagesProps> = ({ audience, onPlaybookD
                    style={packageBgColor ? { backgroundColor: packageBgColor } : undefined}>
                 <div className="h-full flex flex-col">
                 <div className="flex items-start justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: iconBg }}>
-                    <Icon className={`w-6 h-6`} style={{ color: iconColor }} />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: audience === 'australian' ? '#c4374f' : '#ffffff' }}>
+                    <img 
+                      src={audience === 'australian' ? "/logo-symbol-inverse.png" : "/logo-symbol.png"} 
+                      alt="Two-Fifths Logo" 
+                      className="w-8 h-8 object-contain"
+                    />
                   </div>
                   <span className="text-sm font-medium px-3 py-1 rounded-full"
                         style={{ 

@@ -17,7 +17,7 @@ const PlaybookDownload: React.FC<PlaybookDownloadProps> = ({ onClose }) => {
     setIsLoading(true);
     
     try {
-      // Google Apps Script Web App URL - replace with your actual URL
+      // Google Apps Script Web App URL - same as NextSteps form for consistency
       const scriptURL = 'https://script.google.com/a/macros/twofifthsfractional.com/s/AKfycbwoa42toWvuJ3XOr02CUO0NjZpkKzJ-1qWuFreoQxc3WUun7ec2oD4P146vRn2JY8fZSQ/exec';
       
       const response = await fetch(scriptURL, {
@@ -29,14 +29,17 @@ const PlaybookDownload: React.FC<PlaybookDownloadProps> = ({ onClose }) => {
         body: new URLSearchParams({
           email: formData.email,
           timestamp: new Date().toISOString(),
-          source: 'playbook-waitlist'
+          source: 'playbook-waitlist',
+          name: 'Playbook Waitlist Signup',
+          company: 'ANZ Expansion Interest',
+          challenge: `Requested early access to ANZ Expansion Playbook. Email: ${formData.email}`,
+          formType: 'Playbook Waitlist'
         })
       });
       
       setIsSubmitted(true);
     } catch (error) {
       console.error('Error submitting to Google Sheets:', error);
-      // Still show success to user since no-cors mode doesn't allow error detection
       setIsSubmitted(true);
     } finally {
       setIsLoading(false);

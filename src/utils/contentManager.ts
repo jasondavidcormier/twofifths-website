@@ -30,6 +30,7 @@ export interface ContentData {
   testimonials: Array<{
     name: string;
     title: string;
+    company: string;
     quote: string;
   }>;
   nextSteps: {
@@ -77,10 +78,10 @@ export const defaultContent: ContentData = {
     ctaText: 'Browse Service Packages'
   },
   about: {
-    mainHeading: 'Why Two Fifths?',
-    tagline: 'Revenue is a result, not a goal. Build a partner ecosystem on trust and shared purpose, and growth will take care of itself.',
+    mainHeading: 'Why Two-Fifths?',
+    tagline: 'Revenue is a result, not a goal. Build a partner ecosystem on a foundation of trust and shared purpose, and growth will take care of itself.',
     description: 'Growth doesn\'t happen in a vacuum. Most SaaS companies know partnerships can accelerate growth, but lack the expertise to execute effectively. I bring battle-tested, fractional leadership to transform your untapped opportunities into competitive advantages.',
-    profileHeading: 'Two Fifths = Jason Cormier',
+    profileHeading: 'Two-Fifths is Jason Cormier',
     profileSubtitle: 'Founder & Senior Partnership Strategist',
     profilePoints: [
       'Two decades building and scaling partner programs and delivering measurable value',
@@ -106,70 +107,88 @@ export const defaultContent: ContentData = {
   testimonials: [
     {
       name: 'Rob Hango-Zada',
-      title: 'Co-Founder and Co-CEO at Shippit',
+      title: 'Co-Founder and Co-CEO',
+      company: 'Shippit',
       quote: 'Jason is a natural relationship builder, connector and all round big thinker. His deep understanding of what it takes to build enduring partnerships along with his pragmatic approach helped us completely redefine partnerships at Shippit.'
     },
     {
       name: 'Lee Hardham',
-      title: 'Founder and CEO at Brauz',
+      title: 'Founder and CEO',
+      company: 'Brauz',
       quote: 'Jason\'s ability to manage partner relationships is exemplary. He fostered a truly collaborative win-win environment where our team felt supported and highly valued. This led to stronger relationships and more successful joint initiatives than we\'d seen before.'
     },
     {
       name: 'Jeff Trounce',
-      title: 'Global Manager at Lonely Planet',
+      title: 'Global Manager Client Solutions',
+      company: 'Lonely Planet',
       quote: 'Jason\'s got a rare knack for cross-functional collaboration and getting things done. At Lonely Planet, he got results through persistence, expertly handling complex issues. He truly understands how marketing intersects with new partnerships, driving efficient, low-cost outcomes.'
     },
     {
       name: 'Jimmy Zhong',
-      title: 'CEO and Co-founder at Syncio',
+      title: 'CEO and Co-founder',
+      company: 'Syncio',
       quote: 'Navigating the Shopify App Ecosystem can be challenging, but Jason\'s invaluable advice directly led to our improved growth and market visibility. His authentic expertise in partnerships and ecosystem development is truly commendable and highly recommended.'
     },
     {
       name: 'Charlotte Michalanney',
-      title: 'Head of Marketing at Convert Digital',
+      title: 'Head of Marketing',
+      company: 'Convert Digital',
       quote: 'Working with Jason highlighted the value and impact of stronger partnerships. He ensured we always felt supported and that he had our best interests at heart, which not only strengthened our relationships but also drove greater mutual success. A true professional.'
     },
     {
       name: 'Keran McKenzie',
-      title: 'Futurist in Residence at MYOB',
+      title: 'Head of Ecosystem',
+      company: 'MYOB',
       quote: 'Jason\'s the real deal for building partner ecosystems. He helped us scale MYOB from zero to thousands of developers. He brings the right tools, tech, programs, and strategic thinking, understanding both the business and people side of partnerships. He just delivers.'
     },
     {
       name: 'Robert Gibson',
-      title: 'Head of APAC Partnershops at Klaviyo',
+      title: 'Head of APAC Partnerships',
+      company: 'Klaviyo',
       quote: 'Getting Klaviyo set up in ANZ was a lot of work, but Jason\'s help was meaningful. His Shopify experience, local industry knowledge, and connections really made a difference. His encouragement and advice were also invaluable! He was a big part of our local success.'
     },
     {
       name: 'Elliot Spirrett',
-      title: 'Head of Partnerships ANZ at GoCardless',
+      title: 'Head of Partnerships ANZ',
+      company: 'GoCardless',
       quote: 'Jason is an invaluable mentor. His vast experience across diverse industries and company stages means he\'s accumulated immense insight. He\'s always ready to share that knowledge and nurture others, which I\'m incredibly grateful for in our work together.'
     },
     {
       name: 'Matt Holme',
-      title: 'Founder and CEO at YouPay',
+      title: 'Founder and CEO',
+      company: 'YouPay',
       quote: 'When Jason was helping us get our payment integration working he was always very helpful and provided meaningful support and advice. His knowledge of the Shopify ecosystem is really deep, which helped us navigate many complexities.'
     },
     {
       name: 'Rhys Furner',
-      title: 'Director of Partnerships APAC at Shopify',
+      title: 'Director of Partnerships APAC',
+      company: 'Shopify',
       quote: 'Jason\'s energy and creativity have earned him a stellar reputation in the industry, he knows everyone and is highly respected. His ability to connect the right people and companies was critical in growing our partner ecosystem and creating new opportunities for Shopify.'
     },
     {
       name: 'Gaelle Decolnet',
-      title: 'Channel and Alliance APAC at Fluent Commerce',
+      title: 'Channel and Alliance APAC',
+      company: 'Fluent Commerce',
       quote: 'Jason embodies a truly great partner manager. His rigor, consistency, and strong business acumen ensure both companies are served. His unmatched partnership skills drive pipeline through valuable joint activities, connecting the right people and making everyone feel genuinely supported.'
     },
     {
       name: 'Shauna Butcher',
-      title: 'Head of Marketing at Shippit',
+      title: 'Head of Marketing',
+      company: 'Shippit',
       quote: 'Working with Jason on partner marketing was great. His creativity and focus on mutual benefit were key. He expertly managed diverse partners, agendas, and personalities, pulling everyone together to deliver significantly better joint marketing results. A true collaborator.'
+    },
+    {
+      name: 'Paul Goldston',
+      title: 'Head of APAC',
+      company: 'Order Editing',
+      quote: 'Jason\'s reputation totally precedes him. He\'s got an incredible knack for connecting people, and that\'s been huge for boosting the Shopify ecosystem in ANZ and finding new opportunities for partners.'
     }
   ],
   nextSteps: {
     heading: 'Next Steps',
-    description: 'Still unsure where to start? Pick a conversation opener that works best for you.',
-    formHeading: 'Let\'s Start the Conversation.',
-    formDescription: 'Share your business overview and partnership goals. I\'ll respond within 24 hours with tailored insights and clear next steps. No sales pressure, just focused growth discussion.'
+    description: 'Still unsure where to start? Pick a conversation starter that works best for you.',
+    formHeading: 'Let\'s Connect',
+    formDescription: 'Share your business overview and partnership goals. I\'ll respond within 24 hours with tailored insights and clear next steps. No sales pressure, just a focused growth discussion.'
   },
   contact: {
     email: 'jason@twofifthsfractional.com',
@@ -233,7 +252,7 @@ export const defaultContent: ContentData = {
     },
     international: {
       sectionHeading: 'Solutions for International SaaS Companies',
-      opportunityText: 'The ANZ market represents a $50B+ ecommerce opportunity. Success requires more than a website. You need local expertise, relationships, and cultural understanding. I am your on-ground accelerator for confident, rapid market entry.',
+      opportunityText: 'The ANZ market represents a $50B+ ecommerce opportunity. Success requires more than a website. You need local expertise, relationships, and cultural understanding. Two-Fifths is your on-ground accelerator for confident, rapid market entry.',
       packages: [
         {
           title: 'Market Validation Sprint',

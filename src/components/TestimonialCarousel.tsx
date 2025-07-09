@@ -9,20 +9,21 @@ const TestimonialCarousel: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   // Company icon mapping based on testimonial names and companies
-  const getCompanyIcon = (name: string, title: string) => {
-    const company = title.toLowerCase();
+  const getCompanyIcon = (name: string, company: string) => {
+    const companyLower = company.toLowerCase();
     
-    if (company.includes('shippit')) return '/testimonialicons/shippit.png';
-    if (company.includes('brauz')) return '/testimonialicons/brauz.png';
-    if (company.includes('lonely planet')) return '/testimonialicons/lonelyplanet.png';
-    if (company.includes('syncio')) return '/testimonialicons/syncio.png';
-    if (company.includes('convert digital')) return '/testimonialicons/convertdigital.jpg';
-    if (company.includes('myob')) return '/testimonialicons/MYOB.png';
-    if (company.includes('klaviyo')) return '/testimonialicons/klaviyo.png';
-    if (company.includes('gocardless')) return '/testimonialicons/gocardless.png';
-    if (company.includes('youpay')) return '/testimonialicons/youpay.png';
-    if (company.includes('shopify')) return '/testimonialicons/shopify.png';
-    if (company.includes('fluent commerce')) return '/testimonialicons/fluentcommerce.png';
+    if (companyLower.includes('shippit')) return '/testimonialicons/shippit.png';
+    if (companyLower.includes('brauz')) return '/testimonialicons/brauz.png';
+    if (companyLower.includes('lonely planet')) return '/testimonialicons/lonelyplanet.png';
+    if (companyLower.includes('syncio')) return '/testimonialicons/syncio.png';
+    if (companyLower.includes('convert digital')) return '/testimonialicons/convertdigital.jpg';
+    if (companyLower.includes('myob')) return '/testimonialicons/MYOB.png';
+    if (companyLower.includes('klaviyo')) return '/testimonialicons/klaviyo.png';
+    if (companyLower.includes('gocardless')) return '/testimonialicons/gocardless.png';
+    if (companyLower.includes('youpay')) return '/testimonialicons/youpay.png';
+    if (companyLower.includes('shopify')) return '/testimonialicons/shopify.png';
+    if (companyLower.includes('fluent commerce')) return '/testimonialicons/fluentcommerce.png';
+    if (companyLower.includes('order editing')) return '/testimonialicons/Orderedit.png';
     
     // Default fallback - use shippit for the second shippit testimonial
     if (name === 'Shauna Butcher') return '/testimonialicons/shippit.png';
@@ -127,7 +128,7 @@ const TestimonialCarousel: React.FC = () => {
                 }}
               >
                 {testimonials.map((testimonial, index) => {
-                  const companyIcon = getCompanyIcon(testimonial.name, testimonial.title);
+                  const companyIcon = getCompanyIcon(testimonial.name, testimonial.company);
                   
                   return (
                     <div 
@@ -154,7 +155,7 @@ const TestimonialCarousel: React.FC = () => {
                             {companyIcon && (
                               <img 
                                 src={companyIcon} 
-                                alt={`${testimonial.title.split(' at ')[1]} logo`}
+                                alt={`${testimonial.company} logo`}
                                 className="w-8 h-8 md:w-10 md:h-10 object-contain flex-shrink-0"
                                 style={{ 
                                   backgroundColor: 'transparent',
@@ -167,6 +168,7 @@ const TestimonialCarousel: React.FC = () => {
                             <div className="min-w-0">
                               <p className="font-semibold text-gray-900 text-sm truncate">{testimonial.name}</p>
                               <p className="text-xs text-gray-600 leading-tight">{testimonial.title}</p>
+                              <p className="text-xs text-gray-500 leading-tight">{testimonial.company || 'Company'}</p>
                             </div>
                           </div>
                         </div>

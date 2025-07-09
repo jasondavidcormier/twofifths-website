@@ -171,7 +171,7 @@ const About: React.FC = () => {
           <div className="absolute top-4 right-4 opacity-10">
             <img 
               src="/logo-symbol-inverse.png" 
-              alt="Two Fifths Logo" 
+              alt="Two-Fifths Logo" 
               className="w-16 h-16 object-contain"
             />
           </div>

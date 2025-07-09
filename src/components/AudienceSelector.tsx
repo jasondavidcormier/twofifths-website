@@ -93,7 +93,7 @@ const AudienceSelector: React.FC<AudienceSelectorProps> = ({
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
                       <img 
                         src={audience.logoSrc} 
-                        alt="Two Fifths Logo" 
+                        alt="Two-Fifths Logo" 
                         className="w-8 h-8 object-contain bg-transparent"
                       />
                     </div>

@@ -2,12 +2,12 @@ import React from 'react';
 
 const LogoStrip: React.FC = () => {
   return (
-    <section className="py-12 bg-white">
+    <section className="pt-16 pb-12 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         {/* Logo strip */}
         <div className="text-center">
           <p className="text-xl text-gray-600 mb-8">
-            Proven track record building and scaling partnerships for brands you know
+            A proven track record building and scaling partnerships for brands you know.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
             <img 

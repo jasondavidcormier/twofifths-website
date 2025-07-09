@@ -14,12 +14,12 @@ const Contact: React.FC = () => {
             <div className="flex items-center space-x-4 mb-6">
               <img 
                 src="/logo-full-inverse.png" 
-                alt="Two Fifths Logo" 
+                alt="Two-Fifths Logo" 
                 className="h-8"
               />
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Two Fifths Fractional: Strategic Partnership Leadership for SaaS. I deliver senior-level expertise, on demand, enabling you to scale through high-impact partnerships without the full-time commitment.
+              Two-Fifths Fractional: Strategic Partnership Leadership for SaaS. I deliver senior-level expertise, on demand, enabling you to scale through high-impact partnerships without the full-time commitment.
             </p>
           </div>
 
@@ -58,7 +58,7 @@ const Contact: React.FC = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Two Fifths Fractional. All rights reserved.
+              © 2024 Two-Fifths Fractional. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
