@@ -27,14 +27,47 @@ const Contact: React.FC = () => {
           <div>
             <h4 className="font-heading text-lg font-semibold mb-6">Get in Touch</h4>
             <div className="space-y-4">
+              {/* Protected Email */}
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-gray-400" />
-                <span className="text-gray-300">{content.contact.email}</span>
+                <span 
+                  className="text-gray-300 select-none"
+                  style={{
+                    direction: 'rtl',
+                    unicodeBidi: 'bidi-override',
+                    letterSpacing: '0.5px'
+                  }}
+                >
+                  moc.lanoitcarfshtfifowt@nosaj
+                </span>
               </div>
+              
+              {/* Protected Phone Number */}
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-gray-400" />
-                <span className="text-gray-300">{content.contact.phone}</span>
+                <a 
+                  href="tel:+61423161718"
+                  className="text-gray-300 hover:text-white transition-colors select-none font-mono"
+                  style={{ letterSpacing: '1px' }}
+                >
+                  <span style={{ transform: 'rotate(0.5deg)', display: 'inline-block' }}>+</span>
+                  <span style={{ transform: 'rotate(-0.3deg)', display: 'inline-block', letterSpacing: '2px' }}>6</span>
+                  <span style={{ transform: 'rotate(0.2deg)', display: 'inline-block' }}>1</span>
+                  <span style={{ letterSpacing: '3px' }}> </span>
+                  <span style={{ transform: 'rotate(-0.1deg)', display: 'inline-block' }}>4</span>
+                  <span style={{ transform: 'rotate(0.4deg)', display: 'inline-block', letterSpacing: '1.5px' }}>2</span>
+                  <span style={{ transform: 'rotate(-0.2deg)', display: 'inline-block' }}>3</span>
+                  <span style={{ letterSpacing: '2px' }}> </span>
+                  <span style={{ transform: 'rotate(0.1deg)', display: 'inline-block' }}>1</span>
+                  <span style={{ transform: 'rotate(-0.3deg)', display: 'inline-block', letterSpacing: '1.2px' }}>6</span>
+                  <span style={{ transform: 'rotate(0.2deg)', display: 'inline-block' }}>1</span>
+                  <span style={{ letterSpacing: '2px' }}> </span>
+                  <span style={{ transform: 'rotate(-0.1deg)', display: 'inline-block' }}>7</span>
+                  <span style={{ transform: 'rotate(0.3deg)', display: 'inline-block', letterSpacing: '1.3px' }}>1</span>
+                  <span style={{ transform: 'rotate(-0.2deg)', display: 'inline-block' }}>8</span>
+                </a>
               </div>
+              
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-gray-400" />
                 <span className="text-gray-300">{content.contact.location}</span>

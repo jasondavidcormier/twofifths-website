@@ -1,5 +1,5 @@
 /**
- * Google Apps Script Web App for handling form submissions
+ * Google Apps Script Web App for handling form submissions with email notifications
  * This script should be deployed as a web app in Google Apps Script
  * 
  * Setup Instructions:
@@ -422,6 +422,20 @@ function getOrCreateSpreadsheet() {
     sheet.getRange(1, 1, 1, 10).setFontColor('white');
     
     return spreadsheet;
+  }
+}
+
+// Test function for simple email
+function testSimpleEmail() {
+  try {
+    MailApp.sendEmail({
+      to: 'jason@twofifthsfractional.com',
+      subject: 'Simple Test Email',
+      body: 'This is a simple test email to verify basic email functionality works.'
+    });
+    console.log('Simple test email sent!');
+  } catch (error) {
+    console.error('Error sending simple test email:', error);
   }
 }
 

@@ -18,8 +18,8 @@ const NextSteps: React.FC = () => {
     setIsLoading(true);
     
     try {
-      // Google Apps Script Web App URL - replace with your actual URL
-      const scriptURL = 'https://script.google.com/a/macros/twofifthsfractional.com/s/AKfycbwoa42toWvuJ3XOr02CUO0NjZpkKzJ-1qWuFreoQxc3WUun7ec2oD4P146vRn2JY8fZSQ/exec';
+      // Google Apps Script Web App URL - your actual URL
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyUtDMgz_tPNpX68MHWNvVokB-pnrNiBkFav2y6gS85lAHDcCV1yDTgy41PIXLpXt0CZA/exec';
       
       const response = await fetch(scriptURL, {
         method: 'POST',
