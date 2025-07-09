@@ -8,6 +8,28 @@ const TestimonialCarousel: React.FC = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Company icon mapping based on testimonial names and companies
+  const getCompanyIcon = (name: string, title: string) => {
+    const company = title.toLowerCase();
+    
+    if (company.includes('shippit')) return '/testimonialicons/shippit.png';
+    if (company.includes('brauz')) return '/testimonialicons/brauz.png';
+    if (company.includes('lonely planet')) return '/testimonialicons/lonelyplanet.png';
+    if (company.includes('syncio')) return '/testimonialicons/syncio.png';
+    if (company.includes('convert digital')) return '/testimonialicons/convertdigital.jpg';
+    if (company.includes('myob')) return '/testimonialicons/MYOB.png';
+    if (company.includes('klaviyo')) return '/testimonialicons/klaviyo.png';
+    if (company.includes('gocardless')) return '/testimonialicons/gocardless.png';
+    if (company.includes('youpay')) return '/testimonialicons/youpay.png';
+    if (company.includes('shopify')) return '/testimonialicons/shopify.png';
+    if (company.includes('fluent commerce')) return '/testimonialicons/fluentcommerce.png';
+    
+    // Default fallback - use shippit for the second shippit testimonial
+    if (name === 'Shauna Butcher') return '/testimonialicons/shippit.png';
+    
+    return null;
+  };
+
   // Function to shuffle array using Fisher-Yates algorithm
   const shuffleArray = (array: typeof content.testimonials) => {
     const shuffled = [...array];
@@ -104,31 +126,54 @@ const TestimonialCarousel: React.FC = () => {
                   transform: `translateX(-${(currentIndex * 100) / visibleCount}%)`,
                 }}
               >
-                {testimonials.map((testimonial, index) => (
-                  <div 
-                    key={`${testimonial.name}-${index}`} 
-                    className={`flex-shrink-0 px-2 md:px-3 ${isMobile ? 'w-full' : 'w-1/3'}`}
-                  >
-                    <div className="bg-gray-100 rounded-lg p-4 md:p-6 relative h-full">
-                      {/* Quote icon */}
-                      <div className="absolute top-3 left-3 md:top-4 md:left-4" style={{ color: '#c4374f' }}>
-                        <Quote className="w-5 h-5 md:w-6 md:h-6" />
-                      </div>
-                      
-                      <p className="text-gray-700 text-sm leading-relaxed mt-6 md:mt-8 mb-4">
-                        {testimonial.quote}
-                      </p>
-                      
-                      {/* Red separator line */}
-                      <div className="w-6 md:w-8 h-0.5 mb-3" style={{ backgroundColor: '#c4374f' }}></div>
-                      
-                      <div>
-                        <p className="font-semibold text-gray-900 text-sm">{testimonial.name}</p>
-                        <p className="text-xs text-gray-600">{testimonial.title}</p>
+                {testimonials.map((testimonial, index) => {
+                  const companyIcon = getCompanyIcon(testimonial.name, testimonial.title);
+                  
+                  return (
+                    <div 
+                      key={`${testimonial.name}-${index}`} 
+                      className={`flex-shrink-0 px-2 md:px-3 ${isMobile ? 'w-full' : 'w-1/3'}`}
+                    >
+                      <div className="bg-gray-100 rounded-lg p-4 md:p-6 relative h-full flex flex-col">
+                        {/* Quote icon */}
+                        <div className="absolute top-3 left-3 md:top-4 md:left-4" style={{ color: '#c4374f' }}>
+                          <Quote className="w-5 h-5 md:w-6 md:h-6" />
+                        </div>
+                        
+                        <p className="text-gray-700 text-sm leading-relaxed mt-6 md:mt-8 mb-4 flex-grow">
+                          {testimonial.quote}
+                        </p>
+                        
+                        {/* Bottom section with logo and text - always at bottom */}
+                        <div className="mt-auto">
+                          {/* Red separator line */}
+                          <div className="w-6 md:w-8 h-0.5 mb-3" style={{ backgroundColor: '#c4374f' }}></div>
+                          
+                          <div className="flex items-center space-x-3">
+                            {/* Company icon */}
+                            {companyIcon && (
+                              <img 
+                                src={companyIcon} 
+                                alt={`${testimonial.title.split(' at ')[1]} logo`}
+                                className="w-8 h-8 md:w-10 md:h-10 object-contain flex-shrink-0"
+                                style={{ 
+                                  backgroundColor: 'transparent',
+                                  mixBlendMode: 'multiply',
+                                  filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))'
+                                }}
+                              />
+                            )}
+                            
+                            <div className="min-w-0">
+                              <p className="font-semibold text-gray-900 text-sm truncate">{testimonial.name}</p>
+                              <p className="text-xs text-gray-600 leading-tight">{testimonial.title}</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>

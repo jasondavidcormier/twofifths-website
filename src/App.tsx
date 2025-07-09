@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useContent } from './hooks/useContent';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import LogoStrip from './components/LogoStrip';
 import AudienceSelector from './components/AudienceSelector';
 import ServicePackages from './components/ServicePackages';
 import About from './components/About';
@@ -22,6 +23,7 @@ function App() {
     <div className="min-h-screen bg-white">
       <Header />
       <Hero />
+      <LogoStrip />
       <About />
       <AudienceSelector 
         selectedAudience={selectedAudience}

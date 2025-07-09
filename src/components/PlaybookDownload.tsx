@@ -67,7 +67,7 @@ const PlaybookDownload: React.FC<PlaybookDownloadProps> = ({ onClose }) => {
             Join the Playbook Waitlist
           </h3>
           <p className="text-gray-600">
-            Enter your email below. Be the very first to know when our comprehensive ANZ Expansion Guide, your playbook for market entry, is ready.
+            Enter your email below. Be the very first to know when my comprehensive ANZ Expansion Guide, your playbook for market entry, is ready.
           </p>
         </div>
 

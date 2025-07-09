@@ -50,13 +50,13 @@ const ServicePackages: React.FC<ServicePackagesProps> = ({ audience, onPlaybookD
             </p>
             <div className={`rounded-2xl p-6 border ${
               audience === 'australian' 
-                ? 'bg-red-900/20 border-red-700/30'
-                : 'bg-red-50 border-red-200'
+                ? 'bg-red-800/30 border-red-600/40'
+                : 'bg-red-100 border-red-300'
             }`}>
               <p className={`text-lg font-medium ${audience === 'australian' ? 'text-gray-200' : 'text-gray-700'}`}>
                 {audience === 'australian' 
-                  ? 'Stop leaving growth on the table. Access senior partnership leadership without the burden of a full-time hire.'
-                  : 'Skip the guesswork, and start testing and learning what works quickly. Get the critical local partnership expertise needed to rapidly scale in ANZ, without the costly full-time commitment.'
+                  ? 'Get partnership expertise without the full-time hire. I solve growth challenges with proven leadership and rapid execution.'
+                  : 'Skip the guesswork, and start testing and learning what works quickly. Get the critical local partnership expertise I provide to rapidly scale in ANZ, without the costly full-time commitment.'
                 }
               </p>
             </div>
@@ -76,6 +76,7 @@ const ServicePackages: React.FC<ServicePackagesProps> = ({ audience, onPlaybookD
             return (
               <div key={index} className={`${packageBg} rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 ${audience === 'international' ? '' : 'border border-gray-200'}`}
                    style={packageBgColor ? { backgroundColor: packageBgColor } : undefined}>
+                <div className="h-full flex flex-col">
                 <div className="flex items-start justify-between mb-6">
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: iconBg }}>
                     <Icon className={`w-6 h-6`} style={{ color: iconColor }} />
@@ -89,15 +90,26 @@ const ServicePackages: React.FC<ServicePackagesProps> = ({ audience, onPlaybookD
                   </span>
                 </div>
                 
-                <div className="flex-grow">
+                <div className="flex-grow flex flex-col">
                   <h3 className={`font-heading text-2xl font-bold ${packageTextColor} mb-3`}>
                     {pkg.title}
                   </h3>
-                  <p className={`${packageSubtextColor} mb-6 leading-relaxed`}>
-                    {pkg.description}
-                  </p>
+                  <div className={`${packageSubtextColor} mb-6 leading-relaxed`}>
+                    {(() => {
+                      const parts = pkg.description.split('. ');
+                      const firstSentence = parts[0] + '.';
+                      const restOfDescription = parts.slice(1).join('. ');
+                      
+                      return (
+                        <>
+                          <p className="font-bold mb-2">{firstSentence}</p>
+                          <p>{restOfDescription}</p>
+                        </>
+                      );
+                    })()}
+                  </div>
                   
-                  <div className="space-y-3 mb-6">
+                  <div className="space-y-3 mb-6 flex-grow">
                     {pkg.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center space-x-3">
                         <div className="w-3 h-3 sm:w-2 sm:h-2 rounded-full flex-shrink-0" style={{ backgroundColor: audience === 'international' ? '#ffffff' : '#c4374f' }}></div>
@@ -105,16 +117,18 @@ const ServicePackages: React.FC<ServicePackagesProps> = ({ audience, onPlaybookD
                       </div>
                     ))}
                   </div>
-                </div>
                 
-                <div className={`rounded-lg p-4 ${
-                  audience === 'international' ? 'bg-black/20' : 'bg-pink-100'
-                }`}>
-                  <p className={`text-sm font-medium ${
-                    audience === 'international' ? packageSubtextColor : 'text-red-600'
-                  }`} style={audience === 'australian' ? { color: '#c4374f' } : undefined}>
-                    {pkg.ideal}
-                  </p>
+                  {/* Good for box - positioned at bottom */}
+                  <div className={`rounded-lg p-4 mt-auto ${
+                    audience === 'international' ? 'bg-black/20' : 'bg-pink-100'
+                  }`}>
+                    <p className={`text-sm font-medium ${
+                      audience === 'international' ? packageSubtextColor : 'text-red-600'
+                    }`} style={audience === 'australian' ? { color: '#c4374f' } : undefined}>
+                      {pkg.ideal}
+                    </p>
+                  </div>
+                </div>
                 </div>
               </div>
             );

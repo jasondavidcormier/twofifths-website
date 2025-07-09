@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle, Calendar, MessageCircle, Target, TrendingUp } from 'lucide-react';
+import { ArrowRight, CheckCircle, Calendar, MessageCircle, FileText, PieChart, Wrench, Target, TrendingUp } from 'lucide-react';
 import { useContent } from '../hooks/useContent';
 
 const NextSteps: React.FC = () => {
@@ -106,14 +106,14 @@ const NextSteps: React.FC = () => {
               30 Minute Discovery Call
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Let's openly discuss your current challenges and ambitions. We'll identify key opportunities and a potential path forward.
+              Let's openly discuss your current challenges and ambitions. I'll identify key opportunities and a potential path forward.
             </p>
           </div>
           
           <div className="text-center group">
             <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
                  style={{ backgroundColor: '#c4374f' }}>
-              <Target className="w-6 h-6 text-white" />
+              <FileText className="w-6 h-6 text-white" />
             </div>
             <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
               Async Jam Session
@@ -126,7 +126,7 @@ const NextSteps: React.FC = () => {
           <div className="text-center group">
             <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
                  style={{ backgroundColor: '#c4374f' }}>
-              <TrendingUp className="w-6 h-6 text-white" />
+              <PieChart className="w-6 h-6 text-white" />
             </div>
             <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
               Market Fit Assessment
@@ -139,7 +139,7 @@ const NextSteps: React.FC = () => {
           <div className="text-center group">
             <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
                  style={{ backgroundColor: '#c4374f' }}>
-              <Calendar className="w-6 h-6 text-white" />
+              <Wrench className="w-6 h-6 text-white" />
             </div>
             <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
               Custom Proposal

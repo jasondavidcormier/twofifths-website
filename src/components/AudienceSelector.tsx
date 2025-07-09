@@ -49,7 +49,7 @@ const AudienceSelector: React.FC<AudienceSelectorProps> = ({
           <div className="mb-6">
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-red-50 rounded-full border border-red-200">
               <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-              <span className="text-red-700 font-medium text-sm">We've bundled key services to make it easier to get started with us.</span>
+              <span className="text-red-700 font-medium text-sm">I've bundled together key services to make it easier to get started.</span>
             </div>
           </div>
           

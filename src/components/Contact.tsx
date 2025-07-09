@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
               />
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Two Fifths Fractional: Strategic Partnership Leadership for SaaS. We deliver senior-level expertise, on demand, enabling you to scale through high-impact partnerships without the full-time commitment.
+              Two Fifths Fractional: Strategic Partnership Leadership for SaaS. I deliver senior-level expertise, on demand, enabling you to scale through high-impact partnerships without the full-time commitment.
             </p>
           </div>
 

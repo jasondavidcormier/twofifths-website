@@ -72,16 +72,16 @@ export interface ContentData {
 // Default content
 export const defaultContent: ContentData = {
   hero: {
-    headline: 'Fractional Partnership Leadership on Demand',
-    subheadline: 'Get partnership expertise without the full-time hire. Solve growth challenges with proven leadership and rapid execution.',
+    headline: 'Fractional Partnership Leadership on Demand', 
+    subheadline: 'Stop leaving revenue on the table. Access seasoned partnerships experience now, without the burden of a full-time hire.',
     ctaText: 'Browse Service Packages'
   },
   about: {
     mainHeading: 'Why Two Fifths?',
     tagline: 'Revenue is a result, not a goal. Build a partner ecosystem on trust and shared purpose, and growth will take care of itself.',
-    description: 'Growth doesn\'t happen in a vacuum. Most SaaS companies know partnerships can accelerate growth, but lack the expertise to execute effectively. Two Fifths brings battle-tested, fractional leadership to transform untapped opportunities into competitive advantages.',
+    description: 'Growth doesn\'t happen in a vacuum. Most SaaS companies know partnerships can accelerate growth, but lack the expertise to execute effectively. I bring battle-tested, fractional leadership to transform your untapped opportunities into competitive advantages.',
     profileHeading: 'Two Fifths = Jason Cormier',
-    profileSubtitle: 'Founder & Partnership Strategist',
+    profileSubtitle: 'Founder & Senior Partnership Strategist',
     profilePoints: [
       'Two decades building and scaling partner programs and delivering measurable value',
       'Early pioneer for API platforms and integration partnerships in the APAC region',
@@ -91,16 +91,16 @@ export const defaultContent: ContentData = {
   },
   audienceSelector: {
     heading: 'Choose Your Path to Partnership Success',
-    description: 'Click below to select the option that best describes your business and see tailored service packages specifically designed to address your needs.',
+    description: 'the option that best describes your business and view tailored service packages for your needs.',
     australian: {
       title: 'Australian SaaS Companies',
       subtitle: 'Scale-up & Start-up Businesses',
-      description: 'Partnerships feel like a struggle or "nice-to-have"? Get fractional strategic leadership to turn relationships into your growth engine.'
+      description: 'Partnerships feel like a struggle or a "nice-to-have"? Fractional leadership turns relationships into a growth engine, without the cost of a full-time hire.'
     },
     international: {
       title: 'International SaaS Companies',
       subtitle: 'Expanding to ANZ Markets',
-      description: 'Ready for ANZ expansion but local nuances feel complex? Get on-ground expertise and networks for rapid, confident market entry.'
+      description: 'Ready for ANZ expansion but local nuances feel complex? Navigate with confidence with on-ground expertise and established networks that set you up for success.'
     }
   },
   testimonials: [
@@ -114,12 +114,12 @@ export const defaultContent: ContentData = {
       title: 'Founder and CEO at Brauz',
       quote: 'Jason\'s ability to manage partner relationships is exemplary. He fostered a truly collaborative win-win environment where our team felt supported and highly valued. This led to stronger relationships and more successful joint initiatives than we\'d seen before.'
     },
-      {
+    {
       name: 'Jeff Trounce',
       title: 'Global Manager at Lonely Planet',
       quote: 'Jason\'s got a rare knack for cross-functional collaboration and getting things done. At Lonely Planet, he got results through persistence, expertly handling complex issues. He truly understands how marketing intersects with new partnerships, driving efficient, low-cost outcomes.'
     },
-      {
+    {
       name: 'Jimmy Zhong',
       title: 'CEO and Co-founder at Syncio',
       quote: 'Navigating the Shopify App Ecosystem can be challenging, but Jason\'s invaluable advice directly led to our improved growth and market visibility. His authentic expertise in partnerships and ecosystem development is truly commendable and highly recommended.'
@@ -142,13 +142,33 @@ export const defaultContent: ContentData = {
     {
       name: 'Elliot Spirrett',
       title: 'Head of Partnerships ANZ at GoCardless',
-      quote: 'As an established leader in the partnerships space, Jason has been an incredible mentor. His generosity and willingness to share his industry knowledge and connect me to key players has accelerated my career significantly.'
+      quote: 'Jason is an invaluable mentor. His vast experience across diverse industries and company stages means he\'s accumulated immense insight. He\'s always ready to share that knowledge and nurture others, which I\'m incredibly grateful for in our work together.'
+    },
+    {
+      name: 'Matt Holme',
+      title: 'Founder and CEO at YouPay',
+      quote: 'When Jason was helping us get our payment integration working he was always very helpful and provided meaningful support and advice. His knowledge of the Shopify ecosystem is really deep, which helped us navigate many complexities.'
+    },
+    {
+      name: 'Rhys Furner',
+      title: 'Director of Partnerships APAC at Shopify',
+      quote: 'Jason\'s energy and creativity have earned him a stellar reputation in the industry, he knows everyone and is highly respected. His ability to connect the right people and companies was critical in growing our partner ecosystem and creating new opportunities for Shopify.'
+    },
+    {
+      name: 'Gaelle Decolnet',
+      title: 'Channel and Alliance APAC at Fluent Commerce',
+      quote: 'Jason embodies a truly great partner manager. His rigor, consistency, and strong business acumen ensure both companies are served. His unmatched partnership skills drive pipeline through valuable joint activities, connecting the right people and making everyone feel genuinely supported.'
+    },
+    {
+      name: 'Shauna Butcher',
+      title: 'Head of Marketing at Shippit',
+      quote: 'Working with Jason on partner marketing was great. His creativity and focus on mutual benefit were key. He expertly managed diverse partners, agendas, and personalities, pulling everyone together to deliver significantly better joint marketing results. A true collaborator.'
     }
   ],
   nextSteps: {
     heading: 'Next Steps',
     description: 'Still unsure where to start? Pick a conversation opener that works best for you.',
-    formHeading: 'The Conversation Starts Here.',
+    formHeading: 'Let\'s Start the Conversation.',
     formDescription: 'Share your business overview and partnership goals. I\'ll respond within 24 hours with tailored insights and clear next steps. No sales pressure, just focused growth discussion.'
   },
   contact: {
@@ -159,12 +179,12 @@ export const defaultContent: ContentData = {
   servicePackages: {
     australian: {
       sectionHeading: 'Solutions for Australian SaaS Companies',
-      opportunityText: 'Partnerships are a top priority for most executives, who understand they can deliver leads that are exponentially more valuable than traditional channels. But too often, programs lack strategic focus and partners take over a year to become productive. Two Fifths bridges this gap with dedicated, senior-level partnership leadership that drives proven impact.',
+      opportunityText: 'Partnerships are a top priority for most executives, who understand they can deliver leads that are exponentially more valuable than traditional channels. But too often, programs lack strategic focus and partners take over a year to become productive. I bridge this gap with dedicated, senior-level partnership leadership that drives proven impact.',
       packages: [
         {
           title: 'Fractional Partnership Architect',
           subtitle: '2-3 days/week',
-          description: 'Your Strategic Growth Partner. More than a consultant; it\'s an embedded executive. We build, execute, and scale your entire partnership function from strategy to everyday wins, integrating seamlessly with your team.',
+          description: 'Your strategic growth partner. More than a consultant; it\'s an embedded executive. I build, execute, and scale your entire partnership function from strategy to everyday wins, integrating seamlessly with your team.',
           features: [
             'Strategy & execution aligned to your organisational goals',
             'Partner recruitment, onboarding, and enablement',
@@ -176,7 +196,7 @@ export const defaultContent: ContentData = {
         {
           title: 'Partnership Program Blueprint',
           subtitle: '2-4 week engagement',
-          description: 'Audit & Optimise Your Ecosystem. Your partnerships exist, but are they performing? This engagement provides a forensic audit of your current program, diagnosing what\'s broken and delivering a precise blueprint for immediate and long-term optimisation.',
+          description: 'Audit and optimise your ecosystem. Your partnerships exist, but are they performing? I provide a forensic audit of your current program, diagnosing what\'s broken and delivering a precise blueprint for immediate and long-term optimisation.',
           features: [
             'Comprehensive analysis of current partnerships and GTM approach',
             'Partner ROI evaluation and strategic gap identification',
@@ -188,7 +208,7 @@ export const defaultContent: ContentData = {
         {
           title: 'Strategic Partnership Sprint',
           subtitle: '3-6 week project',
-          description: 'Launchpad for New Initiatives. You have a vision for partnerships, but need clarity on the path. This sprint delivers a rapid, data-backed strategy, identifying your ideal partners, defining mutual value, and charting your precise go-to-market plan.',
+          description: 'Launchpad for new initiatives. You have a vision for partnerships, but need clarity on the path. I deliver a rapid, data-backed strategy, identifying your ideal partners, defining mutual value, and charting your precise go-to-market plan.',
           features: [
             'Strategic partner identification and integration mapping',
             'Partnership framework and value proposition development',
@@ -200,7 +220,7 @@ export const defaultContent: ContentData = {
         {
           title: 'Advisory & Executive Coaching',
           subtitle: '4-8 hours per month',
-          description: 'Empower Your Internal Team. You have the internal drive, but need an experienced thought partner to navigate the complexities. This package provides ongoing, strategic guidance and direct coaching to elevate your team\'s capabilities and accelerate your success.',
+          description: 'Empower your internal team. You have the internal drive, but need an experienced thought partner to navigate the complexities. I provide ongoing, strategic guidance and direct coaching to elevate your team\'s capabilities and accelerate your success.',
           features: [
             'Regular strategic sessions and partnership approach refinement',
             'Deal evaluation, structuring, and value maximisation',
@@ -213,12 +233,12 @@ export const defaultContent: ContentData = {
     },
     international: {
       sectionHeading: 'Solutions for International SaaS Companies',
-      opportunityText: 'The ANZ market represents a $50B+ ecommerce opportunity. Success requires more than a website. You need local expertise, relationships, and cultural understanding. Two Fifths is your on-ground accelerator for confident, rapid market entry.',
+      opportunityText: 'The ANZ market represents a $50B+ ecommerce opportunity. Success requires more than a website. You need local expertise, relationships, and cultural understanding. I am your on-ground accelerator for confident, rapid market entry.',
       packages: [
         {
           title: 'Market Validation Sprint',
           subtitle: '4-6 week project',
-          description: 'De-Risk Your Entry. Before you commit significant resources, validate the opportunity size. This sprint provides comprehensive market research, competitive analysis, and strategic partnership mapping tailored specifically for your successful entry.',
+          description: 'De-risk your entry. Before you commit significant resources, validate the opportunity size. I provide comprehensive market research, competitive analysis, and strategic partnership mapping tailored specifically for your successful entry.',
           features: [
             'Market opportunity sizing for your specific SaaS offering',
             'Competitive landscape and white space analysis',
@@ -230,7 +250,7 @@ export const defaultContent: ContentData = {
         {
           title: 'Partner Network Foundation',
           subtitle: '3-6 month engagement',
-          description: 'Seed Your Local Ecosystem and establish a critical local footprint. This engagement systematically identifies, engages, and builds relationships with key regional partners, creating a robust foundation for sustainable growth and market penetration.',
+          description: 'Seed your local ecosystem and establish a critical local footprint. I systematically identify, engage, and build relationships with key regional partners, creating a robust foundation for sustainable growth and market penetration.',
           features: [
             'Partner identification and outreach through local networks',
             'Relationship building, negotiation, and agreement structuring',
@@ -242,7 +262,7 @@ export const defaultContent: ContentData = {
         {
           title: 'Local Market Representation',
           subtitle: '2 days per week ongoing',
-          description: 'Your Local Voice & Face. Maintain a consistent, credible presence without a full local team. We act as your trusted on-the-ground representative, nurturing key relationships, identifying new opportunities, and providing invaluable real-time local intelligence.',
+          description: 'Your local voice and face. Maintain a consistent, credible presence without a full local team. I act as your trusted on-the-ground representative, nurturing key relationships, identifying new opportunities, and providing invaluable real-time local intelligence.',
           features: [
             'Brand representation and local credibility building',
             'Ongoing partner relationship management and growth',
@@ -254,7 +274,7 @@ export const defaultContent: ContentData = {
         {
           title: 'Growth Acceleration Program',
           subtitle: '6-12 month program',
-          description: 'Systematic Market Domination. This comprehensive program focuses on aggressive partner activation, robust revenue pipeline development, and strategic positioning for long-term market leadership.',
+          description: 'Systematic market domination. I focus on aggressive partner activation, robust revenue pipeline development, and strategic positioning for long-term market leadership.',
           features: [
             'Partner activation and performance management for deals',
             'Revenue pipeline development through strategic introductions',

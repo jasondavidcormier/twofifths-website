@@ -1,33 +1,129 @@
-import React from 'react';
-import { Users, TrendingUp, Globe, Award } from 'lucide-react';
+import { Users, TrendingUp, Globe, Award, Clock, Calendar, Target, Zap, Brain, Lightbulb, Compass, Map, Network, Link, Handshake, Shield, Star, Crown, Gem, Heart, Settings, Wrench, PenTool as Tool, Cog, Puzzle, Building, Layers, Package, MapPin, Navigation, Rocket, Plane, Flag, Mountain, Grid as Bridge, Key } from 'lucide-react';
 import TestimonialCarousel from './TestimonialCarousel';
 import { useContent } from '../hooks/useContent';
 
 const About: React.FC = () => {
   const content = useContent();
 
+  // Icon options for each credential - you can choose which set to use
+  const iconOptions = {
+    ecosystemMastery: [
+      { icon: Clock, name: 'Clock', description: 'Represents time/experience' },
+      { icon: Brain, name: 'Brain', description: 'Represents expertise/knowledge' },
+      { icon: Target, name: 'Target', description: 'Represents precision/mastery' },
+      { icon: Compass, name: 'Compass', description: 'Represents navigation/guidance' },
+      { icon: Lightbulb, name: 'Lightbulb', description: 'Represents insights/innovation' }
+    ],
+    trustNetwork: [
+      { icon: Network, name: 'Network', description: 'Represents connections' },
+      { icon: Handshake, name: 'Handshake', description: 'Represents trust/partnerships' },
+      { icon: Shield, name: 'Shield', description: 'Represents trust/reliability' },
+      { icon: Star, name: 'Star', description: 'Represents reputation/excellence' },
+      { icon: Heart, name: 'Heart', description: 'Represents relationships/care' }
+    ],
+    fractionalDesign: [
+      { icon: Settings, name: 'Settings', description: 'Represents customization/precision' },
+      { icon: Puzzle, name: 'Puzzle', description: 'Represents perfect fit solution' },
+      { icon: Layers, name: 'Layers', description: 'Represents structured approach' },
+      { icon: Tool, name: 'Tool', description: 'Represents specialized expertise' },
+      { icon: Package, name: 'Package', description: 'Represents packaged solution' }
+    ],
+    marketEntry: [
+      { icon: MapPin, name: 'MapPin', description: 'Represents location/market entry' },
+      { icon: Rocket, name: 'Rocket', description: 'Represents launch/acceleration' },
+      { icon: Bridge, name: 'Bridge', description: 'Represents connection/entry' },
+      { icon: Key, name: 'Key', description: 'Represents access/unlocking markets' },
+      { icon: Flag, name: 'Flag', description: 'Represents territory/market presence' }
+    ]
+  };
+
   const credentials = [
     {
-      icon: Users,
+      icon: Target, // OPTION 3: Target for precision/mastery - SELECTED
       title: '20+ Years Ecosystem Mastery',
       description: 'Deep expertise in building value from partnerships, API platforms, and developer communities with a proven track record turning integrations into revenue engines.'
     },
     {
-      icon: TrendingUp,
+      icon: Network, // OPTION 1: Network for connections
       title: 'High Trust & Deep Network',
       description: 'Background at leading companies like Shopify, Linktree, and Lonely Planet, plus a respected network across ANZ retail tech and ecommerce communities.'
     },
     {
-      icon: Award,
+      icon: Puzzle, // OPTION 2: Puzzle for perfect fit - SELECTED
       title: 'Fractional by Design',
-      description: 'Senior-level partnership expertise, part-time but on-demand, designed specifically for start-up and scale-up businesses.'
+      description: 'On-demand partnership expertise with premium packages designed specifically for startup and scale-up businesses. Veteran leadership at a part-time price point.'
     },
     {
-      icon: Globe,
+      icon: Rocket, // OPTION 2: Rocket for launch/acceleration - SELECTED
       title: 'Market Entry Architect',
       description: 'Specialised experience guiding US/UK SaaS businesses into ANZ markets, leveraging networks and local expertise for successful expansion.'
     }
   ];
+
+  // You can uncomment this section to see all icon options rendered
+  const renderIconOptions = () => (
+    <div className="mb-8 p-6 bg-gray-50 rounded-lg">
+      <h3 className="text-lg font-semibold mb-4">Icon Options Preview:</h3>
+      
+      <div className="space-y-4">
+        <div>
+          <h4 className="font-medium text-sm mb-2">20+ Years Ecosystem Mastery:</h4>
+          <div className="flex space-x-4">
+            {iconOptions.ecosystemMastery.map(({ icon: Icon, name, description }) => (
+              <div key={name} className="text-center">
+                <div className="w-12 h-12 rounded-xl bg-red-500 flex items-center justify-center mb-1">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-xs text-gray-600">{name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div>
+          <h4 className="font-medium text-sm mb-2">High Trust & Deep Network:</h4>
+          <div className="flex space-x-4">
+            {iconOptions.trustNetwork.map(({ icon: Icon, name, description }) => (
+              <div key={name} className="text-center">
+                <div className="w-12 h-12 rounded-xl bg-red-500 flex items-center justify-center mb-1">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-xs text-gray-600">{name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div>
+          <h4 className="font-medium text-sm mb-2">Fractional by Design:</h4>
+          <div className="flex space-x-4">
+            {iconOptions.fractionalDesign.map(({ icon: Icon, name, description }) => (
+              <div key={name} className="text-center">
+                <div className="w-12 h-12 rounded-xl bg-red-500 flex items-center justify-center mb-1">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-xs text-gray-600">{name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div>
+          <h4 className="font-medium text-sm mb-2">Market Entry Architect:</h4>
+          <div className="flex space-x-4">
+            {iconOptions.marketEntry.map(({ icon: Icon, name, description }) => (
+              <div key={name} className="text-center">
+                <div className="w-12 h-12 rounded-xl bg-red-500 flex items-center justify-center mb-1">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-xs text-gray-600">{name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <section className="py-20 bg-white">
@@ -44,6 +140,9 @@ const About: React.FC = () => {
             {content.about.description}
           </p>
         </div>
+
+        {/* Uncomment the line below to see all icon options */}
+        {/* {renderIconOptions()} */}
 
         {/* Credentials grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
@@ -82,8 +181,8 @@ const About: React.FC = () => {
               <h3 className="font-heading text-3xl font-bold mb-4">
                 <span style={{ color: '#c4374f' }}>{content.about.profileHeading}</span>
               </h3>
-              <p className="text-xl mb-6 text-white">
-                <span className="font-heading">{content.about.profileSubtitle}</span>
+              <p className="text-xl mb-6 text-white font-heading">
+                {content.about.profileSubtitle}
               </p>
               <div className="space-y-3">
                 {content.about.profilePoints.map((point, index) => (
@@ -101,45 +200,6 @@ const About: React.FC = () => {
                 className="w-64 h-64 rounded-2xl mx-auto object-cover ring-4 ring-white ring-offset-4 ring-offset-black shadow-2xl"
               />
             </div>
-          </div>
-        </div>
-
-        {/* Logo strip */}
-        <div className="text-center mb-12">
-          <p className="text-xl text-gray-600 mb-8">
-            Successfully built, managed, and grew partner programs for brands you know
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-            <img 
-              src="/1280px-Shopify_logo_2018.svg.webp" 
-              alt="Shopify" 
-              className="h-8 md:h-10 object-contain"
-            />
-            <img 
-              src="/shippit-logo-3.png" 
-              alt="Shippit" 
-              className="h-8 md:h-10 object-contain"
-            />
-            <img 
-              src="/lonelyplanetNEW_2.png" 
-              alt="Lonely Planet" 
-              className="h-8 md:h-10 object-contain"
-            />
-            <img 
-              src="/Linktree_logo.svg.webp" 
-              alt="Linktree" 
-              className="h-5 md:h-7 object-contain"
-            />
-            <img 
-              src="/yellowpages.png" 
-              alt="Yellow Pages" 
-              className="h-8 md:h-10 object-contain hover:scale-110 transition-all duration-300"
-            />
-            <img 
-              src="/Victoria_State_Government_logo.svg.png" 
-              alt="Victorian Government" 
-              className="h-8 md:h-10 object-contain hover:scale-110 transition-all duration-300"
-            />
           </div>
         </div>
 

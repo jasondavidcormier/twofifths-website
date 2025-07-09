@@ -1,0 +1,230 @@
+{
+  "type": "twofifths-cms-export",
+  "version": "1.0.0",
+  "timestamp": 1704067200000,
+  "exportedAt": "2024-01-01T00:00:00.000Z",
+  "content": {
+    "hero": {
+      "headline": "Fractional Partnership Leadership on Demand",
+      "subheadline": "Stop leaving growth on the table. Access senior partnerships experience and wisdom without the burden of a full-time hire.",
+      "ctaText": "Browse Service Packages"
+    },
+    "about": {
+      "mainHeading": "Why Two Fifths?",
+      "tagline": "Revenue is a result, not a goal. Build a partner ecosystem on trust and shared purpose, and growth will take care of itself.",
+      "description": "Growth doesn't happen in a vacuum. Most SaaS companies know partnerships can accelerate growth, but lack the expertise to execute effectively. Two Fifths brings battle-tested, fractional leadership to transform untapped opportunities into competitive advantages.",
+      "profileHeading": "Two Fifths = Jason Cormier",
+      "profileSubtitle": "Founder & Partnership Strategist",
+      "profilePoints": [
+        "Two decades building and scaling partner programs and delivering measurable value",
+        "Early pioneer for API platforms and integration partnerships in the APAC region",
+        "Authored standardised digital transformation blueprints for government-scale programs",
+        "Shopify alumnus with insider insights & a trusted ecommerce network that opens doors"
+      ]
+    },
+    "audienceSelector": {
+      "heading": "Choose Your Path to Partnership Success",
+      "description": "Click below to select the option that best describes your business and see tailored service packages specifically designed to address your needs.",
+      "australian": {
+        "title": "Australian SaaS Companies",
+        "subtitle": "Scale-up & Start-up Businesses",
+        "description": "Partnerships feel like a struggle or \"nice-to-have\"? Get fractional strategic leadership to turn relationships into your growth engine."
+      },
+      "international": {
+        "title": "International SaaS Companies",
+        "subtitle": "Expanding to ANZ Markets",
+        "description": "Ready for ANZ expansion but local nuances feel complex? Get on-ground expertise and networks for rapid, confident market entry."
+      }
+    },
+    "testimonials": [
+      {
+        "name": "Rob Hango-Zada",
+        "title": "Co-Founder and Co-CEO at Shippit",
+        "quote": "Jason is a natural relationship builder, connector and all round big thinker. His deep understanding of what it takes to build enduring partnerships along with his pragmatic approach helped us completely redefine partnerships at Shippit."
+      },
+      {
+        "name": "Lee Hardham",
+        "title": "Founder and CEO at Brauz",
+        "quote": "Jason's ability to manage partner relationships is exemplary. He fostered a truly collaborative win-win environment where our team felt supported and highly valued. This led to stronger relationships and more successful joint initiatives than we'd seen before."
+      },
+      {
+        "name": "Jeff Trounce",
+        "title": "Global Manager at Lonely Planet",
+        "quote": "Jason's got a rare knack for cross-functional collaboration and getting things done. At Lonely Planet, he got results through persistence, expertly handling complex issues. He truly understands how marketing intersects with new partnerships, driving efficient, low-cost outcomes."
+      },
+      {
+        "name": "Jimmy Zhong",
+        "title": "CEO and Co-founder at Syncio",
+        "quote": "Navigating the Shopify App Ecosystem can be challenging, but Jason's invaluable advice directly led to our improved growth and market visibility. His authentic expertise in partnerships and ecosystem development is truly commendable and highly recommended."
+      },
+      {
+        "name": "Charlotte Michalanney",
+        "title": "Head of Marketing at Convert Digital",
+        "quote": "Working with Jason highlighted the value and impact of stronger partnerships. He ensured we always felt supported and that he had our best interests at heart, which not only strengthened our relationships but also drove greater mutual success. A true professional."
+      },
+      {
+        "name": "Keran McKenzie",
+        "title": "Futurist in Residence at MYOB",
+        "quote": "Jason's the real deal for building partner ecosystems. He helped us scale MYOB from zero to thousands of developers. He brings the right tools, tech, programs, and strategic thinking, understanding both the business and people side of partnerships. He just delivers."
+      },
+      {
+        "name": "Robert Gibson",
+        "title": "Head of APAC Partnershops at Klaviyo",
+        "quote": "Getting Klaviyo set up in ANZ was a lot of work, but Jason's help was meaningful. His Shopify experience, local industry knowledge, and connections really made a difference. His encouragement and advice were also invaluable! He was a big part of our local success."
+      },
+      {
+        "name": "Elliot Spirrett",
+        "title": "Head of Partnerships ANZ at GoCardless",
+        "quote": "Jason is an invaluable mentor. His vast experience across diverse industries and company stages means he's accumulated immense insight. He's always ready to share that knowledge and nurture others, which I'm incredibly grateful for in our work together."
+      },
+      {
+        "name": "Matt Holme",
+        "title": "Founder and CEO at YouPay",
+        "quote": "When Jason was helping us get our payment integration working he was always very helpful and provided meaningful support and advice. His knowledge of the Shopify ecosystem is really deep, which helped us navigate many complexities."
+      },
+      {
+        "name": "Rhys Furner",
+        "title": "Director of Partnerships APAC at Shopify",
+        "quote": "Jason's energy and creativity have earned him a stellar reputation in the industry, he knows everyone and is highly respected. His ability to connect the right people and companies was critical in growing our partner ecosystem and creating new opportunities for Shopify."
+      },
+      {
+        "name": "Gaelle Decolnet",
+        "title": "Channel and Alliance APAC at Fluent Commerce",
+        "quote": "Jason embodies a truly great partner manager. His rigor, consistency, and strong business acumen ensure both companies are served. His unmatched partnership skills drive pipeline through valuable joint activities, connecting the right people and making everyone feel genuinely supported."
+      },
+      {
+        "name": "Shauna Butcher",
+        "title": "Head of Marketing at Shippit",
+        "quote": "Working with Jason on partner marketing was great. His creativity and focus on mutual benefit were key. He expertly managed diverse partners, agendas, and personalities, pulling everyone together to deliver significantly better joint marketing results. A true collaborator."
+      }
+    ],
+    "nextSteps": {
+      "heading": "Next Steps",
+      "description": "Still unsure where to start? Pick a conversation opener that works best for you.",
+      "formHeading": "The Conversation Starts Here.",
+      "formDescription": "Share your business overview and partnership goals. I'll respond within 24 hours with tailored insights and clear next steps. No sales pressure, just focused growth discussion."
+    },
+    "contact": {
+      "email": "jason@twofifthsfractional.com",
+      "phone": "+61 423 161 718",
+      "location": "Melbourne, Australia"
+    },
+    "servicePackages": {
+      "australian": {
+        "sectionHeading": "Solutions for Australian SaaS Companies",
+        "opportunityText": "Partnerships are a top priority for most executives, who understand they can deliver leads that are exponentially more valuable than traditional channels. But too often, programs lack strategic focus and partners take over a year to become productive. Two Fifths bridges this gap with dedicated, senior-level partnership leadership that drives proven impact.",
+        "packages": [
+          {
+            "title": "Fractional Partnership Architect",
+            "subtitle": "2-3 days/week",
+            "description": "Your Strategic Growth Partner. More than a consultant; it's an embedded executive. We build, execute, and scale your entire partnership function from strategy to everyday wins, integrating seamlessly with your team.",
+            "features": [
+              "Strategy & execution aligned to your organisational goals",
+              "Partner recruitment, onboarding, and enablement",
+              "Cross-functional team alignment and collaboration",
+              "Data-driven optimisation and performance monitoring"
+            ],
+            "ideal": "Perfect for ambitious SaaS companies ready to make partnerships a primary growth lever, but not yet ready for the overhead of a permanent senior hire."
+          },
+          {
+            "title": "Partnership Program Blueprint",
+            "subtitle": "2-4 week engagement",
+            "description": "Audit & Optimise Your Ecosystem. Your partnerships exist, but are they performing? This engagement provides a forensic audit of your current program, diagnosing what's broken and delivering a precise blueprint for immediate and long-term optimisation.",
+            "features": [
+              "Comprehensive analysis of current partnerships and GTM approach",
+              "Partner ROI evaluation and strategic gap identification",
+              "Prioritised roadmap for process and technology improvements",
+              "Internal alignment and partner commitment assessment"
+            ],
+            "ideal": "Ideal for SaaS businesses with existing partnership programs struggling to scale, achieve clear ROI, or facing misaligned expectations."
+          },
+          {
+            "title": "Strategic Partnership Sprint",
+            "subtitle": "3-6 week project",
+            "description": "Launchpad for New Initiatives. You have a vision for partnerships, but need clarity on the path. This sprint delivers a rapid, data-backed strategy, identifying your ideal partners, defining mutual value, and charting your precise go-to-market plan.",
+            "features": [
+              "Strategic partner identification and integration mapping",
+              "Partnership framework and value proposition development",
+              "Monetisation models and value exchange definition",
+              "Implementation roadmap with milestones and success metrics"
+            ],
+            "ideal": "Great for anyone at the genesis of their partnership journey, or those launching a significant new initiative, seeking a clear, confident start."
+          },
+          {
+            "title": "Advisory & Executive Coaching",
+            "subtitle": "4-8 hours per month",
+            "description": "Empower Your Internal Team. You have the internal drive, but need an experienced thought partner to navigate the complexities. This package provides ongoing, strategic guidance and direct coaching to elevate your team's capabilities and accelerate your success.",
+            "features": [
+              "Regular strategic sessions and partnership approach refinement",
+              "Deal evaluation, structuring, and value maximisation",
+              "Team coaching on acquisition, enablement, and GTM execution",
+              "Strategic introductions and network connections"
+            ],
+            "ideal": "Perfect for SaaS companies with an emerging internal partnership function, or founders who want a trusted adviser to ensure their partnership strategy is sharp and effective."
+          }
+        ]
+      },
+      "international": {
+        "sectionHeading": "Solutions for International SaaS Companies",
+        "opportunityText": "The ANZ market represents a $50B+ ecommerce opportunity. Success requires more than a website. You need local expertise, relationships, and cultural understanding. Two Fifths is your on-ground accelerator for confident, rapid market entry.",
+        "packages": [
+          {
+            "title": "Market Validation Sprint",
+            "subtitle": "4-6 week project",
+            "description": "De-Risk Your Entry. Before you commit significant resources, validate the opportunity size. This sprint provides comprehensive market research, competitive analysis, and strategic partnership mapping tailored specifically for your successful entry.",
+            "features": [
+              "Market opportunity sizing for your specific SaaS offering",
+              "Competitive landscape and white space analysis",
+              "Local partnership ecosystem and channel mapping",
+              "Go-to-market plan with local insights and networks"
+            ],
+            "ideal": "International SaaS companies meticulously evaluating the ANZ market, seeking to minimise risk and maximise the impact of their initial strategic investments."
+          },
+          {
+            "title": "Partner Network Foundation",
+            "subtitle": "3-6 month engagement",
+            "description": "Seed Your Local Ecosystem and establish a critical local footprint. This engagement systematically identifies, engages, and builds relationships with key regional partners, creating a robust foundation for sustainable growth and market penetration.",
+            "features": [
+              "Partner identification and outreach through local networks",
+              "Relationship building, negotiation, and agreement structuring",
+              "Program launch support and partner onboarding",
+              "Strategic prioritisation for highest-impact partnerships"
+            ],
+            "ideal": "Ideal for companies ready to build a strong, localised partnership network as their cornerstone for ANZ market penetration."
+          },
+          {
+            "title": "Local Market Representation",
+            "subtitle": "2 days per week ongoing",
+            "description": "Your Local Voice & Face. Maintain a consistent, credible presence without a full local team. We act as your trusted on-the-ground representative, nurturing key relationships, identifying new opportunities, and providing invaluable real-time local intelligence.",
+            "features": [
+              "Brand representation and local credibility building",
+              "Ongoing partner relationship management and growth",
+              "Industry event participation and strategic networking",
+              "Real-time market intelligence and competitive insights"
+            ],
+            "ideal": "Great for international SaaS companies requiring a consistent, expert presence in the ANZ market to sustain momentum, deepen relationships, and capture emerging opportunities."
+          },
+          {
+            "title": "Growth Acceleration Program",
+            "subtitle": "6-12 month program",
+            "description": "Systematic Market Domination. This comprehensive program focuses on aggressive partner activation, robust revenue pipeline development, and strategic positioning for long-term market leadership.",
+            "features": [
+              "Partner activation and performance management for deals",
+              "Revenue pipeline development through strategic introductions",
+              "Data-driven optimisation of highest-impact initiatives",
+              "Local team preparation and transition planning"
+            ],
+            "ideal": "Perfect for international companies committed to aggressive growth and seeking sustained market leadership within the ANZ region, aiming for a systematic and highly optimised scale-up."
+          }
+        ]
+      }
+    }
+  },
+  "metadata": {
+    "exportedBy": "Two Fifths Website",
+    "totalSections": 7,
+    "totalTestimonials": 12,
+    "totalServicePackages": 8,
+    "lastUpdated": "2024-01-01T00:00:00.000Z"
+  }
+}
