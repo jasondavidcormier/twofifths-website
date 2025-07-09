@@ -74,7 +74,7 @@ export interface ContentData {
 export const defaultContent: ContentData = {
   hero: {
     headline: 'Fractional Partnership Leadership on Demand', 
-    subheadline: 'Stop leaving revenue on the table. Access seasoned partnerships experience now, without the burden of a full-time hire.',
+    subheadline: 'Stop leaving revenue on the table. Get access to a veteran partnership leader now, without the burden of a full-time hire.',
     ctaText: 'Browse Service Packages'
   },
   about: {

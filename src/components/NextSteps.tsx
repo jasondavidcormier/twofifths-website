@@ -297,7 +297,8 @@ const NextSteps: React.FC = () => {
                     }`}
                     style={{ backgroundColor: '#c4374f' }}
                   >
-                    <span>{isLoading ? 'Sending...' : 'Accelerate My Partnership Journey'}</span>
+                    <span className="hidden sm:inline">{isLoading ? 'Sending...' : 'Accelerate My Partnership Journey'}</span>
+                    <span className="sm:hidden">{isLoading ? 'Sending...' : 'Send Email'}</span>
                     <ArrowRight className="w-5 h-5" />
                   </button>
                 </form>
