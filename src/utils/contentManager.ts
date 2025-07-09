@@ -101,7 +101,7 @@ export const defaultContent: ContentData = {
     international: {
       title: 'International SaaS Companies',
       subtitle: 'Expanding to ANZ Markets',
-      description: 'Ready for ANZ expansion but local nuances feel complex? Navigate with confidence with on-ground expertise and established networks that set you up for success.'
+      description: 'Ready for ANZ expansion but local nuances feel complex? Navigate with confidence thanks to on-ground expertise and established networks that set you up for success.'
     }
   },
   testimonials: [
