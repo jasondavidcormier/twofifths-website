@@ -80,7 +80,7 @@ export const defaultContent: ContentData = {
   about: {
     mainHeading: 'What Does Two-Fifths Do?',
     tagline: '',
-    description: 'Growth doesn\'t happen in a vacuum. Most SaaS companies know partnerships can accelerate growth, but lack the expertise to execute effectively.',
+    description: 'Growth doesn\'t happen in a vacuum. B2B SaaS companies know partnerships can accelerate growth, but often lack the time or expertise to execute effectively.',
     calloutText: 'The result? You\'ll increase your average deal size, reduce your average time to close, and significantly improve overall deal win percentages. That\'s how your untapped opportunities transform into powerful competitive advantages.',
     profileHeading: 'Two-Fifths is Jason Cormier',
     profileSubtitle: 'Founder & Senior Partnership Strategist',
