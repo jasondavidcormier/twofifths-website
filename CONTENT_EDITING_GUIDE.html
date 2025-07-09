@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Fifths Website Content Editing Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+        }
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+        }
+        .important {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 5px 0;
+        }
+        .file-path {
+            background-color: #e8f4fd;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #0366d6;
+            margin: 10px 0;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #ecf0f1;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Two-Fifths Website Content Editing Guide</h1>
+
+<p>This guide will show you how to update your website content directly through GitHub. Once you make changes and "commit" them, your website will automatically update within 1-2 minutes.</p>
+
+<h2>Getting Started with GitHub</h2>
+
+<h3>What is GitHub?</h3>
+<p>GitHub is like Google Drive for code. It stores all your website files and tracks changes. When you edit a file and save it (called "committing"), your website automatically rebuilds with the new content.</p>
+
+<h3>Accessing Your Files</h3>
+<ol>
+    <li>Go to your GitHub repository (the folder containing all your website files)</li>
+    <li>You'll see a list of folders and files</li>
+    <li>Click on any file to view it</li>
+    <li>Click the pencil icon (✏️) in the top right to edit it</li>
+</ol>
+
+<h3>Making Changes</h3>
+<ol>
+    <li>Edit the content directly in the browser</li>
+    <li>Scroll to the bottom when done</li>
+    <li>Add a brief description of what you changed (e.g., "Updated hero headline")</li>
+    <li>Click "Commit changes" (green button)</li>
+    <li>Wait 1-2 minutes for your website to update</li>
+</ol>
+
+<hr>
+
+<h2>1. General Content Edits</h2>
+
+<div class="file-path">File to edit: src/utils/contentManager.ts</div>
+
+<h3>Finding the Content</h3>
+<ol>
+    <li>Navigate to <code>src</code> folder → <code>utils</code> folder → <code>contentManager.ts</code></li>
+    <li>Click the pencil icon to edit</li>
+    <li>Look for the <code>defaultContent</code> section (around line 80)</li>
+</ol>
+
+<h3>Common Content Areas</h3>
+
+<h4>Hero Section (Top of homepage)</h4>
+<pre>hero: {
+  headline: 'Fractional Partnership Leadership on Demand',
+  subheadline: 'Get access to a veteran partnership leader now, without the burden of a full-time hire.',
+  ctaText: 'Browse Service Packages'
+},</pre>
+
+<p><strong>To change:</strong></p>
+<ul>
+    <li>Replace text between the quotes</li>
+    <li>Keep the quotes and commas exactly as they are</li>
+</ul>
+
+<h4>About Section</h4>
+<pre>about: {
+  mainHeading: 'Why Two-Fifths?',
+  tagline: 'Revenue is a result, not a goal...',
+  description: 'Growth doesn\'t happen in a vacuum...',
+  profileHeading: 'Two-Fifths is Jason Cormier',
+  profileSubtitle: 'Founder & Senior Partnership Strategist',
+  profilePoints: [
+    'Two decades building and scaling partner programs...',
+    'Early pioneer for API platforms...',
+    'Authored standardised digital transformation...',
+    'Shopify alumnus with insider insights...'
+  ]
+},</pre>
+
+<p><strong>To change profile points:</strong></p>
+<ul>
+    <li>Each point is surrounded by quotes and separated by commas</li>
+    <li>Add new points by copying the format: <code>'Your new point here',</code></li>
+    <li>Remove points by deleting the entire line including the comma</li>
+</ul>
+
+<h4>Contact Information</h4>
+<pre>contact: {
+  email: 'jason@twofifthsfractional.com',
+  phone: '+61 423 161 718',
+  location: 'Melbourne, Australia'
+},</pre>
+
+<h4>Next Steps Section</h4>
+<pre>nextSteps: {
+  heading: 'Next Steps',
+  description: 'Still unsure where to start?...',
+  formHeading: 'Let\'s Connect',
+  formDescription: 'Share your business overview...'
+},</pre>
+
+<div class="important">
+<h4>Important Rules:</h4>
+<ul>
+    <li>Always keep quotes around text</li>
+    <li>Keep commas at the end of lines</li>
+    <li>Don't delete the structure (the words before the colons)</li>
+    <li>If you see <code>\'</code> in text, that's an escaped apostrophe - leave it as is</li>
+</ul>
+</div>
+
+<hr>
+
+<h2>2. Adding/Editing Testimonials</h2>
+
+<div class="file-path">File to edit: src/utils/contentManager.ts</div>
+
+<h3>Finding Testimonials</h3>
+<ol>
+    <li>In <code>contentManager.ts</code>, find the <code>testimonials:</code> section (around line 150)</li>
+    <li>You'll see an array of testimonial objects</li>
+</ol>
+
+<h3>Testimonial Format</h3>
+<pre>{
+  name: 'Rob Hango-Zada',
+  title: 'Co-Founder and Co-CEO',
+  company: 'Shippit',
+  quote: 'Jason is a natural relationship builder...'
+},</pre>
+
+<h3>Adding a New Testimonial</h3>
+<ol>
+    <li>Find the end of the testimonials list (look for the closing <code>]</code>)</li>
+    <li>Before the <code>]</code>, add a comma after the last testimonial</li>
+    <li>Add your new testimonial:</li>
+</ol>
+
+<pre>{
+  name: 'Your Contact Name',
+  title: 'Their Job Title',
+  company: 'Company Name',
+  quote: 'The testimonial text goes here...'
+},</pre>
+
+<h3>Adding Company Logo Icons</h3>
+
+<h4>Step 1: Upload the Logo</h4>
+<ol>
+    <li>Go to the <code>public/testimonialicons/</code> folder</li>
+    <li>Click "Add file" → "Upload files"</li>
+    <li>Upload your company logo (PNG or JPG format)</li>
+    <li>Name it something simple like <code>companyname.png</code></li>
+    <li>Commit the upload</li>
+</ol>
+
+<h4>Step 2: Update the Icon Mapping</h4>
+<ol>
+    <li>Go to <code>src/components/TestimonialCarousel.tsx</code></li>
+    <li>Find the <code>getCompanyIcon</code> function (around line 15)</li>
+    <li>Add a new line following this pattern:</li>
+</ol>
+
+<pre>if (companyLower.includes('your company name')) return '/testimonialicons/yourfile.png';</pre>
+
+<p><strong>Example:</strong></p>
+<pre>if (companyLower.includes('microsoft')) return '/testimonialicons/microsoft.png';</pre>
+
+<h3>Removing a Testimonial</h3>
+<ol>
+    <li>Find the testimonial you want to remove</li>
+    <li>Delete everything from the opening <code>{</code> to the closing <code>},</code></li>
+    <li>Make sure there's still a comma after the previous testimonial</li>
+</ol>
+
+<hr>
+
+<h2>3. Changing Logo Strip</h2>
+
+<div class="file-path">File to edit: src/components/LogoStrip.tsx</div>
+
+<h3>Finding the Logo Strip</h3>
+<ol>
+    <li>Navigate to <code>src</code> → <code>components</code> → <code>LogoStrip.tsx</code></li>
+    <li>Look for the section with multiple <code>&lt;img</code> tags (around line 15)</li>
+</ol>
+
+<h3>Logo Format</h3>
+<pre>&lt;img 
+  src="/1280px-Shopify_logo_2018.svg.webp" 
+  alt="Shopify" 
+  className="h-8 md:h-10 object-contain hover:scale-110 transition-all duration-300"
+/&gt;</pre>
+
+<h3>Adding a New Logo</h3>
+<ol>
+    <li>Upload your logo file to the <code>public/</code> folder (same process as testimonial icons)</li>
+    <li>Copy an existing <code>&lt;img</code> block</li>
+    <li>Change the <code>src="/your-logo-filename.png"</code></li>
+    <li>Change the <code>alt="Your Company Name"</code></li>
+</ol>
+
+<h3>Removing a Logo</h3>
+<ol>
+    <li>Find the <code>&lt;img</code> block you want to remove</li>
+    <li>Delete everything from <code>&lt;img</code> to the closing <code>/&gt;</code></li>
+</ol>
+
+<h3>Changing Logo Order</h3>
+<ul>
+    <li>Cut and paste entire <code>&lt;img</code> blocks to reorder them</li>
+    <li>The order in the code is the order they appear on the website</li>
+</ul>
+
+<hr>
+
+<h2>4. Hide/Show Playbook Waitlist Module</h2>
+
+<div class="file-path">File to edit: src/components/ServicePackages.tsx</div>
+
+<h3>Finding the Playbook Section</h3>
+<ol>
+    <li>Navigate to <code>src</code> → <code>components</code> → <code>ServicePackages.tsx</code></li>
+    <li>Look for the section that starts with <code>{audience === 'international' && (</code> (around line 120)</li>
+</ol>
+
+<h3>To Hide the Playbook Module</h3>
+<ol>
+    <li>Find this line: <code>{audience === 'international' && (</code></li>
+    <li>Change it to: <code>{false && (</code></li>
+</ol>
+
+<h3>To Show the Playbook Module</h3>
+<ol>
+    <li>Find the line that says: <code>{false && (</code></li>
+    <li>Change it back to: <code>{audience === 'international' && (</code></li>
+</ol>
+
+<h3>Editing Playbook Content</h3>
+<p>Within the playbook section, you can edit:</p>
+<ul>
+    <li>The heading text</li>
+    <li>The description text</li>
+    <li>The button text</li>
+</ul>
+<p>Look for text between quotes and edit as needed.</p>
+
+<hr>
+
+<h2>Service Package Content</h2>
+
+<div class="file-path">File to edit: src/utils/contentManager.ts</div>
+
+<h3>Finding Service Packages</h3>
+<ol>
+    <li>Look for <code>servicePackages:</code> section (around line 300)</li>
+    <li>You'll see <code>australian:</code> and <code>international:</code> sections</li>
+</ol>
+
+<h3>Package Format</h3>
+<pre>{
+  title: 'Fractional Partnership Architect',
+  subtitle: '2-3 days/week',
+  description: 'Your strategic growth partner...',
+  features: [
+    'Strategy & execution aligned to your organisational goals',
+    'Partner recruitment, onboarding, and enablement',
+    'Cross-functional team alignment and collaboration',
+    'Data-driven optimisation and performance monitoring'
+  ],
+  ideal: 'Perfect for ambitious SaaS companies...'
+}</pre>
+
+<h3>Editing Packages</h3>
+<ul>
+    <li>Change any text between quotes</li>
+    <li>Add/remove features following the same format</li>
+    <li>Keep the structure intact</li>
+</ul>
+
+<hr>
+
+<div class="warning">
+<h2>Common Mistakes to Avoid</h2>
+<ol>
+    <li><strong>Don't remove quotes</strong> - All text content must be in quotes</li>
+    <li><strong>Don't remove commas</strong> - They separate items in lists</li>
+    <li><strong>Don't change structure words</strong> - Words like <code>hero:</code>, <code>title:</code>, <code>description:</code> should stay</li>
+    <li><strong>Watch your brackets</strong> - <code>{</code>, <code>}</code>, <code>[</code>, <code>]</code> must stay balanced</li>
+    <li><strong>Test small changes first</strong> - Make one small edit to see how it works</li>
+</ol>
+</div>
+
+<h2>Getting Help</h2>
+<p>If something breaks:</p>
+<ol>
+    <li>Check the GitHub "Actions" tab to see if there are any error messages</li>
+    <li>Look at your recent commits and try to identify what changed</li>
+    <li>You can always revert to a previous version using GitHub's history</li>
+</ol>
+
+<h2>File Structure Quick Reference</h2>
+<pre>src/
+├── components/
+│   ├── LogoStrip.tsx (logo strip)
+│   ├── ServicePackages.tsx (playbook module)
+│   └── TestimonialCarousel.tsx (testimonial icons)
+└── utils/
+    └── contentManager.ts (main content)
+
+public/
+├── testimonialicons/ (testimonial company logos)
+└── (main logo files)</pre>
+
+<div class="important">
+<p><strong>Remember:</strong> After any change, commit with a clear message and wait 1-2 minutes for the website to update!</p>
+</div>
+
+</body>
+</html>

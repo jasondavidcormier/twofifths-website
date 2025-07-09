@@ -78,9 +78,10 @@ export const defaultContent: ContentData = {
     ctaText: 'Browse Service Packages'
   },
   about: {
-    mainHeading: 'Why Two-Fifths?',
-    tagline: 'Revenue is a result, not a goal. Build a partner ecosystem on a foundation of trust and shared purpose, and growth will take care of itself.',
-    description: 'Growth doesn\'t happen in a vacuum. Most SaaS companies know partnerships can accelerate growth, but lack the expertise to execute effectively. I bring battle-tested, fractional leadership to transform your untapped opportunities into competitive advantages.',
+    mainHeading: 'What Does Two-Fifths Do?',
+    tagline: '',
+    description: 'Growth doesn\'t happen in a vacuum. Most SaaS companies know partnerships can accelerate growth, but lack the expertise to execute effectively.',
+    calloutText: 'The result? You\'ll increase your average deal size, reduce your average time to close, and significantly improve overall deal win percentages. That\'s how your untapped opportunities transform into powerful competitive advantages.',
     profileHeading: 'Two-Fifths is Jason Cormier',
     profileSubtitle: 'Founder & Senior Partnership Strategist',
     profilePoints: [
@@ -96,7 +97,7 @@ export const defaultContent: ContentData = {
     australian: {
       title: 'Australian SaaS Companies',
       subtitle: 'Scale-up & Start-up Businesses',
-      description: 'Partnerships feel like a struggle or a "nice-to-have"? Fractional leadership turns relationships into a growth engine, without the cost of a full-time hire.'
+      description: 'Partnerships feel like a struggle but it\'s too early to build a team? Fractional leadership turns relationships into a growth engine, without the cost of a full-time hire.'
     },
     international: {
       title: 'International SaaS Companies',

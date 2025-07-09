@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle, Calendar, MessageCircle, FileText, PieChart, Wrench, Target, TrendingUp } from 'lucide-react';
+import { ArrowRight, CheckCircle, Calendar, MessageCircle, FileText, PieChart, Settings, Target, TrendingUp } from 'lucide-react';
 import { useContent } from '../hooks/useContent';
 
 const NextSteps: React.FC = () => {
@@ -139,7 +139,7 @@ const NextSteps: React.FC = () => {
           <div className="text-center group">
             <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
                  style={{ backgroundColor: '#c4374f' }}>
-              <Wrench className="w-6 h-6 text-white" />
+              <Settings className="w-6 h-6 text-white" />
             </div>
             <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
               Custom Proposal
