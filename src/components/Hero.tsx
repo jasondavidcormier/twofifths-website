@@ -6,13 +6,21 @@ const Hero: React.FC = () => {
   const content = useContent();
 
   const scrollToAudience = () => {
-    document.getElementById('audience-selector')?.scrollIntoView({ 
-      behavior: 'smooth' 
-    });
+    const element = document.getElementById('audience-selector');
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden pt-20">
       {/* Mobile: Stacked layout, Desktop: Split layout */}
       <div className="absolute inset-0 flex flex-col md:flex-row">
         {/* Left side - Solid background for logo and text */}

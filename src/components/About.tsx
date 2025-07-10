@@ -1,5 +1,6 @@
 import { Users, TrendingUp, Globe, Award, Clock, Calendar, Target, Zap, Brain, Lightbulb, Compass, Map, Network, Link, Handshake, Shield, Star, Crown, Gem, Heart, Settings, Wrench, PenTool as Tool, Cog, Puzzle, Building, Layers, Package, MapPin, Navigation, Rocket, Plane, Flag, Mountain, Grid as Bridge, Key } from 'lucide-react';
 import TestimonialCarousel from './TestimonialCarousel';
+import LogoStrip from './LogoStrip';
 import { useContent } from '../hooks/useContent';
 
 const About: React.FC = () => {
@@ -29,7 +30,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section>
+    <section id="about-section">
       {/* Gray background section for Why Two-Fifths and 3-step process */}
       <div className="py-20 bg-gray-100">
         <div className="max-w-6xl mx-auto px-6">
@@ -38,7 +39,7 @@ const About: React.FC = () => {
             <h2 className="font-heading text-4xl font-bold text-gray-900 mb-4">
               {content.about.mainHeading}
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
               {content.about.description}
             </p>
           </div>
@@ -54,7 +55,7 @@ const About: React.FC = () => {
                     <span className="text-sm font-bold text-white">1</span>
                   </div>
                   <h4 className="font-heading text-lg font-bold text-gray-900 mb-2">The Problem</h4>
-                  <p className="text-gray-600 leading-relaxed flex-grow">
+                  <p className="text-gray-600 leading-relaxed flex-grow text-sm">
                     Most companies struggle with harnessing partnerships properly, and it can bumped down to a "nice-to-have" rather than a prioritised program of specialised work to generate growth.
                   </p>
                 </div>
@@ -66,7 +67,7 @@ const About: React.FC = () => {
                     <span className="text-sm font-bold text-white">2</span>
                   </div>
                   <h4 className="font-heading text-lg font-bold text-gray-900 mb-2">My Solution</h4>
-                  <p className="text-gray-600 leading-relaxed flex-grow">
+                  <p className="text-gray-600 leading-relaxed flex-grow text-sm">
                     I bring battle-tested, fractional leadership to carefully craft tailored partner programs designed to develop the right relationships with exactly the right partners to get your brand in front of new, ideal customers.
                   </p>
                 </div>
@@ -79,7 +80,7 @@ const About: React.FC = () => {
                   </div>
                   <h4 className="font-heading text-lg font-bold text-gray-900 mb-2">Your Results</h4>
                   <div className="text-gray-600 leading-relaxed flex-grow">
-                    <div className="space-y-2 mb-4">
+                    <div className="space-y-2 mb-4 text-sm">
                       <div className="inline-flex items-center space-x-2 px-3 py-1 bg-red-50 rounded-full border border-red-200">
                         <div className="w-2 h-2 rounded-full bg-red-500"></div>
                         <span className="text-red-700 font-medium text-sm">Increase your average deal size</span>
@@ -90,7 +91,7 @@ const About: React.FC = () => {
                       </div>
                       <div className="inline-flex items-center space-x-2 px-3 py-1 bg-red-50 rounded-full border border-red-200">
                         <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                        <span className="text-red-700 font-medium text-sm">Improve overall deal won percentages</span>
+                        <span className="text-red-700 font-medium text-sm">Improve your closed-won win rate</span>
                       </div>
                     </div>
                   </div>
@@ -99,7 +100,7 @@ const About: React.FC = () => {
               
               {/* Tagline text beneath the boxes */}
               <div className="mt-8 text-center">
-                <p className="font-heading text-white text-lg leading-relaxed">
+                <p className="text-white text-lg leading-relaxed">
                   Revenue is a result, not a goal.<br />
                   Build a partner ecosystem on a foundation of trust and shared purpose, and growth will take care of itself.
                 </p>
@@ -112,6 +113,9 @@ const About: React.FC = () => {
       {/* White background section for credentials, bio, and testimonials */}
       <div className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
+          {/* Logo strip - moved here to be above credentials */}
+          <LogoStrip />
+          
           {/* Credentials grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
             {credentials.map((credential, index) => {

@@ -31,8 +31,21 @@ const NextSteps: React.FC = () => {
           ...formData,
           timestamp: new Date().toISOString(),
           source: 'next-steps-form'
-        })
+        }),
       });
+      
+      // Scroll to form after successful submission
+      const conversationForm = document.querySelector('[data-section="conversation-form"]') as HTMLElement;
+      if (conversationForm) {
+        const headerHeight = 80;
+        const elementPosition = conversationForm.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
       
       setIsSubmitted(true);
     } catch (error) {

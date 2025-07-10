@@ -24,6 +24,7 @@ const TestimonialCarousel: React.FC = () => {
     if (companyLower.includes('shopify')) return '/testimonialicons/shopify.png';
     if (companyLower.includes('fluent commerce')) return '/testimonialicons/fluentcommerce.png';
     if (companyLower.includes('order editing')) return '/testimonialicons/Orderedit.png';
+    if (companyLower.includes('litecard')) return '/testimonialicons/litecard.png';
     
     // Default fallback - use shippit for the second shippit testimonial
     if (name === 'Shauna Butcher') return '/testimonialicons/shippit.png';

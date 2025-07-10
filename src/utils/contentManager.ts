@@ -74,13 +74,13 @@ export interface ContentData {
 export const defaultContent: ContentData = {
   hero: {
     headline: 'Fractional Partnership Leadership on Demand', 
-    subheadline: 'Stop leaving revenue on the table. Get access to a veteran partnership leader now, without the burden of a full-time hire.',
-    ctaText: 'Browse Service Packages'
+    subheadline: 'Stop leaving money on the table. Get access to a veteran executive leader who knows how to supercharge partner programs, without the burden of a full-time hire.',
+    ctaText: 'Browse Collaboration Scenarios'
   },
   about: {
     mainHeading: 'What Does Two-Fifths Do?',
     tagline: '',
-    description: 'Growth doesn\'t happen in a vacuum. B2B SaaS companies know partnerships can accelerate growth, but often lack the time or expertise to execute effectively.',
+    description: 'Growth doesn\'t happen in a vacuum. Most SaaS companies know partnerships can accelerate growth, but lack the expertise to execute effectively.',
     calloutText: 'The result? You\'ll increase your average deal size, reduce your average time to close, and significantly improve overall deal win percentages. That\'s how your untapped opportunities transform into powerful competitive advantages.',
     profileHeading: 'Two-Fifths is Jason Cormier',
     profileSubtitle: 'Founder & Senior Partnership Strategist',
@@ -93,7 +93,7 @@ export const defaultContent: ContentData = {
   },
   audienceSelector: {
     heading: 'Choose Your Path to Partnership Success',
-    description: 'the option that best describes your business and view tailored service packages for your needs.',
+    description: 'the option that best describes your business and view examples of potential collaboration scenarios we can build on.',
     australian: {
       title: 'Australian SaaS Companies',
       subtitle: 'Scale-up & Start-up Businesses',
@@ -183,6 +183,18 @@ export const defaultContent: ContentData = {
       title: 'Head of APAC',
       company: 'Order Editing',
       quote: 'Jason\'s reputation totally precedes him. He\'s got an incredible knack for connecting people, and that\'s been huge for boosting the Shopify ecosystem in ANZ and finding new opportunities for partners.'
+    },
+    {
+      name: 'Brian Peters',
+      title: 'Head of Product Partnerships',
+      company: 'Shopify',
+      quote: 'Collaborating with Jason is a true pleasure. His passion and expertise for partnerships shine, bringing invaluable perspective. He humbly yet effectively challenges ideas, making them objectively better. Jason\'s a true asset for any company building strong, strategic partnerships.'
+    },
+    {
+      name: 'Matt Evison',
+      title: 'Head of Partnerships',
+      company: 'Litecard',
+      quote: 'Jason is an outstanding Partner Leader, consistently offering strategic insights and smart solutions that address real customer pain points. He empowers people with great energy, clarity, and foresight. And he understands how to drive growth and long-term success across an ecosystem.'
     }
   ],
   nextSteps: {

@@ -23,7 +23,6 @@ function App() {
     <div className="min-h-screen bg-white">
       <Header />
       <Hero />
-      <LogoStrip />
       <About />
       <AudienceSelector 
         selectedAudience={selectedAudience}

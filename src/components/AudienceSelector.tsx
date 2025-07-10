@@ -33,7 +33,7 @@ const AudienceSelector: React.FC<AudienceSelectorProps> = ({
       logoSrc: '/logo-symbol-inverse.png',
       bgColor: '',
       customBg: '#c4374f',
-      ctaText: 'View Packages Designed For You'
+      ctaText: 'View Collaboration Scenarios For You'
     }
   ];
 
@@ -49,7 +49,7 @@ const AudienceSelector: React.FC<AudienceSelectorProps> = ({
           <div className="mb-6">
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-red-50 rounded-full border border-red-200">
               <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-              <span className="text-red-700 font-medium text-sm">I've bundled together key services to make it easier to get started.</span>
+              <span className="text-red-700 font-medium text-sm">I've bundled services to give you some ideas for how you might engage Two-Fifths.</span>
             </div>
           </div>
           
@@ -70,13 +70,17 @@ const AudienceSelector: React.FC<AudienceSelectorProps> = ({
                 }`}
                 onClick={() => {
                   onAudienceSelect(audience.id);
-                  // Auto-scroll to the service packages section after a brief delay
+                  // Auto-scroll to the collaboration scenarios section after a brief delay
                   setTimeout(() => {
                     const servicePackagesSection = document.querySelector('[data-section="service-packages"]');
                     if (servicePackagesSection) {
-                      servicePackagesSection.scrollIntoView({ 
+                      const headerHeight = 80;
+                      const elementPosition = servicePackagesSection.getBoundingClientRect().top + window.pageYOffset;
+                      const offsetPosition = elementPosition - headerHeight;
+                      
+                      window.scrollTo({
+                        top: offsetPosition,
                         behavior: 'smooth',
-                        block: 'start'
                       });
                     }
                   }, 300);
@@ -117,7 +121,7 @@ const AudienceSelector: React.FC<AudienceSelectorProps> = ({
                   {/* Call-to-action button */}
                   <div className="mt-auto">
                     <div className="inline-flex items-center space-x-2 px-4 py-2 bg-white/20 rounded-lg backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-all duration-300">
-                      <span className="text-sm font-medium">{audience.ctaText}</span>
+                      <span className="text-sm font-medium">View Example Collaboration Scenarios For You</span>
                       <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
