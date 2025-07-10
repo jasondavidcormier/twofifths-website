@@ -48,13 +48,13 @@ const AudienceSelector: React.FC<AudienceSelectorProps> = ({
           {/* Helpful indicator - always visible */}
           <div className="mb-6">
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-red-50 rounded-full border border-red-200">
-              <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+              <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse flex-shrink-0"></div>
               <span className="text-red-700 font-medium text-sm">I've bundled services to give you some ideas for how you might engage Two-Fifths.</span>
             </div>
           </div>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            <strong style={{ color: '#c4374f' }}>Click below to select</strong> {content.audienceSelector.description}
+            <strong style={{ color: '#c4374f' }}>Click below to select</strong> the option that best describes your business and view example collaboration scenarios specifically designed for your needs.
           </p>
         </div>
         

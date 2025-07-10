@@ -93,7 +93,7 @@ export const defaultContent: ContentData = {
   },
   audienceSelector: {
     heading: 'Choose Your Path to Partnership Success',
-    description: 'the option that best describes your business and view examples of potential collaboration scenarios we can build on.',
+    description: 'the option that best describes your business and view example collaboration scenarios specifically designed for your needs.',
     australian: {
       title: 'Australian SaaS Companies',
       subtitle: 'Scale-up & Start-up Businesses',
