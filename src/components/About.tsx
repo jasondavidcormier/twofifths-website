@@ -1,4 +1,4 @@
-import { Users, TrendingUp, Globe, Award, Clock, Calendar, Target, Zap, Brain, Lightbulb, Compass, Map, Network, Link, Handshake, Shield, Star, Crown, Gem, Heart, Settings, Wrench, PenTool as Tool, Cog, Puzzle, Building, Layers, Package, MapPin, Navigation, Rocket, Plane, Flag, Mountain, Grid as Bridge, Key } from 'lucide-react';
+import { Users, TrendingUp, Globe, Award, Clock, Calendar, Target, Zap, Brain, Lightbulb, Compass, Map, Network, Link, Handshake, Shield, Star, Crown, Gem, Heart, Settings, Wrench, PenTool as Tool, Cog, Puzzle, Building, Layers, Package, MapPin, Navigation, Rocket, Plane, Flag, Mountain, Grid as Bridge, Key, CheckCircle } from 'lucide-react';
 import TestimonialCarousel from './TestimonialCarousel';
 import LogoStrip from './LogoStrip';
 import { useContent } from '../hooks/useContent';
@@ -20,7 +20,7 @@ const About: React.FC = () => {
     {
       icon: Puzzle,
       title: 'Fractional by Design',
-      description: 'On-demand partnership expertise with premium packages designed specifically for startup and scale-up businesses. Veteran leadership at a part-time price point.'
+      description: 'On-demand partnership expertise with premium packages designed specifically for startup and scale-up businesses. Seasoned leadership at a part-time price point.'
     },
     {
       icon: Rocket,
@@ -31,6 +31,94 @@ const About: React.FC = () => {
 
   return (
     <section id="about-section">
+      {/* White background section for logo strip */}
+      <div className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            {/* Logo strip text */}
+            <p className="text-xl text-gray-600 mb-8">
+              A proven track record building and scaling partnerships for brands you know.
+            </p>
+            
+            {/* Logo images */}
+            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+              <a 
+                href="https://www.shopify.com/au/partners" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block hover:scale-125 transition-all duration-300"
+              >
+                <img 
+                  src="/1280px-Shopify_logo_2018.svg.webp" 
+                  alt="Shopify" 
+                  className="h-8 md:h-10 object-contain"
+                />
+              </a>
+              <a 
+                href="https://shippit.com/integrations" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block hover:scale-125 transition-all duration-300"
+              >
+                <img 
+                  src="/shippit-logo-3.png" 
+                  alt="Shippit" 
+                  className="h-8 md:h-10 object-contain"
+                />
+              </a>
+              <a 
+                href="https://www.lonelyplanet.com/partner" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block hover:scale-125 transition-all duration-300"
+              >
+                <img 
+                  src="/lonelyplanetNEW_2.png" 
+                  alt="Lonely Planet" 
+                  className="h-8 md:h-10 object-contain"
+                />
+              </a>
+              <a 
+                href="https://linktr.ee/marketplace" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block hover:scale-125 transition-all duration-300"
+              >
+                <img 
+                  src="/Linktree_logo.svg.webp" 
+                  alt="Linktree" 
+                  className="h-5 md:h-7 object-contain"
+                />
+              </a>
+              <a 
+                href="https://www.yellowpages.com.au/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block hover:scale-125 transition-all duration-300"
+              >
+                <img 
+                  src="/yellowpages.png" 
+                  alt="Yellow Pages" 
+                  className="h-8 md:h-10 object-contain"
+                />
+              </a>
+              <a 
+                href="https://www.data.vic.gov.au/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block hover:scale-125 transition-all duration-300"
+              >
+                <img 
+                  src="/Victoria_State_Government_logo.svg.png" 
+                  alt="Victorian Government" 
+                  className="h-8 md:h-10 object-contain"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Gray background section for Why Two-Fifths and 3-step process */}
       <div className="py-20 bg-gray-100">
         <div className="max-w-6xl mx-auto px-6">
@@ -40,7 +128,10 @@ const About: React.FC = () => {
               {content.about.mainHeading}
             </h2>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              {content.about.description}
+              {content.about.description.split('That\'s where Two-Fifths comes in.')[0]}
+              <span className="font-bold" style={{ color: '#c4374f' }}>
+                That's where Two-Fifths comes in.
+              </span>
             </p>
           </div>
 
@@ -49,7 +140,12 @@ const About: React.FC = () => {
             <div className="max-w-4xl mx-auto">
               <div className="grid md:grid-cols-3 gap-6 items-stretch">
                 {/* Step 1: The Challenge */}
-                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 h-full flex flex-col relative shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer">
+                <div 
+                  className="bg-gray-50 border border-gray-200 rounded-lg p-4 h-full flex flex-col relative shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300" 
+                  style={{ cursor: 'default !important' }}
+                  onMouseEnter={(e) => e.currentTarget.style.cursor = 'default'}
+                  onMouseLeave={(e) => e.currentTarget.style.cursor = 'default'}
+                >
                   {/* Number 1 */}
                   <div className="absolute -top-3 -left-3 w-8 h-8 bg-black rounded-full flex items-center justify-center">
                     <span className="text-sm font-bold text-white">1</span>
@@ -61,7 +157,12 @@ const About: React.FC = () => {
                 </div>
 
                 {/* Step 2: The Transformation */}
-                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 h-full flex flex-col relative shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer">
+                <div 
+                  className="bg-gray-50 border border-gray-200 rounded-lg p-4 h-full flex flex-col relative shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300" 
+                  style={{ cursor: 'default !important' }}
+                  onMouseEnter={(e) => e.currentTarget.style.cursor = 'default'}
+                  onMouseLeave={(e) => e.currentTarget.style.cursor = 'default'}
+                >
                   {/* Number 2 */}
                   <div className="absolute -top-3 -left-3 w-8 h-8 bg-black rounded-full flex items-center justify-center">
                     <span className="text-sm font-bold text-white">2</span>
@@ -73,25 +174,45 @@ const About: React.FC = () => {
                 </div>
 
                 {/* Step 3: The Result */}
-                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 h-full flex flex-col relative shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer">
+                <div 
+                  className="bg-gray-50 border border-gray-200 rounded-lg p-4 h-full flex flex-col relative shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300" 
+                  style={{ cursor: 'default !important' }}
+                  onMouseEnter={(e) => e.currentTarget.style.cursor = 'default'}
+                  onMouseLeave={(e) => e.currentTarget.style.cursor = 'default'}
+                >
                   {/* Number 3 */}
                   <div className="absolute -top-3 -left-3 w-8 h-8 bg-black rounded-full flex items-center justify-center">
                     <span className="text-sm font-bold text-white">3</span>
                   </div>
                   <h4 className="font-heading text-lg font-bold text-gray-900 mb-2">Your Results</h4>
                   <div className="text-gray-600 leading-relaxed flex-grow">
-                    <div className="space-y-2 mb-4 text-sm">
-                      <div className="inline-flex items-center space-x-2 px-3 py-1 bg-red-50 rounded-full border border-red-200">
-                        <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                        <span className="text-red-700 font-medium text-sm">Increase your average deal size</span>
+                    <div className="space-y-3 mb-4 text-sm">
+                      <div 
+                        className="flex items-center space-x-2 px-3 py-1 bg-green-50 rounded-full border border-green-200 hover:scale-110 transition-all duration-300 transform hover:shadow-md" 
+                        style={{ cursor: 'default !important' }}
+                        onMouseEnter={(e) => e.currentTarget.style.cursor = 'default'}
+                        onMouseLeave={(e) => e.currentTarget.style.cursor = 'default'}
+                      >
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <span className="text-green-700 font-medium text-sm">Increase your average deal size</span>
                       </div>
-                      <div className="inline-flex items-center space-x-2 px-3 py-1 bg-red-50 rounded-full border border-red-200">
-                        <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                        <span className="text-red-700 font-medium text-sm">Reduce your average time to close</span>
+                      <div 
+                        className="flex items-center space-x-2 px-3 py-1 bg-green-50 rounded-full border border-green-200 hover:scale-110 transition-all duration-300 transform hover:shadow-md" 
+                        style={{ cursor: 'default !important' }}
+                        onMouseEnter={(e) => e.currentTarget.style.cursor = 'default'}
+                        onMouseLeave={(e) => e.currentTarget.style.cursor = 'default'}
+                      >
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <span className="text-green-700 font-medium text-sm">Reduce your average time to close</span>
                       </div>
-                      <div className="inline-flex items-center space-x-2 px-3 py-1 bg-red-50 rounded-full border border-red-200">
-                        <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                        <span className="text-red-700 font-medium text-sm">Improve your closed-won win rate</span>
+                      <div 
+                        className="flex items-center space-x-2 px-3 py-1 bg-green-50 rounded-full border border-green-200 hover:scale-110 transition-all duration-300 transform hover:shadow-md" 
+                        style={{ cursor: 'default !important' }}
+                        onMouseEnter={(e) => e.currentTarget.style.cursor = 'default'}
+                        onMouseLeave={(e) => e.currentTarget.style.cursor = 'default'}
+                      >
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <span className="text-green-700 font-medium text-sm">Improve your closed-won win rate</span>
                       </div>
                     </div>
                   </div>
@@ -113,11 +234,8 @@ const About: React.FC = () => {
       {/* White background section for credentials, bio, and testimonials */}
       <div className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          {/* Logo strip - moved here to be above credentials */}
-          <LogoStrip />
-          
           {/* Credentials grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+          <div id="credentials-section" className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
             {credentials.map((credential, index) => {
               const Icon = credential.icon;
               return (
@@ -138,7 +256,7 @@ const About: React.FC = () => {
           </div>
 
           {/* Profile section */}
-          <div className="bg-black rounded-2xl p-8 md:p-12 mb-12 relative">
+          <div className="bg-black rounded-2xl p-8 md:p-12 mb-12 relative min-h-[500px]">
             {/* Background graphic icon */}
             <div className="absolute top-4 right-4 opacity-10">
               <img 
@@ -148,7 +266,7 @@ const About: React.FC = () => {
               />
             </div>
             
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 items-center h-full">
               <div>
                 <h3 className="font-heading text-3xl font-bold mb-4">
                   <span style={{ color: '#c4374f' }}>{content.about.profileHeading}</span>
@@ -159,17 +277,30 @@ const About: React.FC = () => {
                 <div className="space-y-3">
                   {content.about.profilePoints.map((point, index) => (
                     <div key={index} className="flex items-center space-x-3">
-                      <div className="w-3 h-3 sm:w-2 sm:h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#c4374f' }}></div>
-                      <span className="text-white">{point}</span>
+                      {index === 0 ? (
+                        <span className="text-white">{point}</span>
+                      ) : (
+                        <div className="flex items-center space-x-3">
+                          <div className="w-3 h-3 sm:w-2 sm:h-2 rounded-full flex-shrink-0" style={{ backgroundColor: '#c4374f' }}></div>
+                          <span className="text-white text-sm">{point}</span>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="text-center">
+              <div className="text-center h-full flex items-center justify-center">
                 <img 
                   src="/CormierProfile.png" 
                   alt="Jason Cormier" 
-                  className="w-64 h-64 rounded-2xl mx-auto object-cover ring-4 ring-white ring-offset-4 ring-offset-black shadow-2xl"
+                  className="rounded-2xl object-cover ring-4 ring-white ring-offset-4 ring-offset-black shadow-2xl"
+                  style={{
+                    height: '80%',
+                    width: 'auto',
+                    aspectRatio: '1 / 1',
+                    maxHeight: '400px',
+                    minHeight: '300px'
+                  }}
                 />
               </div>
             </div>

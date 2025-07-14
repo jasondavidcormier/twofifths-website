@@ -38,20 +38,21 @@ const Header: React.FC = () => {
   };
 
   const scrollToCredentials = () => {
-    // Find the credentials section (the grid with 20+ Years Ecosystem Mastery)
-    const aboutSection = document.querySelector('#about-section');
-    if (aboutSection) {
-      const credentialsGrid = aboutSection.querySelector('.grid.md\\:grid-cols-2.lg\\:grid-cols-4');
-      if (credentialsGrid) {
-        const headerHeight = 80;
-        const elementPosition = credentialsGrid.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - headerHeight;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
+    console.log('Credentials button clicked'); // Debug log
+    const element = document.getElementById('credentials-section');
+    console.log('Found credentials element:', element); // Debug log
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight;
+      
+      console.log('Scrolling to position:', offsetPosition); // Debug log
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    } else {
+      console.error('Credentials section not found!');
     }
   };
 
@@ -98,7 +99,7 @@ const Header: React.FC = () => {
               Expertise
             </button>
             <button
-              onClick={() => scrollToSection('logo-strip')}
+              onClick={scrollToCredentials}
               className="text-white hover:text-red-500 transition-colors font-medium"
               style={{ '--hover-color': '#c4374f' } as React.CSSProperties}
               onMouseEnter={(e) => e.currentTarget.style.color = '#c4374f'}

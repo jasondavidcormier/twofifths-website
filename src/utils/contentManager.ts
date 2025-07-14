@@ -74,18 +74,18 @@ export interface ContentData {
 export const defaultContent: ContentData = {
   hero: {
     headline: 'Fractional Partnership Leadership on Demand', 
-    subheadline: 'Stop leaving money on the table. Get access to a veteran executive leader who knows how to supercharge partner programs, without the burden of a full-time hire.',
+    subheadline: 'Stop leaving money on the table. Get access to an experienced executive leader who has supercharged partner programs for successful brands, without the burden of a full-time hire.',
     ctaText: 'Browse Collaboration Scenarios'
   },
   about: {
     mainHeading: 'What Does Two-Fifths Do?',
     tagline: '',
-    description: 'Growth doesn\'t happen in a vacuum. Most SaaS companies know partnerships can accelerate growth, but lack the expertise to execute effectively.',
+    description: 'Growth doesn\'t happen in a vacuum. Most SaaS companies know partnerships can accelerate growth, but lack the expertise to execute effectively. That\'s where Two-Fifths comes in.',
     calloutText: 'The result? You\'ll increase your average deal size, reduce your average time to close, and significantly improve overall deal win percentages. That\'s how your untapped opportunities transform into powerful competitive advantages.',
     profileHeading: 'Two-Fifths is Jason Cormier',
     profileSubtitle: 'Founder & Senior Partnership Strategist',
     profilePoints: [
-      'Two decades building and scaling partner programs and delivering measurable value',
+      'Two decades building and scaling partner programs and delivering partner sourced lead generation, revenue growth, and increased partner engagement through joint marketing and co-selling activities.',
       'Early pioneer for API platforms and integration partnerships in the APAC region',
       'Authored standardised digital transformation blueprints for government-scale programs',
       'Shopify alumnus with insider insights & a trusted ecommerce network that opens doors'
